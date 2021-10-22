@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./js/vendor/PapaParse-5.0.2/papaparse.min.js"></script>
+    <style>
+        html {
+            font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            font-size: 18px;
+            letter-spacing: -0.4px;
+            line-height: 1.5;
+            text-rendering: optimizeLegibility;
+        }
+        
+        h2 {
+            color: #002e6d;
+            line-height: 1.1;
+            margin-bottom: 0.5em;
+            margin-top: 0;
+        }
+        
+        input[type="text"] {
+            border-radius: 0;
+            font-family: inherit;
+            font-size: 100%;
+            height: 48px;
+            line-height: 1.15;
+            margin: 0;
+            vertical-align: middle;
+            width: 30ch;
+        }
+        
+        input[type="submit"] {
+            background-color: #007DBC;
+            border: 0;
+            border-radius: 0;
+            color: #ffffff;
+            display: inline-block;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            height: 54px;
+            letter-spacing: 0.6px;
+            line-height: 1;
+            margin-left: 12px;
+            text-transform: uppercase;
+            transition: all 150ms ease;
+            user-select: none;
+            padding: 13px 26px;
+            vertical-align: middle;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #58acef;
+        }
+        
+        .container {
+            background-color: white;
+            border-top: 5px solid #002e6d;
+            box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.1);
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Franchise directory</h2>
+        <form>
+            <input type="text" list="franchiseList" placeholder="Search by Franchise name" />
+            <!-- See bottom of page for elementList -->
+            <!-- <input type="text" autocomplete="off" name="franchise" placeholder="Search by Franchise name"> -->
+            <input type="submit" aria-label="Search" value="Search">
+        </form>
+        <p>Placement of a franchise brand on the Franchise Directory is not an endorsement or approval of the brand and does not ensure the success of the business.</p>
+    </div>
+    <script>
+        fetch('https://ryan-poc-shared-header-footer.s3.amazonaws.com/franchise-directory/data-list.html').then(function(response) {
+
+            // The API call was successful!
+            if (response.ok) {
+                return response.text();
+            }
+
+            // There was an error
+            return Promise.reject(response);
+
+        }).then(function(data) {
+            // This is the JSON from our response
+            console.log(data);
+            var containerElement = document.querySelector('.container');
+            var datalistElement = document.createElement('datalist');
+            datalistElement.innerHTML = data;
+            containerElement.appendChild(datalistElement);
+        }).catch(function(err) {
+            // There was an error
+            console.warn('Something went wrong.', err);
+        });
+    </script>
+</body>
+
+</html>
