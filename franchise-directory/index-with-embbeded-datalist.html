@@ -58,6 +58,38 @@
             background-color: #58acef;
         }
         
+        table {
+            border-collapse: collapse;
+        }
+        
+        table th {
+            padding-right: 15px;
+            padding-left: 15px;
+            border: 0;
+        }
+        
+        th,
+        td {
+            padding: .75rem .75rem .75rem 0;
+        }
+        
+        th {
+            font-weight: 600;
+        }
+        
+        thead {
+            background-color: #002e6d;
+            border: 2px solid #002e6d;
+            border-top: none;
+            color: white;
+            line-height: 1.1;
+            text-align: center;
+        }
+        
+        tbody tr {
+            border-bottom: 2px solid #c5c5c5;
+        }
+        
         .container {
             background-color: white;
             border-top: 5px solid #002e6d;
@@ -77,6 +109,36 @@
             <input type="submit" aria-label="Search" value="Search">
         </form>
         <p>Placement of a franchise brand on the Franchise Directory is not an endorsement or approval of the brand and does not ensure the success of the business.</p>
+    </div>
+    <br>
+    <div class="container">
+        <h2>Results</h2>
+        <table id="results">
+            <thead>
+                <tr>
+                    <td>FRANCHISE IDENTIFIER CODE</td>
+                    <td>BRAND</td>
+                    <td>FTC FRANCHISE</td>
+                    <td>IS AN ADDENDUM NEEDED?</td>
+                    <td>FORM 2462</td>
+                    <td>NEGOTIATED ADDENDUM</td>
+                    <td>Start Date</td>
+                    <td>NOTES</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Waiting for search terms...</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <datalist id="franchiseList">
         <option value="#The Cheat Meal Headquarters by Brothers Bruno Pizza">#The Cheat Meal Headquarters by Brothers
@@ -8236,5 +8298,7 @@
         <option value="ZUCCA PIZZA TAVERN">ZUCCA PIZZA TAVERN</option>
     </datalist>
 </body>
+
+</html>
 
 </html>

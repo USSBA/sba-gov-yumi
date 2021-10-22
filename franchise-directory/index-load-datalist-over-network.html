@@ -58,6 +58,38 @@
             background-color: #58acef;
         }
         
+        table {
+            border-collapse: collapse;
+        }
+        
+        table th {
+            padding-right: 15px;
+            padding-left: 15px;
+            border: 0;
+        }
+        
+        th,
+        td {
+            padding: .75rem .75rem .75rem 0;
+        }
+        
+        th {
+            font-weight: 600;
+        }
+        
+        thead {
+            background-color: #002e6d;
+            border: 2px solid #002e6d;
+            border-top: none;
+            color: white;
+            line-height: 1.1;
+            text-align: center;
+        }
+        
+        tbody tr {
+            border-bottom: 2px solid #c5c5c5;
+        }
+        
         .container {
             background-color: white;
             border-top: 5px solid #002e6d;
@@ -71,15 +103,50 @@
     <div class="container">
         <h2>Franchise directory</h2>
         <form>
-            <input type="text" list="franchiseList" placeholder="Search by Franchise name" />
+            <input id="search" type="text" list="franchiseList" placeholder="Search by Franchise name" />
             <!-- See bottom of page for elementList -->
             <!-- <input type="text" autocomplete="off" name="franchise" placeholder="Search by Franchise name"> -->
             <input type="submit" aria-label="Search" value="Search">
         </form>
         <p>Placement of a franchise brand on the Franchise Directory is not an endorsement or approval of the brand and does not ensure the success of the business.</p>
     </div>
+    <div id="output"></div>
+    <br>
+    <div class="container">
+        <h2>Results</h2>
+        <table id="results">
+            <thead>
+                <tr>
+                    <td>FRANCHISE IDENTIFIER CODE</td>
+                    <td>BRAND</td>
+                    <td>FTC FRANCHISE</td>
+                    <td>IS AN ADDENDUM NEEDED?</td>
+                    <td>FORM 2462</td>
+                    <td>NEGOTIATED ADDENDUM</td>
+                    <td>Start Date</td>
+                    <td>NOTES</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Waiting for search terms...</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <script>
-        fetch('https://ryan-poc-shared-header-footer.s3.amazonaws.com/franchise-directory/data-list.html').then(function(response) {
+        var containerElement = document.querySelector('.container');
+        var searchElement = document.querySelector('#search');
+        var datalistElement = document.createElement('datalist');
+
+        fetch('https://ryan-poc-shared-header-footer.s3.amazonaws.com/franchise-directory/data-list-html.html').then(function(response) {
 
             // The API call was successful!
             if (response.ok) {
@@ -92,14 +159,21 @@
         }).then(function(data) {
             // This is the JSON from our response
             console.log(data);
-            var containerElement = document.querySelector('.container');
-            var datalistElement = document.createElement('datalist');
             datalistElement.innerHTML = data;
             containerElement.appendChild(datalistElement);
         }).catch(function(err) {
             // There was an error
             console.warn('Something went wrong.', err);
         });
+
+        searchElement.addEventListener("input", function(event) {
+            console.log("event triggered!")
+            console.log(event);
+            if (event.inputType == "insertReplacementText" || event.inputType == null) {
+                document.getElementById("output").textContent = event.target.value;
+                event.target.value = "";
+            }
+        })
     </script>
 </body>
 
