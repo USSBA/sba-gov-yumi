@@ -1,0 +1,63 @@
+version: 2.1
+
+orbs:
+  aws-s3: circleci/aws-s3@3.0
+
+# the default pipeline parameters, which will be updated according to
+# the results of the path-filtering orb
+parameters:
+  deploy-agency-scorecards:
+    type: boolean
+    default: false
+  deploy-equity-scorecards:
+    type: boolean
+    default: false
+  deploy-franchise-directory:
+    type: boolean
+    default: false
+  deploy-something-with-a-buildstep:
+    type: boolean
+    default: false
+  # Not intended for override, just using it as a "global var" of sorts
+  bucket-name:
+    type: string
+    default: static.www.sba.gov-static-content
+
+jobs:
+  deploy-static-s3:
+    parameters:
+      path:
+        type: string
+    docker:
+      - image: 'cimg/python:3.9'
+    steps:
+    - checkout
+    - aws-s3/sync:
+        arguments: |
+          --delete
+        from: ./<< parameters.path >>
+        to: 's3://<< pipeline.parameters.bucket-name >>/<< parameters.path >>'
+
+
+# here we specify our workflows, most of which are conditionally
+# executed based upon pipeline parameter values. Each workflow calls a
+# specific job defined above, in the jobs section.
+workflows:
+  deploy-agency-scorecards:
+    when: << pipeline.parameters.deploy-agency-scorecards >>
+    jobs:
+      - deploy-static-s3:
+          context: sba-gov-upper
+          path: agency-scorecards
+  deploy-equity-scorecards:
+    when: << pipeline.parameters.deploy-equity-scorecards >>
+    jobs:
+      - deploy-static-s3:
+          context: sba-gov-upper
+          path: equity-scorecards
+  deploy-franchise-directory:
+    when: << pipeline.parameters.deploy-franchise-directory >>
+    jobs:
+      - deploy-static-s3:
+          context: sba-gov-upper
+          path: franchise-directory
