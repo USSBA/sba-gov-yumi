@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Scorecards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        html {
+            font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            font-size: 18px;
+            letter-spacing: -0.4px;
+            line-height: 1.5;
+            text-rendering: optimizeLegibility;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            max-width: 50%;
+        }
+        
+        table {
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            text-align: left;
+            width: 100%;
+        }
+        
+        tr,
+        td {
+            border: 1px solid lightgray;
+            padding: .5rem;
+        }
+        
+        th {
+            padding: .5rem;
+        }
+        
+        thead {
+            background-color: #002e6d;
+            border: 2px solid #002e6d;
+            color: white;
+            text-align: center;
+            font-size: 21px;
+            line-height: 1.1;
+            vertical-align: bottom;
+        }
+        
+        .flex {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footnotes {
+            font-size: .8rem;
+        }
+        
+        .subtext {
+            color: #686868;
+            font-family: Merriweather, "Georgia", "Times", "Times New Roman", serif;
+            font-size: 1.167rem;
+            font-style: italic;
+        }
+        
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 60%;
+        }
+        
+        .border {
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>SBA Releases FY2020 Disaggregated Contracting Data</h1>
+        <div class="flex">
+            <span>
+                By U.S. Small Business Administration on December 1st, 2021
+            </span>
+            <span>
+                Category: SBA News and Views
+            </span>
+        </div>
+        <p class="subtext">
+            For the first time SBA is releasing disaggregated federal contracting data by race and ethnicity.
+        </p>
+        <div class="flex-center border">
+            <div class="chart-container">
+                <h2>FY2020 Federal Contracting<sup>1</sup> by Race<sup>2</sup> and Business Size</h2>
+                <canvas id="pieChart"></canvas>
+                <ol class="footnotes">
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi rem est cupiditate, pariatur ducimus ipsa excepturi ullam porro harum repellat dicta culpa commodi qui! Doloremque veritatis non ea animi fugit amet sapiente asperiores</li>
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore laborum molestias iure at cumque neque maiores nesciunt repudiandae ratione assumenda aliquam, voluptatem provident, officiis nostrum quis nam veritatis obcaecati</li>
+                </ol>
+            </div>
+        </div>
+        <div>
+            <h2>Data Summary FY2020 Federal Contracting</h2>
+            <table class="text-section-table">
+                <thead>
+                    <tr>
+                        <th><strong>&nbsp;Business Type</strong></th>
+                        <th><strong>Percent</strong></th>
+                        <th><strong>Eligible Dollars</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Asian-Pacific American Owned Small</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">1.23%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$6,885,893,213</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Subcontinent Asian American Owned&nbsp;Small</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">1.55%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$8,688,436,628</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Black Owned&nbsp;Small</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">1.67%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$9,366,550,757</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Hispanic Owned&nbsp;Small</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">1.78%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$9,953,668,578</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Native American Owned&nbsp;Small</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">2.69%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$15,081,622,197</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Other Minority Owned&nbsp;Small</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">0.48%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$2,680,329,763</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Other Small Business</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">15.64%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$87,556,529,300</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper">Not a Small Business</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">74.96%</div>
+                        </td>
+                        <td>
+                            <div class="table-data-wrapper">$419,768,134,824</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="table-data-wrapper"><strong>Total Eligible Dollars</strong></div>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <div class="table-data-wrapper"><strong>100.00%</strong></div>
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <div class="table-data-wrapper"><strong>$559,981,165,260</strong></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>
+                Each year SBA releases a Scorecard on how the 24 Cabinet and other agencies performed on their small business and socio-economic business contracting goals.
+            </p>
+            <p>
+                For the first time, SBA is also releasing contracting data that is disaggregated by race and ethnicity, which will serve as a baseline for evaluating our government-wide performance within each of the socio-economic categories.
+            </p>
+            <p>
+                President Joe Biden made a commitment in June to increase federal contracting with small, disadvantaged businesses to 15% over the next five years. This comes on the heels of the Executive Order he signed on day one, focused on advancing racial equity
+                and support for underserved communities. The disaggregated data on federal contracting will help to ensure that we continue to tap into talent across our nation so that the federal government remains on the cutting edge of innovation.
+            </p>
+            <p>
+                “Just imagine if, instead of denying millions of entrepreneurs the ability to access capital and contracting, we made it possible to take their dreams to the marketplace to create jobs and invest in our communities,” Biden said during a speech in Tulsa,
+                Oklahoma.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const dataPie = {
+            labels: [
+                'Asian-Pacific American Owned Small',
+                'Subcontinent Asian American Owned Small',
+                'Black Owned Small',
+                'Hispanic Owned Small',
+                'Native American Owned Small',
+                'Other Minority Owned Small',
+                'Other Small Business',
+                'Not a Small Business'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [1.23, 1.55, 1.67, 1.78, 2.69, 0.48, 15.64, 74.96],
+                // https://colors.artyclick.com/color-shades-finder/
+                backgroundColor: [
+                    'rgb(6, 232, 70)',
+                    'rgb(219, 150, 98)',
+                    'rgb(239, 11, 91)',
+                    'rgb(204, 26, 183)',
+                    'rgb(8, 168, 104)',
+                    'rgb(206, 178, 18)',
+                    'rgb(60, 224, 216)',
+                    'rgb(183, 31, 54)',
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const configPie = {
+            type: 'pie',
+            data: dataPie,
+        };
+
+        const pieChart = new Chart(
+            document.getElementById('pieChart'),
+            configPie
+        );
+    </script>
+</body>
+
+</html>
