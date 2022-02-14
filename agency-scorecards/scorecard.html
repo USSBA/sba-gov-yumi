@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Individual Scorecard</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="vendor/chart.js"></script>
 </head>
 
 <body>
@@ -17,10 +18,7 @@
                 <h1>
                     Department of Commerce
                 </h1>
-                <span style="font-size: medium;">FY2020 Small Business Procurement Scorecard</span>
-                <p>FPDS-NG Prime Contracting Data as of <span>Feb. 22, 2021</span><br> eSRS Subcontracting Data as of
-                    <span>Apr. 15, 2021</span>
-                </p>
+                <span class="subtitle">FY2020 Small Business Procurement Scorecard</span>
             </div>
 
             <div class="grade">
@@ -29,312 +27,436 @@
             </div>
         </div>
 
-        <table>
-            <caption>Prime Contracting Achievement</caption>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>2019</th>
-                    <th>2020 <br><span>Goal</span></th>
-                    <th>2020 <sup>1, 2</sup></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Small Business</td>
-                    <td>42.73%</td>
-                    <td>39.00%</td>
-                    <td>43.71%<span>($2.6 B)</span></td>
-                </tr>
-                <tr>
-                    <td>Women Owned</td>
-                    <td>11.91%</td>
-                    <td>5.00%</td>
-                    <td>12.02%<span>($712.1 M)</span></td>
-                </tr>
-                <tr>
-                    <td>Small Disadvantaged</td>
-                    <td>16.41%</td>
-                    <td>5.00%</td>
-                    <td>17.31%<span>($1.0 B)</span></td>
-                </tr>
-                <tr>
-                    <td>Service Disabled Veteran Owned</td>
-                    <td>3.92%</td>
-                    <td>3.00%</td>
-                    <td>4.10%<span>($243.0 M)</span></td>
-                </tr>
-                <tr>
-                    <td>HUBZone</td>
-                    <td>11.84%</td>
-                    <td>3.00%</td>
-                    <td>13.05%<span>(772.7 M)</span></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="text-align-right">Totals</td>
-                    <td>86.81%</td>
-                    <td>55.00%</td>
-                    <td>90.19%</td>
-                </tr>
-            </tfoot>
-        </table>
-        <p><sup>1</sup> Capped at 200%; <sup>2</sup> Achievement includes double credit for LASA, Puerto Rico and covered territories awards.</p>
+        <section>
+            <div class="section-title">
+                <h2>Prime Contracting Achievement</h2>
+                <span>70.46%</span>
+            </div>
+            <details>
+                <summary>
+                    Achievement Data
+                </summary>
+                <table>
+                    <!-- <caption>Prime Contracting Achievement Data</caption> -->
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>2020 Goal</th>
+                            <th>2020 Achievement</th>
+                            <th>Dollars</th>
+                            <th>Achievement Score</th>
+                            <th>Category Weight</th>
+                            <th>Weighted Achievement Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Small Business</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>Women Owned</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>Small Disadvantaged</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>Service Disabled Veteran Owned</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>HUBZone</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
 
-        <table>
-            <caption>Subcontracting Achievement</caption>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>2019 </th>
-                    <th>2020 <br><span>Goal</span></th>
-                    <th>2020 <sup>1</sup></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Small Business</td>
-                    <td>57.20%</td>
-                    <td>30.00%</td>
-                    <td>47.90%<span>($626.9 M)</span></td>
-                </tr>
-                <tr>
-                    <td>Women Owned</td>
-                    <td>15.20%</td>
-                    <td>5.00%</td>
-                    <td>12.10%<span>($159.0 M)</span></td>
-                </tr>
-                <tr>
-                    <td>Small Disadvantaged</td>
-                    <td>16.40%</td>
-                    <td>5.00%</td>
-                    <td>15.00%<span>($197.9 M)</span></td>
-                </tr>
-                <tr>
-                    <td>Service Disabled Veteran Owned</td>
-                    <td>2.20%</td>
-                    <td>3.00%</td>
-                    <td>2.00%<span>($25.7 M)</span></td>
-                </tr>
-                <tr>
-                    <td>HUBZone</td>
-                    <td>3.80%</td>
-                    <td>3.00%</td>
-                    <td>3.50%<span>(46.2 M)</span></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="text-align-right">Totals</td>
-                    <td>94.80%</td>
-                    <td>46.00%</td>
-                    <td>30.83%</td>
-                </tr>
-            </tfoot>
-        </table>
-        <p><sup>1</sup> Capped at 200%;</p>
+            <div class="section-charts">
+                <div>
+                    <canvas id="primeBarChart"></canvas>
+                </div>
+                <div class="margin-left-auto">
+                    <canvas id="primeLineChart"></canvas>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="section-title">
+                <h2>Subcontracting Achievement</h2>
+                <span>30.83%</span>
+            </div>
 
-        <table>
-            <caption>15(k) OSDBU Compliance Requirements</caption>
-            <thead>
-                <tr>
-                    <th>Requirements Scores: 0.0 = No; 0.5 = Partial Credit; 1.0 = Yes</th>
-                    <th>Peer Review Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>15(k)0 Office and Director Experience</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)1 Director Title</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)2 Compensation and Seniority</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)3 Reporting (Head of Agency or Deputy Head)</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)4 Implementation and Execution of Business Development</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)5 Identify and Address Bundling of Contracts</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)6 Provide Assistance on Payments</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)7 Supervisory Authority</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)8 Assign Small Business Technical Advisors</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)9 OSDBU Cooperation and Consultation</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)10 Recommendations to Contracting Officers</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)11 Activity Conversion</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)12 Advise CAO and SPE</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)13 (Optional) SBC and Contracting Specialist Training</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)14 Receive Unsolicited Proposals</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)15 Exclusive Duties and Title</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)16 Congressional Reporting</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)17 Respond to Undue Restriction Notifications</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)18 Purchase Card Summary Data Review</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)19 Vendor Compliance Educational Training</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)20 Subcontracting Plan Review</td>
-                    <td>1.00</td>
-                </tr>
-                <tr>
-                    <td>15(k)21 Assist Small Business concerns in SBIR or STTR program<sup>1</sup></td>
-                    <td>1.00</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="text-align-right">Total</td>
-                    <td>21.00</td>
-                </tr>
-            </tfoot>
-        </table>
-        <p><sup>1</sup> This requirement was not included in the FY20 scorecard calculations.</p>
+            <details>
+                <summary>Achievement Data</summary>
+                <table>
+                    <!-- <caption>Subcontracting Achievement Data</caption> -->
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>2020 Goal</th>
+                            <th>2020 Achievement</th>
+                            <th>Dollars</th>
+                            <th>Achievement Score</th>
+                            <th>Category Weight</th>
+                            <th>Weighted Achievement Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Small Business</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>Women Owned</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>Small Disadvantaged</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>Service Disabled Veteran Owned</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                        <tr>
+                            <td>HUBZone</td>
+                            <td>5%</td>
+                            <td>12.01%</td>
+                            <td>2.6B</td>
+                            <td>112%</td>
+                            <td>60%</td>
+                            <td>67%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <div class="section-charts">
+                <div>
+                    <h3>2020 Goals and Achievement</h3>
+                    <canvas id="subBarChart"></canvas>
+                </div>
+                <div class="margin-left-auto">
+                    <h3>Subcontracting Achievement</h3>
+                    <canvas id="subLineChart"></canvas>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="section-title">
+                <h2>15(k) OSDBU Compliance Requirements</h2>
+                <span>20.00%</span>
+            </div>
+            <details>
+                <summary>Category Performance Scores</summary>
+                <table>
+                    <!-- <caption>15(k) OSDBU Compliance Requirements</caption> -->
+                    <thead>
+                        <tr>
+                            <th>OSDBU Compliance Requirements</th>
+                            <th>Peer Review Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15(k)0 Office and Director Experience</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)1 Director Title</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)2 Compensation and Seniority</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)3 Reporting (Head of Agency or Deputy Head)</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)4 Implementation and Execution of Business Development</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)5 Identify and Address Bundling of Contracts</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)6 Provide Assistance on Payments</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)7 Supervisory Authority</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)8 Assign Small Business Technical Advisors</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)9 OSDBU Cooperation and Consultation</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)10 Recommendations to Contracting Officers</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)11 Activity Conversion</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)12 Advise CAO and SPE</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)13 (Optional) SBC and Contracting Specialist Training</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)14 Receive Unsolicited Proposals</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)15 Exclusive Duties and Title</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)16 Congressional Reporting</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)17 Respond to Undue Restriction Notifications</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)18 Purchase Card Summary Data Review</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)19 Vendor Compliance Educational Training</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)20 Subcontracting Plan Review</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>15(k)21 Assist Small Business concerns in SBIR or STTR program<sup>1</sup></td>
+                            <td>1.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>21.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
 
-        <table>
-            <caption>Number of Small Business Prime Contractors Comparison</caption>
-            <thead>
-                <tr>
-                    <th>Comparison</th>
-                    <th>9.40%</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Increase in number of SB primes by 10% or more</td>
-                    <td>1.3</td>
-                </tr>
-                <tr>
-                    <td>Increase in number of SB primes by 5% or more but less than or equal to 10%</td>
-                    <td>1.2</td>
-                </tr>
-                <tr>
-                    <td>Increase in number of SB primes between 0% and less than or equal to 5%</td>
-                    <td>1.1</td>
-                </tr>
-                <tr>
-                    <td>No change in the number of SB primes (Change = 0%) 0% increase; 0% decrease (no change)</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>Decrease in number of SB primes by more than 0% but less than or equal to -5%</td>
-                    <td>0.9</td>
-                </tr>
-                <tr>
-                    <td>Decrease in number of SB primes by -5% or more but less than or equal to -10%</td>
-                    <td>0.8</td>
-                </tr>
-                <tr>
-                    <td>Decrease in number of SB primes by -10% or more</td>
-                    <td>0.7</td>
-                </tr>
-            </tbody>
-        </table>
+            </details>
+            <div class="section-explanation">
+                <h3>SCORE:</h3>
+                <div class="osdbu-cards-score">
+                    <span style="background-color: #F1A9A9;">NO</span>
+                    <span style="background: #F0E2B6;">PARTIAL</span>
+                    <span style="background-color: #E2EFD9;">YES</span>
+                </div>
+                <div class="osdbu-total-score">
+                    <span>Total Score = 21.0</span>
+                </div>
+            </div>
+            <div>
+                <p>
+                    The OSDBU peer review consists of scoring a written response from agencies to question on the 21 requirements in 15 U.S.C 644(k).
+                </p>
+                <p>
+                    To review the full text of 15 U.S.C 644(k), please visit: <wbr> <a href="http://uscode.house.gov/view.xhtml?req=granuleid:USC-prelimtitle15-section644&num=0&edition=prelim">http://uscode.house.gov/view.xhtml?req=granuleid:USC-prelimtitle15-section644&num=0&edition=prelim</a>
+                </p>
+            </div>
 
-        <table>
-            <caption>Count by Type of Business</caption>
-            <thead>
-                <tr>
-                    <td>Type</td>
-                    <td>2019 Count</td>
-                    <td>2020 Count</td>
-                    <td>2020 Performance</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Small Business</td>
-                    <td>2,031</td>
-                    <td>1,909</td>
-                    <td>0.80</td>
-                </tr>
-                <tr>
-                    <td>Women Owned</td>
-                    <td>496</td>
-                    <td>457</td>
-                    <td>0.80</td>
-                </tr>
-                <tr>
-                    <td>Disadvantaged</td>
-                    <td>1,025</td>
-                    <td>941</td>
-                    <td>0.80</td>
-                </tr>
-                <tr>
-                    <td>Service Disabled Veteran Owned</td>
-                    <td>276</td>
-                    <td>264</td>
-                    <td>0.90</td>
-                </tr>
-                <tr>
-                    <td>HUBZone</td>
-                    <td>180</td>
-                    <td>185</td>
-                    <td>1.10</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>Score</td>
-                    <td></td>
-                    <td></td>
-                    <td>4.40</td>
-                </tr>
-            </tfoot>
-        </table>
+        </section>
+        <section>
+            <div class="section-title">
+                <h2>Number of Small Business Prime Contractors Comparison</h2>
+                <span>9.40%</span>
+            </div>
 
-        <table>
+            <details>
+                <summary>Category Performance Scores</summary>
+                <table>
+                    <!-- <caption>Count by Type of Business</caption> -->
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>FY19 Count</th>
+                            <th>FY20 Count</th>
+                            <th>Percent Change</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Small Business</td>
+                            <td>2868</td>
+                            <td>1909</td>
+                            <td>-6%</td>
+                            <td>0.80</td>
+                        </tr>
+                        <tr>
+                            <td>Women Owned</td>
+                            <td>496</td>
+                            <td>457</td>
+                            <td>-3%</td>
+                            <td>0.80</td>
+                        </tr>
+                        <tr>
+                            <td>Disadvantaged</td>
+                            <td>1025</td>
+                            <td>941</td>
+                            <td>1%</td>
+                            <td>0.80</td>
+                        </tr>
+                        <tr>
+                            <td>Service Disabled Veteran Owned</td>
+                            <td>276</td>
+                            <td>264</td>
+                            <td>-1%</td>
+                            <td>0.90</td>
+                        </tr>
+                        <tr>
+                            <td>HUBZone</td>
+                            <td>180</td>
+                            <td>185</td>
+                            <td>-7%</td>
+                            <td>1.10</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Score</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>4.40</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <table>
+                    <!-- <caption>Scoring Range</caption> -->
+                    <thead>
+                        <tr>
+                            <th>Scoring Range</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Increase in number of SB primes by 10% or more</td>
+                            <td>1.3</td>
+                        </tr>
+                        <tr>
+                            <td>Increase in number of SB primes by 5% or more but less than or equal to 10%</td>
+                            <td>1.2</td>
+                        </tr>
+                        <tr>
+                            <td>Increase in number of SB primes between 0% and less than or equal to 5%</td>
+                            <td>1.1</td>
+                        </tr>
+                        <tr>
+                            <td>No change in the number of SB primes (Change = 0%) 0% increase; 0% decrease (no change)
+                            </td>
+                            <td>1.0</td>
+                        </tr>
+                        <tr>
+                            <td>Decrease in number of SB primes by more than 0% but less than or equal to -5%</td>
+                            <td>0.9</td>
+                        </tr>
+                        <tr>
+                            <td>Decrease in number of SB primes by -5% or more but less than or equal to -10%</td>
+                            <td>0.8</td>
+                        </tr>
+                        <tr>
+                            <td>Decrease in number of SB primes by -10% or more</td>
+                            <td>0.7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+
+            <div class="section-charts">
+                <div>
+                    <canvas id="comparisonBarChart"></canvas>
+                </div>
+                <div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="section-title">
+                <h2>Comments</h2>
+            </div>
+            <div class="section-comments">
+                <p>
+                    The U.S. Department of Commerce (DOC) is honored to receive an “A+” on our FY 2020 Small Business Procurement Scorecard. We are appreciative to the U.S. Small Business Administration for the public recognition of our efforts to create contract and subcontract
+                    opportunities for small business concerns in all categories. Our FY 2020 achievement is especially remarkable because of the added challenge of working during the COVID-19 pandemic. Still, it is with great pride that we celebrate our
+                    accomplishment. DOC's sustained record of outstanding achievement is a reflection of the hard work and commitment of our workforce to the Small Business Program. Among the fourteen federal agencies with at least $5 billion in eligible
+                    contract dollars, DOC is one of four agencies with the highest share of prime contracting dollars awarded to small businesses at 44% and we achieved the highest share of prime contracting dollars awarded to WOSB at 12%. DOC understands
+                    and appreciates the important role of small businesses in supporting our economy and job creation. Therefore, in FY 2021 and beyond, we will continue to strengthen our Small Business Program and identify new contract opportunities
+                    to help small and disadvantaged businesses grow and succeed.
+                </p>
+            </div>
+        </section>
+
+        <!-- <table>
             <caption>Prime and Subcontracting Grading Scale</caption>
             <thead>
                 <tr>
@@ -380,23 +502,272 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
-
-        <h2>
-            Graded Agency's Comments
-        </h2>
-        <p>
-            The U.S. Department of Commerce (DOC) is honored to receive an “A+” on our FY 2020 Small Business Procurement Scorecard. We are appreciative to the U.S. Small Business Administration for the public recognition of our efforts to create contract and subcontract
-            opportunities for small business concerns in all categories. Our FY 2020 achievement is especially remarkable because of the added challenge of working during the COVID-19 pandemic. Still, it is with great pride that we celebrate our accomplishment.
-            DOC's sustained record of outstanding achievement is a reflection of the hard work and commitment of our workforce to the Small Business Program. Among the fourteen federal agencies with at least $5 billion in eligible contract dollars, DOC
-            is one of four agencies with the highest share of prime contracting dollars awarded to small businesses at 44% and we achieved the highest share of prime contracting dollars awarded to WOSB at 12%. DOC understands and appreciates the important
-            role of small businesses in supporting our economy and job creation. Therefore, in FY 2021 and beyond, we will continue to strengthen our Small Business Program and identify new contract opportunities to help small and disadvantaged businesses
-            grow and succeed.
-        </p>
+        </table> -->
 
         <a href="overview.html"><button>Return to Scorecard Trend</button></a>
     </main>
     <footer></footer>
+    <script>
+        const labelsBar = ["Small Business", "Women Owned", "Disadvantaged", "Service Disabled Veteran", "HUBZone"];
+
+        // Prime Charts
+        // https://stackoverflow.com/questions/28180871/grouped-bar-charts-in-chart-js
+        const primeDataBar = {
+            labels: labelsBar,
+            datasets: [{
+                label: '2020 Goal',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [22, 4, 10, 2, 2],
+                borderWidth: 1
+            }, {
+                label: '2020 Achievement',
+                backgroundColor: 'rgba(0, 46, 200, 0.2)',
+                borderColor: 'rgb(0, 46, 200)',
+                data: [25, 3, 11, 4, 1],
+                borderWidth: 1
+            }]
+        };
+        const primeConfigBar = {
+            type: 'bar',
+            data: primeDataBar,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        fullSize: false,
+                        position: 'top',
+                        text: '2020 Goals and Achievement',
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+
+        const primeChartBar = new Chart(
+            document.getElementById('primeBarChart'),
+            primeConfigBar
+        );
+
+        const primeLabelsLine = ["2017", "2018", "2019", "2020"];
+        const primeDataLine = {
+            labels: primeLabelsLine,
+            datasets: [{
+                label: 'Small Business',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: 'rgb(255, 159, 64)',
+                tension: 0.1
+            }, {
+                label: 'Women Owned',
+                data: [25, 32, 41, 22, 11, 5, 16],
+                fill: false,
+                borderColor: 'rgb(255, 205, 86)',
+                tension: 0.1
+            }, {
+                label: 'Disadvantaged',
+                data: [17, 15, 16, 21, 19, 24, 21],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }, {
+                label: 'Service Disabled Veteran',
+                data: [6, 7, 2, 5, 10, 4, 3],
+                fill: false,
+                borderColor: 'rgb(54, 162, 235)',
+                tension: 0.1
+            }, {
+                label: 'HUBZone',
+                data: [1, 3, 5, 4, 2, 4, 7],
+                fill: false,
+                borderColor: 'rgb(153, 102, 255)',
+                tension: 0.1
+            }]
+
+            // 'rgb(255, 99, 132)',
+            //         'rgb(255, 159, 64)',
+            //         'rgb(255, 205, 86)',
+            //         'rgb(75, 192, 192)',
+            //         'rgb(54, 162, 235)',
+            //         'rgb(153, 102, 255)',
+            //         'rgb(201, 203, 207)'
+        };
+
+        const primeConfigLine = {
+            type: 'line',
+            data: primeDataLine,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        fullSize: false,
+                        position: 'top',
+                        text: 'Prime Contracting Achievement',
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                },
+            }
+        };
+
+        const primeChartLine = new Chart(
+            document.getElementById('primeLineChart'),
+            primeConfigLine
+        );
+
+        // Subcontracting Charts
+
+        const subDataBar = {
+            labels: labelsBar,
+            datasets: [{
+                label: '2020 Goal',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [22, 4, 10, 2, 2],
+                borderWidth: 1
+            }, {
+                label: '2020 Achievement',
+                backgroundColor: 'rgba(0, 46, 200, 0.2)',
+                borderColor: 'rgb(0, 46, 200)',
+                data: [25, 3, 11, 4, 1],
+                borderWidth: 1
+            }]
+        }
+        const subConfigBar = {
+            type: 'bar',
+            data: subDataBar,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+
+        const subChartBar = new Chart(
+            document.getElementById('subBarChart'),
+            subConfigBar
+        );
+
+        const subLabelsLine = ["2017", "2018", "2019", "2020"];
+        const subDataLine = {
+            labels: subLabelsLine,
+            datasets: [{
+                label: 'Small Business',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: 'rgb(255, 159, 64)',
+                tension: 0.1
+            }, {
+                label: 'Women Owned',
+                data: [25, 32, 41, 22, 11, 5, 16],
+                fill: false,
+                borderColor: 'rgb(255, 205, 86)',
+                tension: 0.1
+            }, {
+                label: 'Disadvantaged',
+                data: [17, 15, 16, 21, 19, 24, 21],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }, {
+                label: 'Service Disabled Veteran',
+                data: [6, 7, 2, 5, 10, 4, 3],
+                fill: false,
+                borderColor: 'rgb(54, 162, 235)',
+                tension: 0.1
+            }, {
+                label: 'HUBZone',
+                data: [1, 3, 5, 4, 2, 4, 7],
+                fill: false,
+                borderColor: 'rgb(153, 102, 255)',
+                tension: 0.1
+            }]
+        };
+
+        const subConfigLine = {
+            type: 'line',
+            data: subDataLine,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                },
+            }
+        };
+
+        const subChartLine = new Chart(
+            document.getElementById('subLineChart'),
+            subConfigLine
+        );
+
+        // Comparison Bar Chart
+
+        const comparisonDataBar = {
+            labels: labelsBar,
+            datasets: [{
+                label: 'FY19 Count',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [22, 4, 10, 2, 2],
+                borderWidth: 1
+            }, {
+                label: 'FY20 Count',
+                backgroundColor: 'rgba(0, 46, 200, 0.2)',
+                borderColor: 'rgb(0, 46, 200)',
+                data: [25, 3, 11, 4, 1],
+                borderWidth: 1
+            }]
+        };
+        const comparisonConfigBar = {
+            type: 'bar',
+            data: comparisonDataBar,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        fullSize: false,
+                        position: 'top',
+                        text: 'Number of Small Business Comparison',
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+
+        };
+
+        const comparisonChartBar = new Chart(
+            document.getElementById('comparisonBarChart'),
+            comparisonConfigBar
+        );
+    </script>
 </body>
 
 </html>
