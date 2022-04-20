@@ -12,26 +12,65 @@
 </head>
 
 <body>
-    <header></header>
+    <header>
+
+    </header>
     <main>
+        <div style="background-color: lightgray; margin: 0 auto; padding: 1rem;">
+            <form onaction>
+                <p>This input is unstyled and is only here for demonstrating the ability to switch between different scorecards.
+                </p>
+                <label>Select an Agency
+                    <select style="font-size: 16px;">
+                        <option value="USDA">Department of Agriculture</option>
+                        <option value="DOC">Department of Commerce</option>
+                        <option value="DOI">Department of Interior</option>
+                        <option value="DOJ">Department of Justice</option>
+                        <option value="DOL">Department of Labor</option>
+                        <option value="STATE">Department of State</option>
+                        <option value="Treasury">Department of the Treasury</option>
+                        <option value="OPM">Office of Personnel Management</option>
+                        <option value="SSA">Social Security Administration</option>
+                        <option value="NRC">Nuclear Regulatory Commission</option>
+                        <option value="VA">Department of Veterans Affairs</option>
+                        <option value="GSA">General Services Administration</option>
+                        <option value="NSF">National Science Foundation</option>
+                        <option value="EPA">Environmental Protection Agency</option>
+                        <option value="DOT">Department of Transportation</option>
+                        <option value="DHS">Department of Homeland Security</option>
+                        <option value="USAID">Agency for International Development</option>
+                        <option value="SBA">Small Business Administration</option>
+                        <option value="HHS">Department of Health and Human Services</option>
+                        <option value="NASA">National Aeronautics and Space Administration</option>
+                        <option value="HUD">Department of Housing and Urban Development</option>
+                        <option value="DOE">Department of Energy</option>
+                        <option value="Education">Department of Education</option>
+                        <option value="DOD">Department of Defense</option>
+                        <option value="GW">Government Wide</option>
+                    </select>
+                </label>
+
+                <input style="padding: 0 1rem;" type="submit">
+            </form>
+        </div>
         <div class="overview">
             <div class="title">
-                <h1 data-department-friendly-name>
+                <h1 data-department_friendly_name>
                     Department of Commerce
                 </h1>
-                <span class="subtitle">FY2020 Small Business Procurement Scorecard</span>
+                <span class="subtitle">FY<span data-fiscal_year>####</span> Small Business Procurement Scorecard</span>
             </div>
 
             <div class="grade">
                 <span data-agency_grade></span>
-                <span data-agency-score style="font-size: 1.5rem;">130.69%</span>
+                <span data-agency_score style="font-size: 1.5rem;">##.##%</span>
             </div>
         </div>
 
         <section>
             <div class="section-title">
                 <h2>Prime Contracting Achievement</h2>
-                <span>70.46%</span>
+                <span data-primecontract_total_score>##.##%</span>
             </div>
             <details>
                 <summary>
@@ -42,9 +81,9 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th>2019 Achievement</th>
-                            <th>2020 Goal</th>
-                            <th>2020 Achievement</th>
+                            <th><span data-fiscal_year-previous>PYYYY</span> Achievement</th>
+                            <th><span data-fiscal_year>YYYY</span> Goal</th>
+                            <th><span data-fiscal_year>YYYY</span> Achievement</th>
                             <th>Dollars</th>
                             <th>Achievement Score</th>
                             <th>Category Weight</th>
@@ -54,53 +93,53 @@
                     <tbody>
                         <tr>
                             <td>Small Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td data-prime_sb_percentage_cfy_goal>##.##%</td>
+                            <td data-prime_sb_percentage_cfy_achievement>##.##%</td>
+                            <td data-prime_sb_dollars>$$$$$$</td>
+                            <td data-prime_sb_category_achievement>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>Women Owned Small Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-prime_wosb_category_achievement>##.##%</td>
+                            <td data-prime_wosb_dollars>$$$$$$</td>
+                            <td data-prime_wosb_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>Small Disadvantaged Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-prime_sdb_category_achievement>##.##%</td>
+                            <td data-prime_sdb_dollars>$$$$$$</td>
+                            <td data-prime_sdb_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>Service Disabled Veteran Owned</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-prime_sdvosb_category_achievement>##.##%</td>
+                            <td data-prime_sdvosb_dollars>$$$$$$</td>
+                            <td data-prime_sdvosb_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>HUBZone Small Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-prime_hz_category_achievement>##.##%</td>
+                            <td data-prime_hz_dollars>$$$$$$</td>
+                            <td data-prime_hz_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -118,7 +157,7 @@
         <section>
             <div class="section-title">
                 <h2>Subcontracting Achievement</h2>
-                <span>30.83%</span>
+                <span data-subcontract_total_score>##.##%</span>
             </div>
 
             <details>
@@ -128,9 +167,9 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th>2019 Achievement</th>
-                            <th>2020 Goal</th>
-                            <th>2020 Achievement</th>
+                            <th><span data-fiscal_year-previous>PYYYY</span> Achievement</th>
+                            <th><span data-fiscal_year>YYYY</span> Goal</th>
+                            <th><span data-fiscal_year>YYYY</span> Achievement</th>
                             <th>Dollars</th>
                             <th>Achievement Score</th>
                             <th>Category Weight</th>
@@ -140,53 +179,53 @@
                     <tbody>
                         <tr>
                             <td>Small Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td data-sub_sb_percentage_cfy_goal>##.##%</td>
+                            <td data-sub_sb_percentage_cfy_achievement>##.##%</td>
+                            <td data-sub_sb_dollars>$$$$$$</td>
+                            <td data-sub_sb_category_achievement>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>Women Owned Small Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-sub_wosb_category_achievement>##.##%</td>
+                            <td data-sub_wosb_dollars>$$$$$$</td>
+                            <td data-sub_wosb_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>Small Disadvantaged Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-sub_sdb_category_achievement>##.##%</td>
+                            <td data-sub_sdb_dollars>$$$$$$</td>
+                            <td data-sub_sdb_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>Service Disabled Veteran Owned</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-sub_sdvosb_category_achievement>##.##%</td>
+                            <td data-sub_sdvosb_dollars>$$$$$$</td>
+                            <td data-sub_sdvosb_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                         <tr>
                             <td>HUBZone Small Business</td>
-                            <td>10.01%</td>
-                            <td>5%</td>
-                            <td>12.01%</td>
-                            <td>2.6B</td>
-                            <td>112%</td>
-                            <td>60%</td>
-                            <td>67.02%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
+                            <td data-sub_hz_category_achievement>##.##%</td>
+                            <td data-sub_hz_dollars>$$$$$$</td>
+                            <td data-sub_hz_percentage>##.##%</td>
+                            <td>##.##%</td>
+                            <td>##.##%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -203,7 +242,7 @@
         <section>
             <div class="section-title">
                 <h2>15(k) OSDBU Compliance Requirements</h2>
-                <span>20.00%</span>
+                <span data-peer_review_total_score>##.##%</span>
             </div>
             <details>
                 <summary>Category Performance Scores</summary>
@@ -218,97 +257,97 @@
                     <tbody>
                         <tr>
                             <td>15(k)0 Office and Director Experience</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k0 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)1 Director Title</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k1 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)2 Compensation and Seniority</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k2 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)3 Reporting (Head of Agency or Deputy Head)</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k3 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)4 Implementation and Execution of Business Development</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k4 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)5 Identify and Address Bundling of Contracts</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k5 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)6 Provide Assistance on Payments</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k6 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)7 Supervisory Authority</td>
-                            <td style="background: #FFFFB3;">0.50</td>
+                            <td data-peer_review_k7 style="background: #FFFFB3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)8 Assign Small Business Technical Advisors</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k8 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)9 OSDBU Cooperation and Consultation</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k9 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)10 Recommendations to Contracting Officers</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k10 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)11 Activity Conversion</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k11 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)12 Advise CAO and SPE</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k12 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)13 (Optional) SBC and Contracting Specialist Training</td>
-                            <td style="background-color: #c6c6c6">1.00</td>
+                            <td data-peer_review_k13 style="background-color: #c6c6c6">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)14 Receive Unsolicited Proposals</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k14 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)15 Exclusive Duties and Title</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k15 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)16 Congressional Reporting</td>
-                            <td style="background-color: #F1A9A9;">0.00</td>
+                            <td data-peer_review_k16 style="background-color: #F1A9A9;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)17 Respond to Undue Restriction Notifications</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k17 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)18 Purchase Card Summary Data Review</td>
-                            <td style="background: #FFFFB3;">0.50</td>
+                            <td data-peer_review_k18 style="background: #FFFFB3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)19 Vendor Compliance Educational Training</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k19 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)20 Subcontracting Plan Review</td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k20 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                         <tr>
                             <td>15(k)21 Assist Small Business concerns in SBIR or STTR program<sup>1</sup></td>
-                            <td style="background-color: #C4E9B3;">1.00</td>
+                            <td data-peer_review_k21 style="background-color: #C4E9B3;">#.##</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td>Total</td>
-                            <td>21.00</td>
+                            <td data-peer_review_score>##.##</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -323,7 +362,7 @@
                     <span style="background-color: #C4E9B3;">YES</span>
                 </div>
                 <div class="osdbu-total-score">
-                    <span>Total Score = 21.0</span>
+                    <span>Total Score = <span data-peer_review_score>##.##</span></span>
                 </div>
             </div>
             <div>
@@ -339,7 +378,7 @@
         <section>
             <div class="section-title">
                 <h2>Number of Small Business Prime Contractors Comparison</h2>
-                <span>9.40%</span>
+                <span data-industry_total_score>##.##%</span>
             </div>
 
             <details>
@@ -349,8 +388,8 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th>FY19 Count</th>
-                            <th>FY20 Count</th>
+                            <th><span data-fiscal_year-previous>PYYYY</span> Count</th>
+                            <th><span data-fiscal_year>YYYY</span> Count</th>
                             <th>Percent Change</th>
                             <th>Performance</th>
                         </tr>
@@ -358,38 +397,38 @@
                     <tbody>
                         <tr>
                             <td>Small Business</td>
-                            <td>2868</td>
-                            <td>1909</td>
-                            <td>-6%</td>
-                            <td>0.80</td>
+                            <td data-previous_year_sb_vendor_count>#</td>
+                            <td data-current_year_sb_vendor_count>#</td>
+                            <td>##%</td>
+                            <td data-sb_vendor_score>#</td>
                         </tr>
                         <tr>
                             <td>Women Owned Small Business</td>
-                            <td>496</td>
-                            <td>457</td>
-                            <td>-3%</td>
-                            <td>0.80</td>
+                            <td data-previous_year_wosb_vendor_count>#</td>
+                            <td data-current_year_wosb_vendor_count>#</td>
+                            <td>##%</td>
+                            <td data-wosb_vendor_score>#</td>
                         </tr>
                         <tr>
                             <td>Small Disadvantaged Business</td>
-                            <td>1025</td>
-                            <td>941</td>
-                            <td>1%</td>
-                            <td>0.80</td>
+                            <td data-previous_year_sdb_vendor_count>#</td>
+                            <td data-current_year_sdb_vendor_count>#</td>
+                            <td>##%</td>
+                            <td data-sdb_vendor_score>#</td>
                         </tr>
                         <tr>
                             <td>Service Disabled Veteran Owned</td>
-                            <td>276</td>
-                            <td>264</td>
-                            <td>-1%</td>
-                            <td>0.90</td>
+                            <td data-previous_year_sdvosb_vendor_count>#</td>
+                            <td data-current_year_sdvosb_vendor_count>#</td>
+                            <td>##%</td>
+                            <td data-sdvosb_vendor_score>#</td>
                         </tr>
                         <tr>
                             <td>HUBZone Small Business</td>
-                            <td>180</td>
-                            <td>185</td>
-                            <td>-7%</td>
-                            <td>1.10</td>
+                            <td data-previous_year_hz_vendor_count>#</td>
+                            <td data-current_year_hz_vendor_count>#</td>
+                            <td>##%</td>
+                            <td data-hz_vendor_score>#</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -398,7 +437,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>4.40</td>
+                            <td data-industry_category_total_score>##.##</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -458,12 +497,15 @@
             </div>
             <div class="section-comments">
                 <p>
-                    The U.S. Department of Commerce (DOC) is honored to receive an “A+” on our FY 2020 Small Business Procurement Scorecard. We are appreciative to the U.S. Small Business Administration for the public recognition of our efforts to create contract and subcontract
-                    opportunities for small business concerns in all categories. Our FY 2020 achievement is especially remarkable because of the added challenge of working during the COVID-19 pandemic. Still, it is with great pride that we celebrate our
-                    accomplishment. DOC's sustained record of outstanding achievement is a reflection of the hard work and commitment of our workforce to the Small Business Program. Among the fourteen federal agencies with at least $5 billion in eligible
-                    contract dollars, DOC is one of four agencies with the highest share of prime contracting dollars awarded to small businesses at 44% and we achieved the highest share of prime contracting dollars awarded to WOSB at 12%. DOC understands
-                    and appreciates the important role of small businesses in supporting our economy and job creation. Therefore, in FY 2021 and beyond, we will continue to strengthen our Small Business Program and identify new contract opportunities
-                    to help small and disadvantaged businesses grow and succeed.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ab alias odit? Perferendis ab odit perspiciatis sapiente, cupiditate explicabo culpa odio nemo quasi veritatis accusamus in minus modi! Sed fugiat id laborum enim ab magni quam voluptates
+                    accusantium beatae voluptas molestias nisi magnam, temporibus atque iure minus eos vero qui autem, reiciendis optio harum, pariatur labore. Dolores reiciendis quas optio delectus praesentium maxime expedita tempora. Laboriosam commodi,
+                    corporis error aut recusandae non! Repellat error ea, labore libero harum architecto veniam magnam explicabo amet eaque? Perspiciatis doloremque aliquid molestias accusantium cupiditate odio quis, voluptatibus pariatur laboriosam.
+                    Ipsam natus tempore necessitatibus veritatis. Non aliquam ex cupiditate ratione provident suscipit ad sint, cum, numquam recusandae dolor quaerat dolorem repudiandae, ipsa mollitia saepe dolore sed officia. Excepturi suscipit corporis
+                    tempore assumenda ipsam delectus recusandae accusamus et. Obcaecati itaque rem consectetur exercitationem laborum corrupti at vel unde illo. Veritatis unde sapiente magni aliquam alias nostrum id eveniet voluptatum quibusdam temporibus!
+                    Necessitatibus voluptas recusandae deleniti reiciendis! Asperiores fugit, minus recusandae hic accusantium architecto corporis amet soluta rerum maxime impedit temporibus cupiditate veniam dolores neque facere laudantium voluptatem
+                    consequatur vitae molestiae? Fugiat dolorem commodi nisi necessitatibus cupiditate omnis, nostrum distinctio molestiae voluptas eaque saepe iure vero magnam nemo ut dignissimos delectus, alias provident repellat laudantium nam, inventore
+                    quis. Ex error beatae qui deleniti dolore est voluptatem sunt necessitatibus doloribus. Odit reiciendis unde, iure numquam minima praesentium autem. Reprehenderit, ab deserunt ducimus labore error tenetur accusamus repellat molestiae
+                    enim, unde, distinctio ut fugiat voluptatem dolorum totam voluptate consequuntur.
                 </p>
             </div>
         </section>
@@ -520,269 +562,6 @@
     </main>
     <footer></footer>
     <script>
-        const labelsBar = ["Small Business", "Women Owned", "Disadvantaged", "Veteran Owned", "HUBZone"];
-
-        // Prime Charts
-        // https://stackoverflow.com/questions/28180871/grouped-bar-charts-in-chart-js
-        const primeDataBar = {
-            labels: labelsBar,
-            datasets: [{
-                label: '2020 Goal',
-                backgroundColor: 'rgba(147, 0, 0, 0.2)',
-                borderColor: 'rgba(147, 0, 0, 1)',
-                data: [22, 4, 10, 2, 2],
-                borderWidth: 1
-            }, {
-                label: '2020 Achievement',
-                backgroundColor: 'rgba(0, 81, 139, 0.2)',
-                borderColor: 'rgba(0, 81, 139, 1)',
-                data: [25, 3, 11, 4, 1],
-                borderWidth: 1
-            }]
-        };
-        const primeConfigBar = {
-            type: 'bar',
-            data: primeDataBar,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        fullSize: false,
-                        position: 'top',
-                        text: '2020 Goals and Achievement',
-                    },
-                    legend: {
-                        display: true,
-                        position: 'right'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-        };
-
-        const primeChartBar = new Chart(
-            document.getElementById('primeBarChart'),
-            primeConfigBar
-        );
-
-        const primeLabelsLine = ["2017", "2018", "2019", "2020"];
-        const primeDataLine = {
-            labels: primeLabelsLine,
-            datasets: [{
-                label: 'Small Business',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                borderColor: 'rgb(147, 0, 0)',
-                tension: 0.1
-            }, {
-                label: 'Women Owned',
-                data: [25, 32, 41, 22, 11, 5, 16],
-                fill: false,
-                borderColor: 'rgba(0, 81, 139, 1)',
-                tension: 0.1
-            }, {
-                label: 'Disadvantaged',
-                data: [17, 15, 16, 21, 19, 24, 21],
-                fill: false,
-                borderColor: 'rgba(88, 172, 239, 1)',
-                tension: 0.1
-            }, {
-                label: 'Veteran Owned',
-                data: [6, 7, 2, 5, 10, 4, 3],
-                fill: false,
-                borderColor: 'rgba(25, 126, 78, 1)',
-                tension: 0.1
-            }, {
-                label: 'HUBZone',
-                data: [1, 3, 5, 4, 2, 4, 7],
-                fill: false,
-                borderColor: 'rgba(241, 196, 0, 1)',
-                tension: 0.1
-            }]
-        };
-
-        const primeConfigLine = {
-            type: 'line',
-            data: primeDataLine,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        fullSize: false,
-                        position: 'top',
-                        text: 'Prime Contracting Achievement',
-                    },
-                    legend: {
-                        display: true,
-                        position: 'right'
-                    }
-                },
-            }
-        };
-
-        const primeChartLine = new Chart(
-            document.getElementById('primeLineChart'),
-            primeConfigLine
-        );
-
-        // Subcontracting Charts
-
-        const subDataBar = {
-            labels: labelsBar,
-            datasets: [{
-                label: '2020 Goal',
-                backgroundColor: 'rgba(147, 0, 0, 0.2)',
-                borderColor: 'rgba(147, 0, 0, 1)',
-                data: [22, 4, 10, 2, 2],
-                borderWidth: 1
-            }, {
-                label: '2020 Achievement',
-                backgroundColor: 'rgba(0, 81, 139, 0.2)',
-                borderColor: 'rgba(0, 81, 139, 1)',
-                data: [25, 3, 11, 4, 1],
-                borderWidth: 1
-            }]
-        }
-        const subConfigBar = {
-            type: 'bar',
-            data: subDataBar,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        fullSize: false,
-                        position: 'top',
-                        text: '2020 Goals and Achievement',
-                    },
-                    legend: {
-                        display: true,
-                        position: 'right'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-        };
-
-        const subChartBar = new Chart(
-            document.getElementById('subBarChart'),
-            subConfigBar
-        );
-
-        const subLabelsLine = ["2017", "2018", "2019", "2020"];
-        const subDataLine = {
-            labels: subLabelsLine,
-            datasets: [{
-                label: 'Small Business',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                borderColor: 'rgb(147, 0, 0)',
-                tension: 0.1
-            }, {
-                label: 'Women Owned',
-                data: [25, 32, 41, 22, 11, 5, 16],
-                fill: false,
-                borderColor: 'rgba(0, 81, 139, 1)',
-                tension: 0.1
-            }, {
-                label: 'Disadvantaged',
-                data: [17, 15, 16, 21, 19, 24, 21],
-                fill: false,
-                borderColor: 'rgba(88, 172, 239, 1)',
-                tension: 0.1
-            }, {
-                label: 'Veteran Owned',
-                data: [6, 7, 2, 5, 10, 4, 3],
-                fill: false,
-                borderColor: 'rgba(25, 126, 78, 1)',
-                tension: 0.1
-            }, {
-                label: 'HUBZone',
-                data: [1, 3, 5, 4, 2, 4, 7],
-                fill: false,
-                borderColor: 'rgba(241, 196, 0, 1)',
-                tension: 0.1
-            }]
-        };
-
-        const subConfigLine = {
-            type: 'line',
-            data: subDataLine,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        fullSize: false,
-                        position: 'top',
-                        text: 'Subcontracting Achievement',
-                    },
-                    legend: {
-                        display: true,
-                        position: 'right'
-                    }
-                },
-            }
-        };
-
-        const subChartLine = new Chart(
-            document.getElementById('subLineChart'),
-            subConfigLine
-        );
-
-        // Comparison Bar Chart
-
-        const comparisonDataBar = {
-            labels: labelsBar,
-            datasets: [{
-                label: 'FY19 Count',
-                backgroundColor: 'rgba(147, 0, 0, 0.2)',
-                borderColor: 'rgba(147, 0, 0, 1)',
-                data: [22, 4, 10, 2, 2],
-                borderWidth: 1
-            }, {
-                label: 'FY20 Count',
-                backgroundColor: 'rgba(0, 81, 139, 0.2)',
-                borderColor: 'rgba(0, 81, 139, 1)',
-                data: [25, 3, 11, 4, 1],
-                borderWidth: 1
-            }]
-        };
-        const comparisonConfigBar = {
-            type: 'bar',
-            data: comparisonDataBar,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        fullSize: false,
-                        position: 'top',
-                        text: 'Number of Small Business Comparison',
-                    },
-                    legend: {
-                        display: true,
-                        position: 'right'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            },
-
-        };
-
-        const comparisonChartBar = new Chart(
-            document.getElementById('comparisonBarChart'),
-            comparisonConfigBar
-        );
     </script>
 </body>
 
