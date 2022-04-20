@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Individual Scorecard</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="vendor/chart.js"></script>
+    <script type="text/javascript" src="vendor/chart.js"></script>
+    <script type="text/javascript" src="loader.js" defer></script>
 </head>
 
 <body>
@@ -15,15 +16,15 @@
     <main>
         <div class="overview">
             <div class="title">
-                <h1>
+                <h1 data-department-friendly-name>
                     Department of Commerce
                 </h1>
                 <span class="subtitle">FY2020 Small Business Procurement Scorecard</span>
             </div>
 
             <div class="grade">
-                <span>A+</span>
-                <span style="font-size: 1.5rem;">130.69%</span>
+                <span data-agency_grade></span>
+                <span data-agency-score style="font-size: 1.5rem;">130.69%</span>
             </div>
         </div>
 
@@ -363,14 +364,14 @@
                             <td>0.80</td>
                         </tr>
                         <tr>
-                            <td>Women Owned</td>
+                            <td>Women Owned Small Business</td>
                             <td>496</td>
                             <td>457</td>
                             <td>-3%</td>
                             <td>0.80</td>
                         </tr>
                         <tr>
-                            <td>Disadvantaged</td>
+                            <td>Small Disadvantaged Business</td>
                             <td>1025</td>
                             <td>941</td>
                             <td>1%</td>
@@ -384,7 +385,7 @@
                             <td>0.90</td>
                         </tr>
                         <tr>
-                            <td>HUBZone</td>
+                            <td>HUBZone Small Business</td>
                             <td>180</td>
                             <td>185</td>
                             <td>-7%</td>
