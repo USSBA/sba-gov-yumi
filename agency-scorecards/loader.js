@@ -337,6 +337,27 @@ function hydrateCharts(chartData) {
     return chartData;
 }
 
+/*!
+ * Get the URL parameters
+ * (c) 2021 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * @param  {String} url The URL
+ * @return {Object}     The URL parameters
+ */
+function getParams(url = window.location) {
+    let params = {};
+    new URL(url).searchParams.forEach(function(val, key) {
+        if (params[key] !== undefined) {
+            if (!Array.isArray(params[key])) {
+                params[key] = [params[key]];
+            }
+            params[key].push(val);
+        } else {
+            params[key] = val;
+        }
+    });
+    return params;
+}
+
 /**
  * Update the URL with a query string for the search string
  * @param  {String} agency The agency being searched for
@@ -361,7 +382,9 @@ function updateURL(agency, year) {
 }
 
 function onload() {
-    updateURL("GW", 2021);
+    let currentParams = getParams();
+    let { agency, year } = currentParams;
+    updateURL(agency, year);
 }
 
 onload();
