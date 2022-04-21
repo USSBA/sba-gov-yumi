@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="vendor/chart.js"></script>
     <script type="text/javascript" src="loader.js" defer></script>
+    <script type="text/javascript">
+        function loadScorecard() {
+            let newAgency = document.getElementById("selectedAgency").value;
+            updateURL(newAgency, 2021);
+        }
+    </script>
 </head>
 
 <body>
@@ -17,11 +23,11 @@
     </header>
     <main>
         <div style="background-color: lightgray; margin: 0 auto; padding: 1rem;">
-            <form onaction>
-                <p>This input is unstyled and is only here for demonstrating the ability to switch between different scorecards.
+            <form action="javascript:loadScorecard()">
+                <p>This input is unstyled and is only here for demonstrating the ability to switch between different scorecards. Charts are not yet dynamic.
                 </p>
                 <label>Select an Agency
-                    <select style="font-size: 16px;">
+                    <select id="selectedAgency" style="font-size: 16px;">
                         <option value="USDA">Department of Agriculture</option>
                         <option value="DOC">Department of Commerce</option>
                         <option value="DOI">Department of Interior</option>

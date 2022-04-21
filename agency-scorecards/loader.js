@@ -337,8 +337,6 @@ function hydrateCharts(chartData) {
     return chartData;
 }
 
-
-
 /**
  * Update the URL with a query string for the search string
  * @param  {String} agency The agency being searched for
@@ -363,7 +361,9 @@ function updateURL(agency, year) {
 }
 
 function onload() {
-    updateURL("HHS", 2021);
+    updateURL("GW", 2021);
 }
 
 onload();
+
+// https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
