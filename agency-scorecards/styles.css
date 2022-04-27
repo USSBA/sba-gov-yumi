@@ -149,6 +149,11 @@ tfoot {
     text-align: center;
 }
 
+.grade span:first-of-type[data-agency_grade*="A"] {
+    background-color: green;
+    display: block;
+}
+
 .grade span:first-of-type {
     font-size: 2.5rem;
 }
@@ -219,4 +224,79 @@ tfoot {
 
 .subtitle {
     font-size: 2rem;
+}
+
+td[data-peer_review_k0='1'],
+td[data-peer_review_k1='1'],
+td[data-peer_review_k2='1'],
+td[data-peer_review_k3='1'],
+td[data-peer_review_k4='1'],
+td[data-peer_review_k5='1'],
+td[data-peer_review_k6='1'],
+td[data-peer_review_k7='1'],
+td[data-peer_review_k8='1'],
+td[data-peer_review_k9='1'],
+td[data-peer_review_k10='1'],
+td[data-peer_review_k11='1'],
+td[data-peer_review_k12='1'],
+td[data-peer_review_k13='1'],
+td[data-peer_review_k14='1'],
+td[data-peer_review_k15='1'],
+td[data-peer_review_k16='1'],
+td[data-peer_review_k17='1'],
+td[data-peer_review_k18='1'],
+td[data-peer_review_k19='1'],
+td[data-peer_review_k20='1'],
+td[data-peer_review_k21='1'] {
+    background-color: #C4E9B3;
+}
+
+td[data-peer_review_k0*='.'],
+td[data-peer_review_k1*='.'],
+td[data-peer_review_k2*='.'],
+td[data-peer_review_k3*='.'],
+td[data-peer_review_k4*='.'],
+td[data-peer_review_k5*='.'],
+td[data-peer_review_k6*='.'],
+td[data-peer_review_k7*='.'],
+td[data-peer_review_k8*='.'],
+td[data-peer_review_k9*='.'],
+td[data-peer_review_k10*='.'],
+td[data-peer_review_k11*='.'],
+td[data-peer_review_k12*='.'],
+td[data-peer_review_k13*='.'],
+td[data-peer_review_k14*='.'],
+td[data-peer_review_k15*='.'],
+td[data-peer_review_k16*='.'],
+td[data-peer_review_k17*='.'],
+td[data-peer_review_k18*='.'],
+td[data-peer_review_k19*='.'],
+td[data-peer_review_k20*='.'],
+td[data-peer_review_k21*='.'] {
+    background-color: #FFFFB3;
+}
+
+td[data-peer_review_k0='0'],
+td[data-peer_review_k1='0'],
+td[data-peer_review_k2='0'],
+td[data-peer_review_k3='0'],
+td[data-peer_review_k4='0'],
+td[data-peer_review_k5='0'],
+td[data-peer_review_k6='0'],
+td[data-peer_review_k7='0'],
+td[data-peer_review_k8='0'],
+td[data-peer_review_k9='0'],
+td[data-peer_review_k10='0'],
+td[data-peer_review_k11='0'],
+td[data-peer_review_k12='0'],
+td[data-peer_review_k13='0'],
+td[data-peer_review_k14='0'],
+td[data-peer_review_k15='0'],
+td[data-peer_review_k16='0'],
+td[data-peer_review_k17='0'],
+td[data-peer_review_k18='0'],
+td[data-peer_review_k19='0'],
+td[data-peer_review_k20='0'],
+td[data-peer_review_k21='0'] {
+    background-color: #F1A9A9;
 }

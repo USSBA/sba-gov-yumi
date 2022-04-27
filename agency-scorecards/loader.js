@@ -27,69 +27,81 @@ function camalize(str) {
 
 // Hydrate HTML with data
 async function hydrateHTML(name, year) {
+
     // Retrieve all the scorecard data for that year
     let scorecardData = await fetchScorecardData(year);
+
     // Find the individual agency
     let agencyCard = scorecardData.find(agency => agency.department_acronym === name)
     console.log(agencyCard);
 
     // Hydrate values on each HTML element from data
     for (const [key, value] of Object.entries(agencyCard)) {
+
+        // Gather list of HTML elements with corresponding data attribute
         let nodeList = document.querySelectorAll(`[data-${key}]`);
+
         if (nodeList.length > 0) {
+
+            // If any elements exist that match the data key, then fill in data on each element (node)
             nodeList.forEach(function(node) {
-                // console.log(`Hydrating ${node}`)
                 node.textContent = value;
-                // console.info(`Hydrated ${key}: ${value}`);
+                node.setAttribute(`data-${key}`, value);
             });
+
         } else {
             console.warn(`Unable to locate ${key}: ${value}`)
         }
     }
 
-    // Compute values not found in the data
-    let previousFiscalYear = agencyCard.fiscal_year - 1;
-
-    // Hydrate values that are computed from data
-    let nodeListComputed = document.querySelectorAll(`[data-fiscal_year-previous]`)
-    console.log(nodeListComputed);
-    nodeListComputed.forEach(function(node) {
-        // console.log(`Hydrating ${node}`)
-        node.textContent = previousFiscalYear;
-        // console.info(`Hydrated fiscal_year-previous: ${previousFiscalYear}`);
-    })
-
     return agencyCard;
 }
 
 function hydrateCharts(chartData) {
-    // WIP -- need to think about how to do this efficiently
-    // Destructure from raw data
-    const primeSBAchievement = [chartData.prime_sb_percentage];
-    // Compose into new usable data array
-    console.log(chartData);
-    console.log(parseInt(chartData.prime_sb_percentage_cfy_goal));
 
-    const labelsBar = ["Small Business", "Women Owned", "Disadvantaged", "Veteran Owned", "HUBZone"];
+    console.log(chartData);
 
     // Prime Charts
     // https://stackoverflow.com/questions/28180871/grouped-bar-charts-in-chart-js
+
+    // Compose data to be used in Prime Bar Chart for CFY Goals and Achievement
+    const labelsBar = ["Small Business", "Women Owned", "Disadvantaged", "Service Disabled Veteran Owned", "HUBZone"];
+
+    const primeBarChartGoals = [
+        chartData.prime_sb_cfy_goal,
+        chartData.prime_wosb_cfy_goal,
+        chartData.prime_sdb_cfy_goal,
+        chartData.prime_sdvosb_cfy_goal,
+        chartData.prime_hz_cfy_goal
+    ].map((goal) => parseInt(goal));
+
+    const primeBarChartAchievements = [
+        chartData.prime_sb_cfy_achievement,
+        chartData.prime_wosb_cfy_achievement,
+        chartData.prime_sdb_cfy_achievement,
+        chartData.prime_sdvosb_cfy_achievement,
+        chartData.prime_hz_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Define chart from data with format and colors and labels 
     const primeDataBar = {
         labels: labelsBar,
         datasets: [{
             label: 'Goal',
             backgroundColor: 'rgba(147, 0, 0, 0.2)',
             borderColor: 'rgba(147, 0, 0, 1)',
-            data: [parseInt(chartData.prime_sb_percentage_cfy_goal), 4, 10, 2, 2],
+            data: primeBarChartGoals,
             borderWidth: 1
         }, {
             label: 'Achievement',
             backgroundColor: 'rgba(0, 81, 139, 0.2)',
             borderColor: 'rgba(0, 81, 139, 1)',
-            data: [25, 3, 11, 4, 1],
+            data: primeBarChartAchievements,
             borderWidth: 1
         }]
     };
+
+    // Configure chart with options, e.g. positioning, title text, legend
     const primeConfigBar = {
         type: 'bar',
         data: primeDataBar,
@@ -99,7 +111,7 @@ function hydrateCharts(chartData) {
                     display: true,
                     fullSize: false,
                     position: 'top',
-                    text: '2020 Goals and Achievement',
+                    text: `${chartData.fiscal_year} Goals and Achievement`,
                 },
                 legend: {
                     display: true,
@@ -114,47 +126,103 @@ function hydrateCharts(chartData) {
         },
     };
 
+    // Instantiate the actual chart and hydrate it into the DOM
     const primeChartBar = new Chart(
         document.getElementById('primeBarChart'),
         primeConfigBar
     );
 
-    const primeLabelsLine = ["2017", "2018", "2019", "2020"];
+    // Compose data to be used in Prime Line Chart for Past 5 Years of Achievement
+    const lineLabelsLine = [
+        chartData.fiscal_year - 4,
+        chartData.fiscal_year - 3,
+        chartData.fiscal_year - 2,
+        chartData.fiscal_year - 1,
+        chartData.fiscal_year
+    ];
+
+    // Small Business
+    const primeLineChartAchievementsSB = [
+        chartData.prime_sb_pfy4_achievement,
+        chartData.prime_sb_pfy3_achievement,
+        chartData.prime_sb_pfy2_achievement,
+        chartData.prime_sb_pfy_achievement,
+        chartData.prime_sb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Women Owned Small Business
+    const primeLineChartAchievementsWOSB = [
+        chartData.prime_wosb_pfy4_achievement,
+        chartData.prime_wosb_pfy3_achievement,
+        chartData.prime_wosb_pfy2_achievement,
+        chartData.prime_wosb_pfy_achievement,
+        chartData.prime_wosb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Disadvantaged
+    const primeLineChartAchievementsSDB = [
+        chartData.prime_sdb_pfy4_achievement,
+        chartData.prime_sdb_pfy3_achievement,
+        chartData.prime_sdb_pfy2_achievement,
+        chartData.prime_sdb_pfy_achievement,
+        chartData.prime_sdb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Service Disabled Veteran Owned
+    const primeLineChartAchievementsSDVOSB = [
+        chartData.prime_sdvosb_pfy4_achievement,
+        chartData.prime_sdvosb_pfy3_achievement,
+        chartData.prime_sdvosb_pfy2_achievement,
+        chartData.prime_sdvosb_pfy_achievement,
+        chartData.prime_sdvosb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // HUBZone
+    const primeLineChartAchievementsHZ = [
+        chartData.prime_hz_pfy4_achievement,
+        chartData.prime_hz_pfy3_achievement,
+        chartData.prime_hz_pfy2_achievement,
+        chartData.prime_hz_pfy_achievement,
+        chartData.prime_hz_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Define chart from data with format and colors and labels 
     const primeDataLine = {
-        labels: primeLabelsLine,
+        labels: lineLabelsLine,
         datasets: [{
             label: 'Small Business',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: primeLineChartAchievementsSB,
             fill: false,
             borderColor: 'rgb(147, 0, 0)',
             tension: 0.1
         }, {
             label: 'Women Owned',
-            data: [25, 32, 41, 22, 11, 5, 16],
+            data: primeLineChartAchievementsWOSB,
             fill: false,
             borderColor: 'rgba(0, 81, 139, 1)',
             tension: 0.1
         }, {
             label: 'Disadvantaged',
-            data: [17, 15, 16, 21, 19, 24, 21],
+            data: primeLineChartAchievementsSDB,
             fill: false,
             borderColor: 'rgba(88, 172, 239, 1)',
             tension: 0.1
         }, {
-            label: 'Veteran Owned',
-            data: [6, 7, 2, 5, 10, 4, 3],
+            label: 'Service Disabled Veteran Owned',
+            data: primeLineChartAchievementsSDVOSB,
             fill: false,
             borderColor: 'rgba(25, 126, 78, 1)',
             tension: 0.1
         }, {
             label: 'HUBZone',
-            data: [1, 3, 5, 4, 2, 4, 7],
+            data: primeLineChartAchievementsHZ,
             fill: false,
             borderColor: 'rgba(241, 196, 0, 1)',
             tension: 0.1
         }]
     };
 
+    // Configure chart with options, e.g. positioning, title text, legend
     const primeConfigLine = {
         type: 'line',
         data: primeDataLine,
@@ -174,6 +242,7 @@ function hydrateCharts(chartData) {
         }
     };
 
+    // Instantiate the actual chart and hydrate it into the DOM
     const primeChartLine = new Chart(
         document.getElementById('primeLineChart'),
         primeConfigLine
@@ -181,22 +250,40 @@ function hydrateCharts(chartData) {
 
     // Subcontracting Charts
 
+    // Compose data to be used in Subcontracting Bar Chart for CFY Goals and Achievement
+    const subBarChartGoals = [
+        chartData.sub_sb_cfy_goal,
+        chartData.sub_wosb_cfy_goal,
+        chartData.sub_sdb_cfy_goal,
+        chartData.sub_sdvosb_cfy_goal,
+        chartData.sub_hz_cfy_goal
+    ].map((goal) => parseInt(goal));
+
+    const subBarChartAchievements = [
+        chartData.sub_sb_cfy_achievement,
+        chartData.sub_wosb_cfy_achievement,
+        chartData.sub_sdb_cfy_achievement,
+        chartData.sub_sdvosb_cfy_achievement,
+        chartData.sub_hz_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
     const subDataBar = {
         labels: labelsBar,
         datasets: [{
             label: 'Goal',
             backgroundColor: 'rgba(147, 0, 0, 0.2)',
             borderColor: 'rgba(147, 0, 0, 1)',
-            data: [22, 4, 10, 2, 2],
+            data: subBarChartGoals,
             borderWidth: 1
         }, {
             label: 'Achievement',
             backgroundColor: 'rgba(0, 81, 139, 0.2)',
             borderColor: 'rgba(0, 81, 139, 1)',
-            data: [25, 3, 11, 4, 1],
+            data: subBarChartAchievements,
             borderWidth: 1
         }]
     }
+
     const subConfigBar = {
         type: 'bar',
         data: subDataBar,
@@ -206,7 +293,7 @@ function hydrateCharts(chartData) {
                     display: true,
                     fullSize: false,
                     position: 'top',
-                    text: '2020 Goals and Achievement',
+                    text: `${chartData.fiscal_year} Goals and Achievement`,
                 },
                 legend: {
                     display: true,
@@ -221,47 +308,94 @@ function hydrateCharts(chartData) {
         },
     };
 
+    // Instantiate the actual chart and hydrate it into the DOM
     const subChartBar = new Chart(
         document.getElementById('subBarChart'),
         subConfigBar
     );
 
-    const subLabelsLine = ["2017", "2018", "2019", "2020"];
+    // Compose data to be used in Sub Line Chart for Past 5 Years of Achievement
+    // Small Business
+    const subLineChartAchievementsSB = [
+        chartData.sub_sb_pfy4_achievement,
+        chartData.sub_sb_pfy3_achievement,
+        chartData.sub_sb_pfy2_achievement,
+        chartData.sub_sb_pfy_achievement,
+        chartData.sub_sb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Women Owned Small Business
+    const subLineChartAchievementsWOSB = [
+        chartData.sub_wosb_pfy4_achievement,
+        chartData.sub_wosb_pfy3_achievement,
+        chartData.sub_wosb_pfy2_achievement,
+        chartData.sub_wosb_pfy_achievement,
+        chartData.sub_wosb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Disadvantaged
+    const subLineChartAchievementsSDB = [
+        chartData.sub_sdb_pfy4_achievement,
+        chartData.sub_sdb_pfy3_achievement,
+        chartData.sub_sdb_pfy2_achievement,
+        chartData.sub_sdb_pfy_achievement,
+        chartData.sub_sdb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // Service Disabled Veteran Owned
+    const subLineChartAchievementsSDVOSB = [
+        chartData.sub_sdvosb_pfy4_achievement,
+        chartData.sub_sdvosb_pfy3_achievement,
+        chartData.sub_sdvosb_pfy2_achievement,
+        chartData.sub_sdvosb_pfy_achievement,
+        chartData.sub_sdvosb_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
+    // HUBZone
+    const subLineChartAchievementsHZ = [
+        chartData.sub_hz_pfy4_achievement,
+        chartData.sub_hz_pfy3_achievement,
+        chartData.sub_hz_pfy2_achievement,
+        chartData.sub_hz_pfy_achievement,
+        chartData.sub_hz_cfy_achievement
+    ].map((achievement) => parseInt(achievement));
+
     const subDataLine = {
-        labels: subLabelsLine,
+        labels: lineLabelsLine,
         datasets: [{
             label: 'Small Business',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: subLineChartAchievementsSB,
             fill: false,
             borderColor: 'rgb(147, 0, 0)',
             tension: 0.1
         }, {
             label: 'Women Owned',
-            data: [25, 32, 41, 22, 11, 5, 16],
+            data: subLineChartAchievementsWOSB,
             fill: false,
             borderColor: 'rgba(0, 81, 139, 1)',
             tension: 0.1
         }, {
             label: 'Disadvantaged',
-            data: [17, 15, 16, 21, 19, 24, 21],
+            data: subLineChartAchievementsSDB,
             fill: false,
             borderColor: 'rgba(88, 172, 239, 1)',
             tension: 0.1
         }, {
-            label: 'Veteran Owned',
-            data: [6, 7, 2, 5, 10, 4, 3],
+            label: 'Service Disabled Veteran Owned',
+            data: subLineChartAchievementsSDVOSB,
             fill: false,
             borderColor: 'rgba(25, 126, 78, 1)',
             tension: 0.1
         }, {
             label: 'HUBZone',
-            data: [1, 3, 5, 4, 2, 4, 7],
+            data: subLineChartAchievementsHZ,
             fill: false,
             borderColor: 'rgba(241, 196, 0, 1)',
             tension: 0.1
         }]
     };
 
+    // Configure chart with options, e.g. positioning, title text, legend
     const subConfigLine = {
         type: 'line',
         data: subDataLine,
@@ -281,6 +415,7 @@ function hydrateCharts(chartData) {
         }
     };
 
+    // Instantiate the actual chart and hydrate it into the DOM
     const subChartLine = new Chart(
         document.getElementById('subLineChart'),
         subConfigLine
@@ -288,22 +423,48 @@ function hydrateCharts(chartData) {
 
     // Comparison Bar Chart
 
+    // Compose data to be used in Small Business Comparison chart
+    // Previous Fiscal Year Count
+
+    const comparisonPFYCount = [
+        chartData.category_sb_pfy_vendor_count,
+        chartData.category_wosb_pfy_vendor_count,
+        chartData.category_sdb_pfy_vendor_count,
+        chartData.category_sdvosb_pfy_vendor_count,
+        chartData.category_hz_pfy_vendor_count
+    ].map((comparison) => parseInt(comparison.replace(/,/g, '')));
+
+    console.log(comparisonPFYCount)
+
+    // Current Fiscal Year Count
+    const comparisonCFYCount = [
+        chartData.category_sb_cfy_vendor_count,
+        chartData.category_wosb_cfy_vendor_count,
+        chartData.category_sdb_cfy_vendor_count,
+        chartData.category_sdvosb_cfy_vendor_count,
+        chartData.category_hz_cfy_vendor_count
+    ].map((comparison) => parseInt(comparison.replace(/,/g, '')));
+
+    console.log(comparisonCFYCount)
+
     const comparisonDataBar = {
         labels: labelsBar,
         datasets: [{
-            label: 'FY19 Count',
+            label: `${chartData.fiscal_year_previous} Count`,
             backgroundColor: 'rgba(147, 0, 0, 0.2)',
             borderColor: 'rgba(147, 0, 0, 1)',
-            data: [22, 4, 10, 2, 2],
+            data: comparisonPFYCount,
             borderWidth: 1
         }, {
-            label: 'FY20 Count',
+            label: `${chartData.fiscal_year} Count`,
             backgroundColor: 'rgba(0, 81, 139, 0.2)',
             borderColor: 'rgba(0, 81, 139, 1)',
-            data: [25, 3, 11, 4, 1],
+            data: comparisonCFYCount,
             borderWidth: 1
         }]
     };
+
+    // Configure chart with options, e.g. positioning, title text, legend
     const comparisonConfigBar = {
         type: 'bar',
         data: comparisonDataBar,
@@ -329,6 +490,7 @@ function hydrateCharts(chartData) {
 
     };
 
+    // Instantiate the actual chart and hydrate it into the DOM
     const comparisonChartBar = new Chart(
         document.getElementById('comparisonBarChart'),
         comparisonConfigBar
@@ -375,7 +537,6 @@ function updateURL(agency, year) {
     let agencyData = new Promise(function(resolve, reject) {
         resolve(hydrateHTML(agency, year));
     }).then(function(result) {
-        console.log('result block')
         return hydrateCharts(result);
     })
 
