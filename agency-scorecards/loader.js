@@ -25,6 +25,36 @@ function camalize(str) {
     return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 }
 
+function styleLetterGrade(grade) {
+    const letterGradeBlock = document.querySelector('.grade');
+
+    let gradeFormatted = grade.replace(/[\W_]+/g, " ");
+    let gradeColor = '#E2EFD9';
+    console.log(gradeFormatted);
+
+    switch (gradeFormatted) {
+        case 'A':
+            gradeColor = '#C4E9B3';
+            break;
+        case 'B':
+            gradeColor = '#CCEAFF';
+            break;
+        case 'C':
+            gradeColor = '#FFFFB3';
+            break;
+        case 'D':
+            gradeColor = '#FEE3C2';
+            break;
+        case 'F':
+            gradeColor = '#F1A9A9';
+            break;
+        default:
+            console.warn('Unable to recognize letter in scorecard grade.');
+    }
+
+    letterGradeBlock.setAttribute("style", `background-color: ${gradeColor};`);
+}
+
 // Hydrate HTML with data
 async function hydrateHTML(name, year) {
 
@@ -537,6 +567,7 @@ function updateURL(agency, year) {
     let agencyData = new Promise(function(resolve, reject) {
         resolve(hydrateHTML(agency, year));
     }).then(function(result) {
+        styleLetterGrade(result.agency_grade)
         return hydrateCharts(result);
     })
 

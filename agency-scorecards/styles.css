@@ -137,7 +137,6 @@ tfoot {
 }
 
 .grade {
-    background-color: #E2EFD9;
     border: 4px solid #000000;
     box-sizing: border-box;
     color: black;
@@ -147,11 +146,6 @@ tfoot {
     font-size: 1.8rem;
     justify-content: center;
     text-align: center;
-}
-
-.grade span:first-of-type[data-agency_grade*="A"] {
-    background-color: green;
-    display: block;
 }
 
 .grade span:first-of-type {
