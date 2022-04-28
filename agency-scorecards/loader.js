@@ -25,10 +25,12 @@ function camalize(str) {
     return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 }
 
+// Apply appropriate CSS color to score box 
+// Replace this function with native CSS using the :has() pseudo-class when it is fully supported: https://caniuse.com/css-has 
 function styleLetterGrade(grade) {
     const letterGradeBlock = document.querySelector('.grade');
 
-    let gradeFormatted = grade.replace(/[\W_]+/g, " ");
+    let gradeFormatted = grade.replace(/[\W_]+/g, "");
     let gradeColor = '#E2EFD9';
     console.log(gradeFormatted);
 
@@ -89,7 +91,12 @@ async function hydrateHTML(name, year) {
 
 function hydrateCharts(chartData) {
 
-    console.log(chartData);
+    // Gather DOM Canvas elements
+    let primeBarChart = document.getElementById('primeBarChart');
+    let primeLineChart = document.getElementById('primeLineChart');
+    let subBarChart = document.getElementById('subBarChart');
+    let subLineChart = document.getElementById('subLineChart');
+    let comparisonBarChart = document.getElementById('comparisonBarChart');
 
     // Prime Charts
     // https://stackoverflow.com/questions/28180871/grouped-bar-charts-in-chart-js
@@ -158,7 +165,7 @@ function hydrateCharts(chartData) {
 
     // Instantiate the actual chart and hydrate it into the DOM
     const primeChartBar = new Chart(
-        document.getElementById('primeBarChart'),
+        primeBarChart,
         primeConfigBar
     );
 
@@ -274,7 +281,7 @@ function hydrateCharts(chartData) {
 
     // Instantiate the actual chart and hydrate it into the DOM
     const primeChartLine = new Chart(
-        document.getElementById('primeLineChart'),
+        primeLineChart,
         primeConfigLine
     );
 
@@ -340,7 +347,7 @@ function hydrateCharts(chartData) {
 
     // Instantiate the actual chart and hydrate it into the DOM
     const subChartBar = new Chart(
-        document.getElementById('subBarChart'),
+        subBarChart,
         subConfigBar
     );
 
@@ -447,7 +454,7 @@ function hydrateCharts(chartData) {
 
     // Instantiate the actual chart and hydrate it into the DOM
     const subChartLine = new Chart(
-        document.getElementById('subLineChart'),
+        subLineChart,
         subConfigLine
     );
 
@@ -522,7 +529,7 @@ function hydrateCharts(chartData) {
 
     // Instantiate the actual chart and hydrate it into the DOM
     const comparisonChartBar = new Chart(
-        document.getElementById('comparisonBarChart'),
+        comparisonBarChart,
         comparisonConfigBar
     );
 
