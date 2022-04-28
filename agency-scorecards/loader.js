@@ -550,7 +550,7 @@ function getParams(url = window.location) {
     return params;
 }
 
-/**
+/*!
  * Update the URL with a query string for the search string
  * @param  {String} agency The agency being searched for
  * @param  {String} year   The year of that agency's scorecard
