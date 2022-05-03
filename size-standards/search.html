@@ -37,15 +37,17 @@
     <main>
         <div class="container">
             <h2>What's your industry?</h2>
-            <form action="javascript:submitSearch()">
+            <div class="width50">
                 <p>Select your 6-digit NAICS code</p>
-                <input class="awesomplete" id="search-input" />
-                <p>The North American Industry Classification System (NAICS) classifies businesses according to type of economic activity.</p>
-                <p>If you don't know which NAICS code to select, visit census.gov for a comprehensive search and listing.
-                </p>
-                <input class="button" type="submit" value="search" />
-            </form>
-        </div>
+                <form action="javascript:submitSearch()">
+
+                    <input class="awesomplete" id="search-input" placeholder="Search by NAICS code or keyword" />
+
+                    <p>The North American Industry Classification System (NAICS) classifies businesses according to type of economic activity.</p>
+                    <p>If you don't know which NAICS code to select, visit census.gov for a comprehensive search and listing.</p>
+                    <input class="button" type="submit" value="search" />
+                </form>
+            </div>
     </main>
     <footer>
         <div id="footer-menu">

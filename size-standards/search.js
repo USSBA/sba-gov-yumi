@@ -34,36 +34,38 @@ function fetchNAICS(url) {
     })
 }
 
+function deleteNullValues(obj) {
+    for (const key in obj) {
+        if (obj[key] === null) {
+            delete obj[key];
+        }
+    }
+
+    return obj;
+}
+
 function submitSearch() {
-    console.log(NAICS);
-    console.log(typeof(NAICS));
     let query = autocompleteElement.value;
-    console.log(query);
     let queryFormatted = query.substring(0, 6);
-    console.log(queryFormatted);
     let result = NAICS.find(code => code.id === queryFormatted);
-    console.log(result);
+    let nextURLParams = new URLSearchParams(deleteNullValues(result)).toString();
 
-    if (result.employeeCountLimit) {
-        console.log("Employee limit:", result.employeeCountLimit);
-    }
+    console.log(nextURLParams);
 
-    if (result.revenueLimit) {
-        console.log("Revenue limit:", result.revenueLimit);
-    }
+    window.location.href = `size.html?${nextURLParams}`;
+    // if (queryFormatted === '324110') {
+    //     console.log("Special limit:", result);
+    //     window.location.href = `size.html?NAICS=${queryFormatted}&limit=special`
+    // }
 
-    // const expr = 'Papayas';
-    // switch (expr) {
-    //     case 'Oranges':
-    //         console.log('Oranges are $0.59 a pound.');
-    //         break;
-    //     case 'Mangoes':
-    //     case 'Papayas':
-    //         console.log('Mangoes and papayas are $2.79 a pound.');
-    //         // expected output: "Mangoes and papayas are $2.79 a pound."
-    //         break;
-    //     default:
-    //         console.log(`Sorry, we are out of ${expr}.`);
+    // if (result.employeeCountLimit) {
+    //     console.log("Employee limit:", result.employeeCountLimit);
+    //     window.location.href = `size.html?NAICS=${queryFormatted}&limit=employee`
+    // }
+
+    // if (result.revenueLimit) {
+    //     console.log("Revenue limit:", result.revenueLimit);
+    //     window.location.href = `size.html?NAICS=${queryFormatted}&limit=revenue`
     // }
 }
 

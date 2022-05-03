@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Small Business Size Standards</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/render.js" type="text/javascript">
+        // render module provides navigation between sections
+        // render.init() - invoked after the DOM loads (see script tag at bottom of HTML), attaches to the id=render element
+        // render.render(page) - renders the next page or section in the flow
+    </script>
 </head>
 
 <body>
@@ -34,12 +39,10 @@
     <main>
         <section class="container" id="render">
             <h2 id="heading">Size Standards Tool</h2>
-            <form>
+            <form action="javascript:navigate('search');">
                 <img src="img/size-standards-ruler-business.png" alt="Illustration of a business being measured by rulers." />
                 <p class="question">Do you qualify as a small business for government contracting purposes?</p>
-                <a href="search.html">
-                    <submit class="button">Start</submit>
-                </a>
+                <input class="button" type="submit" value="start">
             </form>
         </section>
         <!-- <div class="container">
@@ -133,6 +136,18 @@
             </ul>
         </div>
     </footer>
+    <script type="text/javascript">
+        let renderElement = document.querySelector('#render');
+        render.init(renderElement);
+
+        function navigate(page) {
+            render.render(page);
+        }
+
+        function search() {
+
+        }
+    </script>
 </body>
 
 </html>

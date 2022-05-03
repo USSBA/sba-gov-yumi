@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Small Business Size Standards</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/vendor/awesomplete.css" />
-    <script src="js/vendor/awesomplete.js" async></script>
+    <script type="text/javascript" src="size.js" defer></script>
 </head>
 
 <body>
@@ -38,33 +37,44 @@
             <section class="hidden" id="revenue">
                 <form>
                     <h2>How much average annual receipts/revenue?</h2>
-                    <label>Five-year Average<br><input type="number"></label>
+                    <!-- <div class="width50"> -->
+                    <label>Five-year Average<br><input class="input-number" type="number"></label>
                     <p>
                         Your average annual receipts/revenue is generally calculated as your total receipts/revenue or total income plus cost of goods sold (including all affiliates, if any) over the latest completed five (5) fiscal years divided by five (5). See 13 CFR 121.104
                         for details.
                     </p>
                     <a href="results.html">
-                        <submit class="button">Search</submit>
+                        <submit class="button">Check Size</submit>
                     </a>
+                    <!-- </div> -->
                 </form>
             </section>
-            <section class="hidden" id="employees">
+            <section class="hidden" id="employee">
                 <form>
                     <h2>How many employees?</h2>
-                    <label>Number of employees<br><input type="number"></label>
+                    <label>Number of employees<br><input class="input-number" type="number"></label>
                     <p>
                         This should be the average number of full-time or part-time employees over the last 12 months.
                     </p>
                     <a href="results.html">
-                        <submit class="button">Search</submit>
+                        <submit class="button">Check Size</submit>
                     </a>
                 </form>
             </section>
+            <section class="hidden" id="special">
+                <h2>NAICS Code: <span id="special-naics"></span></h2>
+                <p id="special-naics-name"></p>
+                <p id="special-instructions"></p>
+                <br>
+                <a href="search.html">
+                    <div class="button">
+                        Return to Search
+                    </div>
+                </a>
+            </section>
         </div>
 
-        <section class="hidden" id="employees">
 
-        </section>
     </main>
     <footer>
         <div id="footer-menu">

@@ -30,7 +30,7 @@ footer ul li:first-of-type {
 
 h2 {
     color: #002e6d;
-    font-size: 2.25rem;
+    font-size: 2rem;
     letter-spacing: 0;
     line-height: 1.1;
     margin-bottom: 0.5rem;
@@ -39,6 +39,10 @@ h2 {
 }
 
 header {
+    width: 100%;
+}
+
+img {
     width: 100%;
 }
 
@@ -68,6 +72,11 @@ nav a:hover {
 li {
     display: block;
     margin-right: 14px;
+}
+
+section {
+    text-align: left;
+    max-width: 65ch;
 }
 
 .button {
@@ -108,8 +117,27 @@ li {
     text-align: center;
 }
 
+.flex {
+    display: flex;
+}
+
 .hidden {
     display: none;
+}
+
+.input-number {
+    line-height: 36px;
+    background-color: #fff;
+    border: 1px solid #686868;
+    border-color: #686868;
+    border-radius: 0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin-bottom: .75rem;
+    padding: .5rem;
+    transition: border-color 150ms ease;
+    width: 15ch;
 }
 
 .logo {
@@ -134,10 +162,26 @@ li {
 
 .question {
     color: #1b1e29;
-    font-size: 26px;
+    font-size: 1.5rem;
     line-height: 1.5;
     margin-bottom: 1.1rem;
     text-align: center;
+}
+
+.width50 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: left;
+    width: 50%;
+}
+
+.width70 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: left;
+    width: 70%;
 }
 
 #disclaimer {
@@ -176,6 +220,26 @@ li {
 #nav-toggle,
 .hamburger-menu {
     display: none;
+}
+
+#search-input {
+    line-height: 37px;
+    background-color: #fff;
+    border: 1px solid #686868;
+    border-radius: 0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: block;
+    height: 49px;
+    font-size: 1rem;
+    margin-bottom: .75rem;
+    padding: .5rem 20px;
+    transition: border-color 150ms ease;
+    width: 100%;
+}
+
+#special-naics-name {
+    color: hsl(0, 0%, 30%);
+    font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 769px) {
