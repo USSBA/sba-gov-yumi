@@ -32,6 +32,10 @@ let loader = (function() {
         })
     };
 
+    public.naics = function() {
+        return NAICS.map((code) => code.id + " " + code.description);
+    }
+
     public.search = function(naics) {
 
         if (typeof(naics) === String) {
@@ -47,7 +51,8 @@ let loader = (function() {
     };
 
     public.init = function(options) {
-        fetchNAICS();
+        NAICS = fetchNAICS();
+        console.log(`Loader initialized and retrieved: ${NAICS.length}`);
     };
 
     // Return the Public APIs

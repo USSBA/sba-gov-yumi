@@ -11,12 +11,10 @@
     <script src="js/vendor/awesomplete.js" async>
         // Auto-complete widget - https://projects.verou.me/awesomplete/
     </script>
-    <script src="js/render.js" type="text/javascript">
+    <script src="js/naics.js" type="text/javascript">
         // render module provides navigation between sections
         // render.init() - invoked after the DOM loads (see script tag at bottom of HTML), attaches to the id=render element
         // render.render(page) - renders the next page or section in the flow
-    </script>
-    <script src="js/loader.js" type="text/javascript">
         // loader module fetches NAICS data and exposes it
     </script>
 </head>
@@ -52,9 +50,6 @@
                 <input class="button" type="submit" value="start">
             </form>
         </section>
-        <!-- <div class="container">
-
-        </div> -->
     </main>
     <footer>
         <div id="footer-menu">
@@ -145,21 +140,10 @@
     </footer>
     <script type="text/javascript">
         let renderElement = document.querySelector('#render');
-        render.init(renderElement);
-        loader.init();
+        let naicsData = naics.init(renderElement);
 
         function navigate(page) {
-
-            // This is not great and needs to be factored into a single module
-            if (page === 'search') {
-                render.render(page, loader.naics());
-            } else {
-                render.render(page);
-            }
-        }
-
-        function search() {
-
+            naics.render(page);
         }
     </script>
 </body>

@@ -1,13 +1,125 @@
-var render = (function() {
+var naics = (function() {
 
     // Variables
 
     let containerElement;
     let autocompleteElement;
+    let numberinputElement;
+
+    let currentNAICS;
+    let NAICS;
+    let naicsURL = 'https://www.sba.gov/naics'
 
     let public = {};
 
     // Methods
+
+    // Utility function to delete null values from an object
+    function deleteNullValues(obj) {
+        for (const key in obj) {
+            if (obj[key] === null) {
+                delete obj[key];
+            }
+        }
+
+        return obj;
+    }
+
+    // Data handling
+
+    let fetchNAICS = function() {
+        return fetch(naicsURL).then(function(response) {
+            // The API call was successful, so check if response is valid (200)
+            if (response.ok) {
+                // Return the response by casting the object to JSON, sending to the .then block
+                return response.json();
+            } else {
+                // Since the response was NOT ok, reject the promise, sending to the .catch block
+                return Promise.reject(response)
+            }
+        }).then(function(data) {
+            // data is JSON of the response
+            console.info(`fetchNAICS() succcess`);
+            NAICS = data;
+            return data;
+        }).catch(function(err) {
+            // err is the raw response
+            console.warn(`fetchNAICS() failed`, err.status, err.statusText, err.url);
+
+            return err;
+        })
+    };
+
+    let codes = function() {
+        return NAICS.map((code) => code.id + " " + code.description);
+    }
+
+    let calculateType = function(code) {
+
+        if (code.employeeCountLimit) {
+            return 'employee';
+        }
+
+        if (code.revenueLimit) {
+            return 'revenue';
+        }
+
+        return 'unknown';
+
+    }
+
+    let calculateLimit = function() {
+        if (currentNAICS.employeeCountLimit) {
+            return currentNAICS.employeeCountLimit;
+        }
+
+        if (currentNAICS.revenueLimit) {
+            return currentNAICS.revenueLimit * 1000000;
+        }
+
+    }
+
+    let calculateSize = function(code, size) {
+
+        size = parseInt(size);
+
+        if (code.employeeCountLimit) {
+            if (code.employeeCountLimit >= size) {
+                console.log(`EmployeeCountLimit ${code.employeeCountLimit} is greater than ${size}`);
+                return true;
+            } else {
+                console.log('nope!')
+            }
+        }
+
+        if (code.revenueLimit) {
+            let realDollarLimit = code.revenueLimit * 1000000;
+            console.log(realDollarLimit);
+            if (realDollarLimit >= size) {
+                console.log(`realDollarLimit ${realDollarLimit} is greater than ${size}`);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    let search = function(naics) {
+
+        if (typeof(naics) === 'string') {
+            if (naics.length > 6) {
+                // Trim first 6 characters
+                naics = naics.substring(0, 6);
+            }
+        } else {
+            console.debug(`loader.search(${naics}) not a String`)
+        }
+
+        return NAICS.find(code => code.id === naics);
+
+    };
+
+    // Rendering
 
     let landingPage = function() {
         // Code goes here...
@@ -80,16 +192,37 @@ var render = (function() {
         return false;
     }
 
-    var resultPage = function() {
+    var resultPage = function(small) {
+
+        console.log(small);
+
+        let renderedResult;
+
+        if (small) {
+            renderedResult = `<div class="flex">
+                                <span>${currentNAICS.id} <br> ${currentNAICS.description} </span>
+                                <span>Small Business Size Standards <br> ${calculateLimit()}</span>
+                                <span>YES</span>
+                              </div>
+                              <p id="success text">You may be eligible to participate in an SBA contracting program.</p>`
+        } else {
+            renderedResult = `<div class="flex">
+                                <span>${currentNAICS.id} <br> ${currentNAICS.description} </span>
+                                <span>Small Business Size Standards <br> ${calculateLimit()}</span>
+                                <span>NO</span>
+                              </div>
+                              <p id="failure text">Your business is too large to meet the current small size standard.</p>`
+        }
+
         return `<div class="width70">
                     <h2>Are you a small business eligible for government contracting?</h2>
                     <div class="flex" id="results">
 
                     </div>
                     <br>
-                    <p id="success text">You may be eligible to participate in an SBA contracting program.</p>
+                    ${renderedResult}
                     <div class="flex">
-                        <div>
+                        <div class="border">
                             <p>Learn more about SBA small business size standards.</p>
                             <h3>SBA Office of Size Standards</h3>
                             <div>
@@ -102,7 +235,7 @@ var render = (function() {
                                 <p><a href="mailto:sizestandards@sba.gov">sizestandards@sba.gov</a></p>
                             </div>
                         </div>
-                        <div>
+                        <div class="border">
                             <p>Find out how you can sell to the Federal Government.</p>
                             <h3>SBA Office of Contracting</h3>
                             <div>
@@ -115,40 +248,70 @@ var render = (function() {
                                 <p><a href="mailto:contracting@sba.gov ">contracting@sba.gov</a></p>
                             </div>
                         </div>
-                        <form action="javascript:navigate('search');">
-                            <input class="button" type="submit" value="Start Over" />
-                        </form>
+
                     </div>
+                    <form action="javascript:navigate('search');">
+                        <input class="button" type="submit" value="Start Over" />
+                    </form>
                 </div>`;
     }
 
-    public.render = function(page, codes) {
+    // Master render function
+
+    public.render = function(page) {
         switch (page) {
             case 'landing':
                 containerElement.innerHTML = landingPage();
                 break;
             case 'search':
                 containerElement.innerHTML = searchPage();
-                autocompleteElement = document.querySelector("#search-input")
+                autocompleteElement = document.querySelector("#search-input");
+                console.log(autocompleteElement);
                 new Awesomplete(autocompleteElement, {
-                    list: codes
+                    list: codes()
                 });
                 break;
             case 'size':
-                containerElement.innerHTML = sizePage('employee');
+                console.log(autocompleteElement.value);
+                // let searchResult = search(autocompleteElement.value.toString());
+
+                let searchResult = search(autocompleteElement.value);
+                currentNAICS = searchResult;
+                console.log(currentNAICS);
+
+                window.history.pushState(null, '', `index3.html?naics=${currentNAICS.id}`);
+
+                let sizeType = calculateType(currentNAICS);
+                console.log(sizeType);
+
+                containerElement.innerHTML = sizePage(sizeType);
                 break;
             case 'result':
-                containerElement.innerHTML = resultPage();
+                numberinputElement = document.querySelector(".input-number");
+                console.log(numberinputElement.value);
+
+                let sizeResult = calculateSize(currentNAICS, numberinputElement.value);
+                console.log(sizeResult);
+
+                containerElement.innerHTML = resultPage(sizeResult);
                 break;
             default:
-                console.log(`Sorry, no type/limit detected for ${limit}.`);
+                console.log(`Sorry, no type / limit detected for ${page}.`);
         }
     };
 
     public.init = function(ele) {
+
         containerElement = ele;
         console.log('Renderer initialized and attached to:');
         console.log(containerElement);
+
+        NAICS = fetchNAICS();
+        console.log(`
+                                    Loader initialized and retrieved.
+                                    `);
+
+        return NAICS;
     };
 
     // Return the Public APIs
