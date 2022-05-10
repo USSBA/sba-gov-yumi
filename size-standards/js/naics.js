@@ -8,7 +8,7 @@ var naics = (function() {
 
     let currentNAICS;
     let NAICS;
-    let naicsURL = 'https://www.sba.gov/naics'
+    let naicsURL = 'https://sba-gov-yumi.s3.amazonaws.com/size-standards/data/naics.json'
 
     let public = {};
 
