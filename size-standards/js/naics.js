@@ -212,7 +212,7 @@ var naics = (function() {
                     specialText = `For SBA assistance as a small business concern in the industry of Environmental Remediation Services, other than for Government procurement, a concern must be engaged primarily in furnishing a range of services for the remediation of a contaminated environment to an acceptable condition including, but not limited to, preliminary assessment, site inspection, testing, remedial investigation, feasibility studies, regulatory compliance, remedial design, containment, remedial action, removal of contaminated materials, nuclear remediation, storage of contaminated materials and security and site closeouts.  If one of such activities accounts for 50 percent or more of a concern's total revenues, employees, or other related factors, the concern's primary industry is that of the particular industry and not the Environmental Remediation Services Industry.`
                     break;
                 default:
-                    specialText = 'Your business is classified in a special NAICS code.'
+                    specialText = 'Your business is classified in a special NAICS code, but we do not recognize this special case.'
 
             }
 
