@@ -1,20 +1,26 @@
-var naics = (function() {
+let sizeStandards = (function() {
+
+    // Steps in the Size Standards process:
+    // start-> search -> size -> result
 
     // Variables
-
     let containerElement;
     let autocompleteElement;
     let numberinputElement;
 
     let currentNAICS;
     let NAICS;
-    let naicsURL = 'https://sba-gov-yumi.s3.amazonaws.com/size-standards/data/naics.json'
-
-    let public = {};
+    let apiURLs = {
+        dev: 'https://sba-gov-yumi.s3.amazonaws.com/size-standards/data/naics.json',
+        prod: 'https://www.sba.gov/naics.json'
+    }
 
     // Methods
 
-    // Utility function to delete null values from an object
+    let public = {};
+
+    // Utility
+
     function deleteNullValues(obj) {
         for (const key in obj) {
             if (obj[key] === null) {
@@ -27,25 +33,25 @@ var naics = (function() {
 
     // Data handling
 
-    let fetchNAICS = function() {
-        return fetch(naicsURL).then(function(response) {
+    let fetchNAICS = function(url) {
+        return fetch(url).then(function(response) {
             // The API call was successful, so check if response is valid (200)
             if (response.ok) {
                 // Return the response by casting the object to JSON, sending to the .then block
                 return response.json();
             } else {
                 // Since the response was NOT ok, reject the promise, sending to the .catch block
-                return Promise.reject(response)
+                return Promise.reject(response);
             }
         }).then(function(data) {
             // data is JSON of the response
-            console.info(`fetchNAICS() succcess`);
+            console.debug(`fetchNAICS() succcess`);
             NAICS = data;
             return data;
         }).catch(function(err) {
             // err is the raw response
             console.warn(`fetchNAICS() failed`, err.status, err.statusText, err.url);
-
+            flash(`Unable to load NAICS codes, error ${err.status}: ${err.statusText}`);
             return err;
         })
     };
@@ -97,7 +103,10 @@ var naics = (function() {
 
         if (code.employeeCountLimit) {
             if (code.employeeCountLimit >= size) {
-                console.log(`EmployeeCountLimit ${code.employeeCountLimit} is greater than ${size}`);
+                console.log(`
+                            EmployeeCountLimit $ { code.employeeCountLimit }
+                            is greater than $ { size }
+                            `);
                 return true;
             } else {
                 console.log('nope!')
@@ -108,7 +117,10 @@ var naics = (function() {
             let realDollarLimit = code.revenueLimit * 1000000;
             console.log(realDollarLimit);
             if (realDollarLimit >= size) {
-                console.log(`realDollarLimit ${realDollarLimit} is greater than ${size}`);
+                console.log(`
+                            realDollarLimit $ { realDollarLimit }
+                            is greater than $ { size }
+                            `);
                 return true;
             }
         }
@@ -124,22 +136,68 @@ var naics = (function() {
                 naics = naics.substring(0, 6);
             }
         } else {
-            console.debug(`loader.search(${naics}) not a String`)
+            console.debug(`
+                            loader.search($ { naics }) not a String `)
         }
 
         return NAICS.find(code => code.id === naics);
 
     };
 
+    // URL handling
+
+    /*!
+     * Get the URL parameters
+     * (c) 2021 Chris Ferdinandi, MIT License, https://gomakethings.com
+     * @param  {String} url The URL
+     * @return {Object}     The URL parameters
+     */
+    let getParams = function(url = window.location) {
+        let params = {};
+        new URL(url).searchParams.forEach(function(val, key) {
+            if (params[key] !== undefined) {
+                if (!Array.isArray(params[key])) {
+                    params[key] = [params[key]];
+                }
+                params[key].push(val);
+            } else {
+                params[key] = val;
+            }
+        });
+        return params;
+    }
+
+    /*!
+     * Add URL changes to browser's history
+     * @param  {String} step   The Size Standards assessment step
+     * @return {String}        The URL that was added
+     */
+    let updateURL = function(step = 'start', naics) {
+        let state = history.state;
+        let title = `Size Standards | ${step}`;
+        let stepQueryString = `?step=${encodeURI(step)}`;
+        let naicsQueryString = naics ? `&naics=${encodeURI(naics)}` : '';
+
+        let url = window.location.origin + window.location.pathname +
+            stepQueryString +
+            naicsQueryString;
+        // '&employeeLimit=' + encodeURI(employeeLimit) +
+        // '&revenueLimit=' + encodeURI(revenueLimit);
+
+        history.pushState(state, title, url);
+        return url;
+    }
+
     // Rendering
 
-    let landingPage = function() {
+    let startPage = function() {
         // Code goes here...
         return `<h2 id="heading">Size Standards Tool</h2>
-                <form action="javascript:navigate('search');">
+                    <form action="javascript:navigate('search');">
                     <img src="img/size-standards-ruler-business.png" alt="Illustration of a business being measured by rulers." />
                     <p class="question">Do you qualify as a small business for government contracting purposes?</p>
-                    <submit class="button">Start</submit>
+                    <p id="flash" class="hidden"></p>
+                    <input class="button" type="submit" value="start">
                 </form>`;
     };
 
@@ -149,10 +207,11 @@ var naics = (function() {
                     <p>Select your 6-digit NAICS code</p>
                     <form action="javascript:navigate('size');">
 
-                        <input class="awesomplete" id="search-input" placeholder="Search by NAICS code or keyword" />
+                        <input class="awesomplete" id="search-input" placeholder="Search by NAICS code or keyword" required />
 
                         <p>The North American Industry Classification System (NAICS) classifies businesses according to type of economic activity.</p>
                         <p>If you don't know which NAICS code to select, visit census.gov for a comprehensive search and listing.</p>
+                        <p id="flash" class="hidden"></p>
                         <input class="button" type="submit" value="search" />
                     </form>
                 </div>`;
@@ -169,6 +228,7 @@ var naics = (function() {
                             <p>
                                 This should be the average number of full-time or part-time employees over the last 12 months.
                             </p>
+                            <p id="flash class="hidden"></p>
                             <input class="button" type="submit" value="Check Size" />
                         </form>
                     </div>`;
@@ -184,6 +244,7 @@ var naics = (function() {
                             Your average annual receipts/revenue is generally calculated as your total receipts/revenue or total income plus cost of goods sold (including all affiliates, if any) over the latest completed five (5) fiscal years divided by five (5). See 13 CFR 121.104
                             for details.
                         </p>
+                        <p id="flash" class="hidden"></p>
                         <input class="button" type="submit" value="Check Size" />
                         </form>
                     </div>`;
@@ -230,7 +291,7 @@ var naics = (function() {
         return false;
     }
 
-    var resultPage = function(small) {
+    let resultPage = function(small) {
 
         console.log(small);
 
@@ -294,35 +355,47 @@ var naics = (function() {
                 </div>`;
     }
 
+    // Flash messages for errors, warnings, and issues
+    let flash = function(msg) {
+        let flashElement = document.querySelector('#flash');
+
+        if (flashElement) {
+            flashElement.textContent = msg;
+            flashElement.classList.remove('hidden');
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // Master render function
 
     public.render = function(page) {
         switch (page) {
-            case 'landing':
-                containerElement.innerHTML = landingPage();
+            case 'start':
+                containerElement.innerHTML = startPage();
+                updateURL('start');
                 break;
             case 'search':
                 containerElement.innerHTML = searchPage();
                 autocompleteElement = document.querySelector("#search-input");
-                console.log(autocompleteElement);
                 new Awesomplete(autocompleteElement, {
                     list: codes()
                 });
+                updateURL('search');
                 break;
             case 'size':
-                console.log(autocompleteElement.value);
-                // let searchResult = search(autocompleteElement.value.toString());
-
                 let searchResult = search(autocompleteElement.value);
                 currentNAICS = searchResult;
                 console.log(currentNAICS);
 
-                window.history.pushState(null, '', `index3.html?naics=${currentNAICS.id}`);
+                // window.history.pushState(null, '', `index3.html?naics=${currentNAICS.id}`);
 
                 let sizeType = calculateType(currentNAICS);
                 console.log(sizeType);
 
                 containerElement.innerHTML = sizePage(sizeType);
+                updateURL('size');
                 break;
             case 'result':
                 numberinputElement = document.querySelector(".input-number");
@@ -332,20 +405,30 @@ var naics = (function() {
                 console.log(sizeResult);
 
                 containerElement.innerHTML = resultPage(sizeResult);
+                updateURL('result');
                 break;
             default:
-                console.log(`Sorry, no type / limit detected for ${page}.`);
+                console.warn(`Sorry, no type / limit detected for ${page}.`);
+                containerElement.innerHTML = startPage();
+                updateURL('start');
         }
     };
 
     public.init = function(ele) {
+        // URL Detector
+        let stage = getParams();
+        console.debug(`URL detected and step is: ${stage.step}`);
 
+        // HTML Renderer
         containerElement = ele;
-        console.log('Renderer initialized and attached to:');
-        console.log(containerElement);
+        console.debug(`Renderer initialized and attached to: ${containerElement.title}`);
+        this.render(stage.step);
 
-        NAICS = fetchNAICS();
-        console.log(`Loader initialized and retrieved.`);
+        // Data Loader
+        console.debug(`Hostname detected and is: ${window.location.hostname}`);
+        let url = window.location.hostname.includes('sba.gov') ? apiURLs.prod : apiURLs.dev;
+        NAICS = fetchNAICS(url);
+        console.debug(`Loader initialized`);
 
         return NAICS;
     };

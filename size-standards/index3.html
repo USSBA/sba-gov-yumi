@@ -11,7 +11,7 @@
     <script src="js/vendor/awesomplete.js" async>
         // Auto-complete widget - https://projects.verou.me/awesomplete/
     </script>
-    <script src="js/naics.js" type="text/javascript">
+    <script src="js/size-standards.js" type="text/javascript">
         // render module provides navigation between sections
         // render.init() - invoked after the DOM loads (see script tag at bottom of HTML), attaches to the id=render element
         // render.render(page) - renders the next page or section in the flow
@@ -42,11 +42,12 @@
         </nav>
     </header>
     <main>
-        <section class="container" id="render">
+        <section class="container" id="render" title="main section">
             <h2 id="heading">Size Standards Tool</h2>
             <form action="javascript:navigate('search');">
                 <img src="img/size-standards-ruler-business.png" alt="Illustration of a business being measured by rulers." />
                 <p class="question">Do you qualify as a small business for government contracting purposes?</p>
+                <p id="flash" class="hidden"></p>
                 <input class="button" type="submit" value="start">
             </form>
         </section>
@@ -140,10 +141,10 @@
     </footer>
     <script type="text/javascript">
         let renderElement = document.querySelector('#render');
-        let naicsData = naics.init(renderElement);
+        let naicsData = sizeStandards.init(renderElement);
 
         function navigate(page) {
-            naics.render(page);
+            sizeStandards.render(page);
         }
     </script>
 </body>

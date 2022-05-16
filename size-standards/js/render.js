@@ -34,7 +34,10 @@ var render = (function() {
                 </div>`;
     }
 
-    let sizePage = function(type) {
+    let sizePage = function() {
+        let query = autocompleteElement.value;
+        let queryFormatted = query.substring(0, 6);
+        let result = NAICS.find(code => code.id === queryFormatted);
 
         if (type === 'employee') {
             return `<div class="width70">

@@ -206,6 +206,14 @@ section {
     text-decoration: underline;
 }
 
+#flash {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    margin: .5rem;
+    padding: .5rem;
+}
+
 #footer-menu {
     border-top: 1px solid lightgray;
     display: grid;
