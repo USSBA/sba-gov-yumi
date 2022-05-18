@@ -79,6 +79,32 @@ section {
     max-width: 65ch;
 }
 
+table {
+    width: 100%;
+}
+
+tr:first-child {
+    background-color: rgb(238, 238, 238);
+    font-weight: bold;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: .25rem;
+    text-align: left;
+}
+
+thead {
+    font-weight: bold;
+}
+
+caption {
+    text-align: left;
+}
+
 .button {
     background-color: #c00;
     color: #fff;

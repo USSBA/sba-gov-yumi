@@ -1,3 +1,5 @@
+console.log('Size.js loaded');
+
 const revenueSection = document.querySelector("#revenue");
 const employeeSection = document.querySelector("#employee");
 const specialSection = document.querySelector("#special");
@@ -61,3 +63,6 @@ switch (limit) {
     default:
         console.log(`Sorry, no type/limit detected for ${limit}.`);
 }
+
+console.log(getParams())
+console.log(getParams().naics)

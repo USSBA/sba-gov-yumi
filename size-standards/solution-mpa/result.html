@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Small Business Size Standards</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="size.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/vendor/awesomplete.css" />
+    <script src="../js/vendor/awesomplete.js" async>
+        // Auto-complete widget - https://projects.verou.me/awesomplete/
+    </script>
+    <script src="js/start.js" type="text/javascript">
+    </script>
 </head>
 
 <body>
@@ -33,48 +38,47 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <section class="hidden" id="revenue">
-                <form>
-                    <h2>How much average annual receipts/revenue?</h2>
-                    <!-- <div class="width50"> -->
-                    <label>Five-year Average<br><input class="input-number" type="number"></label>
-                    <p>
-                        Your average annual receipts/revenue is generally calculated as your total receipts/revenue or total income plus cost of goods sold (including all affiliates, if any) over the latest completed five (5) fiscal years divided by five (5). See 13 CFR 121.104
-                        for details.
-                    </p>
-                    <a href="results.html">
-                        <submit class="button">Check Size</submit>
-                    </a>
-                    <!-- </div> -->
-                </form>
-            </section>
-            <section class="hidden" id="employee">
-                <form>
-                    <h2>How many employees?</h2>
-                    <label>Number of employees<br><input class="input-number" type="number"></label>
-                    <p>
-                        This should be the average number of full-time or part-time employees over the last 12 months.
-                    </p>
-                    <a href="results.html">
-                        <submit class="button">Check Size</submit>
-                    </a>
-                </form>
-            </section>
-            <section class="hidden" id="special">
-                <h2>NAICS Code: <span id="special-naics"></span></h2>
-                <p id="special-naics-name"></p>
-                <p id="special-instructions"></p>
-                <br>
-                <a href="search.html">
-                    <div class="button">
-                        Return to Search
+        <section class="container" id="render" title="main section">
+            <div class="width70">
+                <h2>Are you a small business eligible for government contracting?</h2>
+                <div class="flex" id="results">
+
+                </div>
+                <br> ${renderedResult}
+                <div class="flex">
+                    <div class="border">
+                        <p>Learn more about SBA small business size standards.</p>
+                        <h3>SBA Office of Size Standards</h3>
+                        <div>
+                            <i className="fa fa-map-marker" aria-hidden="true"></i>
+                            <p>409 3rd Street, SW</p>
+                            <p>Washington, DC 20416</p>
+                            <i className="fa fa-phone" aria-hidden="true"></i>
+                            <p>202-205-6618</p>
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                            <p><a href="mailto:sizestandards@sba.gov">sizestandards@sba.gov</a></p>
+                        </div>
                     </div>
-                </a>
-            </section>
-        </div>
+                    <div class="border">
+                        <p>Find out how you can sell to the Federal Government.</p>
+                        <h3>SBA Office of Contracting</h3>
+                        <div>
+                            <i className="fa fa-map-marker" aria-hidden="true"></i>
+                            <p>409 3rd Street, SW</p>
+                            <p>Washington, DC 20416</p>
+                            <i className="fa fa-phone" aria-hidden="true"></i>
+                            <p>202-205-6621</p>
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                            <p><a href="mailto:contracting@sba.gov ">contracting@sba.gov</a></p>
+                        </div>
+                    </div>
 
-
+                </div>
+                <form action="javascript:navigate('search');">
+                    <input class="button" type="submit" value="Start Over" />
+                </form>
+            </div>
+        </section>
     </main>
     <footer>
         <div id="footer-menu">
@@ -163,7 +167,13 @@
             </ul>
         </div>
     </footer>
-    <script>
+    <script type="text/javascript">
+        let renderElement = document.querySelector('#render');
+        let naicsData = sizeStandards.init(renderElement);
+
+        function navigate(page) {
+            sizeStandards.render(page);
+        }
     </script>
 </body>
 

@@ -6,16 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Small Business Size Standards</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/vendor/awesomplete.css" />
-    <script src="js/vendor/awesomplete.js" async></script>
-    <script type="text/javascript" src="search.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/vendor/awesomplete.css" />
+    <script src="../js/vendor/awesomplete.js" async>
+        // Auto-complete widget - https://projects.verou.me/awesomplete/
+    </script>
+    <script src="js/search.js" type="text/javascript">
+    </script>
 </head>
 
 <body>
     <header>
         <nav>
-            <img alt="Small Business Administration logo" class="logo" src="img/ussba-logo.png">
+            <img alt="Small Business Administration logo" class="logo" src="../img/ussba-logo.png">
             <input type="checkbox" id="nav-toggle">
             <label for="nav-toggle" class="hamburger-menu">
                 <svg style="fill:#002E6D;" viewBox="0 0 100 80" width="40" height="40">
@@ -35,19 +38,32 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <h2>What's your industry?</h2>
-            <div class="width50">
+        <section class="container" id="render" title="main section">
+            <div class="width70">
+                <h2>What's your industry?</h2>
                 <p>Select your 6-digit NAICS code</p>
-                <form action="javascript:submitSearch()">
+                <form action="javascript:navigate('size');">
 
                     <input class="awesomplete" id="search-input" placeholder="Search by NAICS code or keyword" />
-
+                    <br>
+                    <br>
+                    <table class="hidden" id="search-list">
+                        <caption>Search List</caption>
+                        <tbody>
+                            <tr>
+                                <td>Code</td>
+                                <td>Description</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p>The North American Industry Classification System (NAICS) classifies businesses according to type of economic activity.</p>
-                    <p>If you don't know which NAICS code to select, visit census.gov for a comprehensive search and listing.</p>
+                    <p>If you don't know which NAICS code to select, visit census.gov for a comprehensive search and listing.
+                    </p>
+                    <p id="flash" class="hidden"></p>
                     <input class="button" type="submit" value="search" />
                 </form>
             </div>
+        </section>
     </main>
     <footer>
         <div id="footer-menu">
@@ -136,6 +152,8 @@
             </ul>
         </div>
     </footer>
+    <script type="text/javascript">
+    </script>
 </body>
 
 </html>
