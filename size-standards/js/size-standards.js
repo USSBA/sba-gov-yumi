@@ -48,6 +48,26 @@ let sizeStandards = (function() {
         })
     };
 
+    let formatRevenueLimit = function(revenueLimit) {
+        let annualRevenueConstant = 1000000;
+        let result = (Number(revenueLimit) * annualRevenueConstant)
+            .toString()
+            .split(/(?=(?:\d{3})+(?:\.|$))/g)
+            .join(',');
+        result = '$' + result;
+
+        return result;
+    }
+
+    let formatEmployeeCountLimit = function(employeeCountLimit) {
+        let result = Number(employeeCountLimit)
+            .toString()
+            .split(/(?=(?:\d{3})+(?:\.|$))/g)
+            .join(',');
+
+        return result;
+    }
+
     // Creates list of Strings combining NAICS codes + descriptions for autocomplete
     let generateAutocompleteList = function() {
         let listFormatted = NAICS.map((code) => {
@@ -85,8 +105,8 @@ let sizeStandards = (function() {
             }
 
             if (fullCode.employeeCountLimit) {
-                if (fullCode.employeeCountLimit >= companyEmployees) {
-                    console.log(`EmployeeCountLimit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
+                if (companyEmployees <= fullCode.employeeCountLimit) {
+                    console.log(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
                     fullCode.isSmall = true;
                     results.push(fullCode);
                     return;
@@ -96,8 +116,8 @@ let sizeStandards = (function() {
             if (fullCode.revenueLimit) {
                 let realDollarLimit = fullCode.revenueLimit * 1000000;
                 console.log(realDollarLimit);
-                if (realDollarLimit >= companyRevenue) {
-                    console.log(`realDollarLimit ${realDollarLimit} is greater than ${companyRevenue}`);
+                if (companyRevenue <= realDollarLimit) {
+                    console.log(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
                     results.push(fullCode);
                     return;
@@ -122,14 +142,22 @@ let sizeStandards = (function() {
 
 
             if (result.isSmall) {
-                sizeString = 'YES';
+                sizeString = '<i class="fa fa-check-circle" area-hidden="true" style="color: #609f00;;"></i><br>YES';
             } else {
-                sizeString = 'NO';
+                sizeString = '<i class="fa fa-times-circle" area-hidden="true" style="color: #e21234;"></i><br>NO';
             }
 
-            resultsHTML = resultsHTML + `<div class="flex">
-                                            <span>${result.id} <br> ${result.description} </span>
-                                            <span>Small Business Size Standards <br> ${sizeLimit}</span>
+            let oilLimit = '';
+
+            if (result.id === '324110') {
+                oilLimit = "200,000 barrels";
+            } else {
+                oilLimit = '';
+            }
+
+            resultsHTML = resultsHTML + `<div class="flex result">
+                                            <span><strong>${result.id}</strong> <br> ${result.description} </span>
+                                            <span><strong>Size Standard</strong> <br> ${sizeLimit} <br> ${oilLimit}</span>
                                             <span>${sizeString}</span>
                                         </div>`;
         })
@@ -145,12 +173,12 @@ let sizeStandards = (function() {
 
         if (code.employeeCountLimit != null) {
             console.log('Returning ' + code.employeeCountLimit);
-            return code.employeeCountLimit + ' employees';
+            return formatEmployeeCountLimit(code.employeeCountLimit) + ' employees';
         }
 
         if (code.revenueLimit != null) {
             console.log('Returning ' + code.revenueLimit);
-            return (code.revenueLimit * 1000000) + ' annual revenue';
+            return formatRevenueLimit(code.revenueLimit) + ' annual revenue';
         }
 
     }
@@ -225,7 +253,7 @@ let sizeStandards = (function() {
                 </form>`;
     }
 
-    let searchPage = function(naics) {
+    let searchPage = function() {
         return `<div class="width70">
                     <h2>What's your industry?</h2>
                     <p>Select your 6-digit NAICS code</p>
@@ -300,50 +328,18 @@ let sizeStandards = (function() {
                     <input class="button" type="submit" value="Check Size" />
                     </form>
                 </div>`;
-
-        // let specialHeading;
-        // let specialName;
-        // let specialText;
-
-        // switch (type) {
-        //     case '324110':
-        //         specialHeading = '324110'
-        //         specialName = 'Petroleum Refineries'
-        //         specialText = 'To qualify as small for purposes of Government procurement, the petroleum refiner, including its affiliates, must be a concern that has either no more than 1,500 employees or no more than 200,000 barrels per calendar day total Operable Atmospheric Crude Oil Distillation capacity.  Capacity includes all domestic and foreign affiliates, all owned or leased facilities, and all facilities under a processing agreement or an arrangement such as an exchange agreement or a throughput.  To qualify under the capacity size standard, the firm, together with its affiliates, must be primarily engaged in refining crude petroleum into refined petroleum products.  A firm’s “primary industry” is determined in accordance with 13 CFR § 121.107.'
-        //         break;
-        //     case '541519':
-        //         specialHeading = '541519'
-        //         specialName = 'Information Technology Value Added Resellers'
-        //         specialText = 'An Information Technology Value Added Reseller (ITVAR) provides a total solution to information technology acquisitions by providing multi-vendor hardware and software along with significant value added services.  Significant value added services consist of, but are not limited to, configuration consulting and design, systems integration, installation of multi-vendor computer equipment, customization of hardware or software, training, product technical support, maintenance, and end user support.  For purposes of Government procurement, an information technology procurement classified under this exception and 150-employee size standard must consist of at least 15% and not more than 50% of value added services, as measured by the total contract price.  In addition, the offeror must comply with the manufacturing performance requirements, or comply with the non-manufacturer rule by supplying the products of small business concerns, unless SBA has issued a class or contract specific waiver of the non-manufacturer rule.  If the contract consists of less than 15% of value added services, then it must be classified under a NAICS manufacturing industry.  If the contract consists of more than 50% of value added services, then it must be classified under the NAICS industry that best describes the predominate service of the procurement.'
-        //         break;
-        //     case '562910':
-        //         specialHeading = '562910'
-        //         specialName = 'Environmental Remediation Services'
-        //         specialText = `For SBA assistance as a small business concern in the industry of Environmental Remediation Services, other than for Government procurement, a concern must be engaged primarily in furnishing a range of services for the remediation of a contaminated environment to an acceptable condition including, but not limited to, preliminary assessment, site inspection, testing, remedial investigation, feasibility studies, regulatory compliance, remedial design, containment, remedial action, removal of contaminated materials, nuclear remediation, storage of contaminated materials and security and site closeouts.  If one of such activities accounts for 50 percent or more of a concern's total revenues, employees, or other related factors, the concern's primary industry is that of the particular industry and not the Environmental Remediation Services Industry.`
-        //         break;
-        //     default:
-        //         specialText = 'Your business is classified in a special NAICS code, but we do not recognize this special case.'
-        // }
     }
 
 
     let resultPage = function(renderedResult) {
 
-        // if (small) {
-        //     renderedResult = `<div class="flex">
-        //                         <span>${currentNAICS.id} <br> ${currentNAICS.description} </span>
-        //                         <span>Small Business Size Standards <br> ${calculateLimit()}</span>
-        //                         <span>YES</span>
-        //                       </div>
-        //                       <p id="success text">You may be eligible to participate in an SBA contracting program.</p>`
-        // } else {
-        //     renderedResult = `<div class="flex">
-        //                         <span>${currentNAICS.id} <br> ${currentNAICS.description} </span>
-        //                         <span>Small Business Size Standards <br> ${calculateLimit()}</span>
-        //                         <span>NO</span>
-        //                       </div>
-        //                       <p id="failure text">Your business is too large to meet the current small size standards.</p>`
-        // }
+        let adviceString = '';
+
+        if (renderedResult.includes('YES')) {
+            adviceString = '<p id="success text">You may be eligible to participate in an <a href="https://www.sba.gov/contracting">SBA contracting program</a>.</p>';
+        } else {
+            adviceString = '<p id="failure text">Your business is too large to meet the current small size standards.</p>'
+        }
 
         return `<div class="width70">
                     <h2>Are you a small business eligible for government contracting?</h2>
@@ -352,6 +348,7 @@ let sizeStandards = (function() {
                     </div>
                     <br>
                     ${renderedResult}
+                    ${adviceString}
                     <div class="flex">
                         <div class="border">
                             <p>Learn more about SBA small business size standards.</p>
@@ -381,7 +378,7 @@ let sizeStandards = (function() {
                         </div>
 
                     </div>
-                    <form action="javascript:navigate('search');">
+                    <form action="javascript:navigate('start');">
                         <input class="button" type="submit" value="Start Over" />
                     </form>
                 </div>`;
@@ -428,7 +425,6 @@ let sizeStandards = (function() {
 
     public.setCompanySize = function(type) {
         let inputElement = document.querySelector('.input-number');
-        console.debug(inputElement);
 
         switch (type) {
             case 'employee':
@@ -457,6 +453,8 @@ let sizeStandards = (function() {
                 companyOilBarrels = null;
                 companyRevenue = null;
                 currentNAICS = [];
+
+                console.debug(companyEmployees, companyOilBarrels, companyRevenue, currentNAICS);
 
                 containerElement.innerHTML = startPage();
                 break;

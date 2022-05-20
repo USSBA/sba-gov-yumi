@@ -106,20 +106,20 @@ caption {
 }
 
 .button {
+    appearance: none;
     background-color: #c00;
     color: #fff;
-    font-size: 22px;
-    padding: 17px 22px;
-    appearance: none;
     border: 0;
     border-radius: 0;
     cursor: pointer;
     display: inline-block;
     font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.6px;
     line-height: 1;
+    padding: 17px 22px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -200,6 +200,10 @@ caption {
     line-height: 1.5;
     margin-bottom: 1.1rem;
     text-align: center;
+}
+
+.result {
+    border-bottom: 1px solid black;
 }
 
 .width50 {
