@@ -1,0 +1,1 @@
+console.log('Start.js loaded');
