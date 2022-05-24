@@ -12,7 +12,7 @@ var hydrator = (function() {
      * @return {String}        The 
      */
     var styleLetterGrade = function(grade) {
-        const letterGradeBlock = document.querySelector('.grade');
+        let letterGradeBlock = document.querySelector('.grade');
         let gradeFormatted = grade.replace(/[\W_]+/g, '');
         let gradeColor = '#E2EFD9';
 
@@ -71,8 +71,9 @@ var hydrator = (function() {
     }
 
 
-    public.hydrate = function(agencyData, letterElement) {
+    public.hydrate = function(agencyData) {
         hydrateDataElements(agencyData);
+        console.log(agencyData);
         styleLetterGrade(agencyData.agency_grade);
     }
 

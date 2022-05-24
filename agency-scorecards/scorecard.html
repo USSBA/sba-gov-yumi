@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Individual Scorecard</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="vendor/chart.js" defer></script>
+    <script type="text/javascript" src="vendor/chart.js"></script>
     <!-- Revealing Module Pattern: https://vanillajstoolkit.com/boilerplates/revealing-module-pattern/ -->
     <script type="text/javascript" src="charter.js"></script>
     <script type="text/javascript" src="hydrator.js"></script>
@@ -17,13 +17,20 @@
         // loader.getAgencyData(acronym) - filters the entire year for a given agency
     </script>
     <script type="text/javascript">
-        loader.init();
+        let newAgency;
+        let agencyData = loader.init().then((data) => {
+            charter.init();
+            hydrator.hydrate(data);
+            charter.hydrateCharts(data);
+        });
 
         // This is the only functional piece of code
         function loadScorecard() {
-            let newAgency = document.getElementById("selectedAgency").value;
-            let agencyData = loader.getAgencyData(newAgency);
-            hydrator.hydrate(agencyData, letterGradeBlock);
+            charter.destroyCharts();
+            newAgency = document.getElementById("selectedAgency").value;
+            agencyData = loader.getAgencyData(newAgency);
+            hydrator.hydrate(agencyData);
+            charter.hydrateCharts(agencyData);
         }
     </script>
 </head>

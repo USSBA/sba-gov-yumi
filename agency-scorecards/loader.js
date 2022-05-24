@@ -98,6 +98,8 @@ let loader = (function() {
         scorecardData = await fetchScorecardData(year);
 
         agencyData = public.getAgencyData(agency);
+
+        return agencyData;
     };
 
     // Return the Public APIs
