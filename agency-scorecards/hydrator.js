@@ -72,8 +72,8 @@ var hydrator = (function() {
 
 
     public.hydrate = function(agencyData) {
-        hydrateDataElements(agencyData);
         console.log(agencyData);
+        hydrateDataElements(agencyData);
         styleLetterGrade(agencyData.agency_grade);
     }
 
