@@ -8,10 +8,10 @@ New data should only be accepted in the agreed upon .XLSX format.
 4. Upload file
 5. Save as .JSON
 
-This should product an array of JSON with individual objects, each one representing an agency.
+This should produce an array of JSON with individual objects, each one representing an agency.
 
 ### Sample Data
-Here is an example of the expected fields and formats/sample data:
+Here is an example of the expected fields and formats/sample data for one (1) agency:
 
 ```
 agency_grade: "A+"
@@ -167,3 +167,8 @@ sub_wosb_pfy_achievement: "13.10%"
 
 # Development and Setup
 There's nothing to install, no scripts to run, or dependencies to verify.  It's all vanilla JavaScript on top of regular old HTML and CSS.  The only dependency is [Chart.js](https://www.chartjs.org/), which we have downloaded manually and committed to this repository.
+
+1. Clone this repository
+2. Open a web browser to folder
+3. You should [understand CORS](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/) before you proceed.
+4. Either change JavaScript fetch function to use data locally or consider using [a development plugin in an alternate browser](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US) that disables CORS.
