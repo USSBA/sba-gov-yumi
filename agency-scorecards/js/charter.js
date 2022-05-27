@@ -1,6 +1,15 @@
 let charter = (function() {
 
-    // Charts
+    // Variables
+
+    // Charts (HTML DOM elements)
+    let primeBarChart;
+    let primeLineChart;
+    let subBarChart;
+    let subLineChart;
+    let comparisonBarChart;
+
+    // Charts (JavaScript objects)
     let primeChartBar;
     let primeChartLine;
     let subChartBar;
@@ -32,14 +41,6 @@ let charter = (function() {
     }
 
     public.hydrateCharts = function(chartData) {
-
-        // Gather DOM Canvas elements
-        let primeBarChart = document.getElementById('primeBarChart');
-        let primeLineChart = document.getElementById('primeLineChart');
-        let subBarChart = document.getElementById('subBarChart');
-        let subLineChart = document.getElementById('subLineChart');
-        let comparisonBarChart = document.getElementById('comparisonBarChart');
-
         // Prime Charts
         // https://stackoverflow.com/questions/28180871/grouped-bar-charts-in-chart-js
 
@@ -474,8 +475,14 @@ let charter = (function() {
         return chartData;
     }
 
-    public.init = function() {
+    public.init = function(pBC, pLC, sBC, sLC, cBC) {
         console.log("Charter initialized!");
+        // Gather DOM Canvas elements
+        primeBarChart = pBC;
+        primeLineChart = pLC;
+        subBarChart = sBC;
+        subLineChart = sLC;
+        comparisonBarChart = cBC;
     }
 
     return public;

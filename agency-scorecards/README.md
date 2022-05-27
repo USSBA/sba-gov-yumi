@@ -171,4 +171,4 @@ There's nothing to install, no scripts to run, or dependencies to verify.  It's 
 1. Clone this repository
 2. Open a web browser to folder
 3. You should [understand CORS](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/) before you proceed.
-4. Either change JavaScript fetch function to use data locally or consider using [a development plugin in an alternate browser](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US) that disables CORS.
+4. Either change JavaScript fetch() to use data locally or consider using [a development plugin](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US) that disables CORS.

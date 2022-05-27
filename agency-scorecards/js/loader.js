@@ -92,8 +92,7 @@ let loader = (function() {
     public.init = async function() {
         let currentParams = getParams();
         let { agency = 'GW', year = 2021 } = currentParams;
-        console.debug(`agency: ${agency}, year: ${year}`);
-        updateURL(agency, year);
+        console.debug(`loader.js initialized with agency: ${agency}, year: ${year}`);
 
         scorecardData = await fetchScorecardData(year);
 

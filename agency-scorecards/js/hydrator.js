@@ -2,6 +2,9 @@ var hydrator = (function() {
 
     // Variables
 
+    let letterGradeBlock;
+    let mainElement;
+
     var public = {};
 
     // Private Methods
@@ -11,8 +14,7 @@ var hydrator = (function() {
      * @param  {String} grade  The raw grade found in the data
      * @return {String}        The 
      */
-    var styleLetterGrade = function(grade) {
-        let letterGradeBlock = document.querySelector('.grade');
+    var styleLetterGrade = function(grade, gradeElement) {
         let gradeFormatted = grade.replace(/[\W_]+/g, '');
         let gradeColor = '#E2EFD9';
 
@@ -36,7 +38,7 @@ var hydrator = (function() {
                 console.warn(`styleLetterGrade(grade = ${grade})`, `Unable to recognize letter when gradeFormatted = ${gradeFormatted}.`);
         }
 
-        letterGradeBlock.setAttribute("style", `background-color: ${gradeColor};`);
+        gradeElement.setAttribute("style", `background-color: ${gradeColor};`);
         return gradeFormatted;
     }
 
@@ -49,7 +51,7 @@ var hydrator = (function() {
 
             // Gather list of HTML elements with corresponding data attribute
             // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
-            let nodeList = document.querySelectorAll(`[data-${key}]`);
+            let nodeList = mainElement.querySelectorAll(`[data-${key}]`);
 
             if (nodeList.length > 0) {
 
@@ -65,7 +67,7 @@ var hydrator = (function() {
 
         }
 
-        console.debug(`Unable to locate HTML elements with data- attributes: ${dataMissing}`)
+        console.debug(`Unable to locate HTML elements with data- attributes: ${dataMissing}`);
 
         return dataMissing;
     }
@@ -74,7 +76,12 @@ var hydrator = (function() {
     public.hydrate = function(agencyData) {
         console.log(agencyData);
         hydrateDataElements(agencyData);
-        styleLetterGrade(agencyData.agency_grade);
+        styleLetterGrade(agencyData.agency_grade, letterGradeBlock);
+    }
+
+    public.init = function(lGB, mE) {
+        letterGradeBlock = lGB;
+        mainElement = mE;
     }
 
     // Return the Public APIs

@@ -6,32 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Individual Scorecard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="vendor/chart.js"></script>
+    <link rel="stylesheet" href="css/scorecard.css">
+    <script type="text/javascript" src="js/vendor/chart.js"></script>
     <!-- Revealing Module Pattern: https://vanillajstoolkit.com/boilerplates/revealing-module-pattern/ -->
-    <script type="text/javascript" src="charter.js"></script>
-    <script type="text/javascript" src="hydrator.js"></script>
-    <script type="text/javascript" src="loader.js">
+    <script type="text/javascript" src="js/charter.js" async></script>
+    <script type="text/javascript" src="js/hydrator.js" async></script>
+    <script type="text/javascript" src="js/loader.js" async>
         // loader module provides data fetching and filtering, browser history updates
         // loader.init() - downloads the scorecard
         // loader.getAgencyData(acronym) - filters the entire year for a given agency
-    </script>
-    <script type="text/javascript">
-        let newAgency;
-        let agencyData = loader.init().then((data) => {
-            charter.init();
-            hydrator.hydrate(data);
-            charter.hydrateCharts(data);
-        });
-
-        // This is the only functional piece of code
-        function loadScorecard() {
-            charter.destroyCharts();
-            newAgency = document.getElementById("selectedAgency").value;
-            agencyData = loader.getAgencyData(newAgency);
-            hydrator.hydrate(agencyData);
-            charter.hydrateCharts(agencyData);
-        }
     </script>
 </head>
 
@@ -99,7 +82,7 @@
         <div class="overview">
             <div class="title">
                 <h1 data-department_friendly_name>
-                    Department of Commerce
+                    Department of
                 </h1>
                 <span class="subtitle">FY<span data-fiscal_year>####</span> Small Business Procurement Scorecard</span>
             </div>
@@ -637,6 +620,51 @@
             </ul>
         </div>
     </footer>
+    <script type="text/javascript">
+        // Collect all DOM elements used for future Charts
+        let primeBarChart = document.getElementById('primeBarChart');
+        let primeLineChart = document.getElementById('primeLineChart');
+        let subBarChart = document.getElementById('subBarChart');
+        let subLineChart = document.getElementById('subLineChart');
+        let comparisonBarChart = document.getElementById('comparisonBarChart');
+
+        // Initialize the Charter module with references to DOM elements
+        charter.init(primeBarChart, primeLineChart, subBarChart, subLineChart, comparisonBarChart);
+
+        // Capture DOM element for Letter Grade and container element for data- elements
+        let letterGradeBlock = document.querySelector('.grade');
+        let mainElement = document.querySelector('main');
+
+        // Initialize the Hydrator module with references to DOM elements
+        hydrator.init(letterGradeBlock, mainElement);
+
+        // Variable to store input from Agency select box
+        let newAgency;
+
+        // Variable to store the entire scorecard data set for the fiscal year
+        let agencyData = loader.init().then((data) => {
+            hydrator.hydrate(data);
+            charter.hydrateCharts(data);
+        });
+
+        // Run on selection of new Agency
+        function loadScorecard() {
+            // Capture input from Agency select box
+            newAgency = document.getElementById("selectedAgency").value;
+
+            // Filter the entire scorecard data set for just this agency
+            agencyData = loader.getAgencyData(newAgency);
+
+            // Hydrate DOM with new data
+            hydrator.hydrate(agencyData);
+
+            // Destroy existing Charts
+            charter.destroyCharts();
+
+            // Re-draw the Charts with new data
+            charter.hydrateCharts(agencyData);
+        }
+    </script>
 </body>
 
 </html>
