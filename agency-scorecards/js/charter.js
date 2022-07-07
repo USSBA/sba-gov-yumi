@@ -212,7 +212,7 @@ let charter = (function() {
                         display: true,
                         fullSize: false,
                         position: 'top',
-                        text: 'Prime Contracting Achievement',
+                        text: 'Prime Contracting Achievement Trend',
                     },
                     legend: {
                         display: true,
@@ -385,7 +385,7 @@ let charter = (function() {
                         display: true,
                         fullSize: false,
                         position: 'top',
-                        text: 'Subcontracting Achievement',
+                        text: 'Subcontracting Achievement Trend',
                     },
                     legend: {
                         display: true,
@@ -426,7 +426,9 @@ let charter = (function() {
         const comparisonDataBar = {
             labels: labelsBar,
             datasets: [{
-                label: `${chartData.fiscal_year_previous} Count`,
+                label: `2020 Count`,
+                // When data model is updated to include previous fiscal year, use this:
+                // label: `${chartData.fiscal_year_previous} Count`,
                 backgroundColor: 'rgba(147, 0, 0, 0.2)',
                 borderColor: 'rgba(147, 0, 0, 1)',
                 data: comparisonPFYCount,

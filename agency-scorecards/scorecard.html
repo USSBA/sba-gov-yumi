@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="css/scorecard.css">
     <script type="text/javascript" src="js/vendor/chart.js"></script>
     <!-- Revealing Module Pattern: https://vanillajstoolkit.com/boilerplates/revealing-module-pattern/ -->
-    <script type="text/javascript" src="js/charter.js" async></script>
-    <script type="text/javascript" src="js/hydrator.js" async></script>
-    <script type="text/javascript" src="js/loader.js" async>
+    <script type="text/javascript" src="js/charter.js"></script>
+    <script type="text/javascript" src="js/hydrator.js"></script>
+    <script type="text/javascript" src="js/loader.js">
         // loader module provides data fetching and filtering, browser history updates
         // loader.init() - downloads the scorecard
         // loader.getAgencyData(acronym) - filters the entire year for a given agency
@@ -47,31 +47,31 @@
             <form action="javascript:loadScorecard()">
                 <label>Select an Agency
                     <select id="selectedAgency" style="font-size: 16px;">
+                        <option value="USAID">Agency for International Development</option>
                         <option value="USDA">Department of Agriculture</option>
                         <option value="DOC">Department of Commerce</option>
+                        <option value="Education">Department of Education</option>
+                        <option value="DOE">Department of Energy</option>
+                        <option value="DOD">Department of Defense</option>
+                        <option value="HHS">Department of Health and Human Services</option>
+                        <option value="DHS">Department of Homeland Security</option>
+                        <option value="HUD">Department of Housing and Urban Development</option>
                         <option value="DOI">Department of Interior</option>
                         <option value="DOJ">Department of Justice</option>
                         <option value="DOL">Department of Labor</option>
                         <option value="STATE">Department of State</option>
-                        <option value="Treasury">Department of the Treasury</option>
-                        <option value="OPM">Office of Personnel Management</option>
-                        <option value="SSA">Social Security Administration</option>
-                        <option value="NRC">Nuclear Regulatory Commission</option>
-                        <option value="VA">Department of Veterans Affairs</option>
-                        <option value="GSA">General Services Administration</option>
-                        <option value="NSF">National Science Foundation</option>
-                        <option value="EPA">Environmental Protection Agency</option>
                         <option value="DOT">Department of Transportation</option>
-                        <option value="DHS">Department of Homeland Security</option>
-                        <option value="USAID">Agency for International Development</option>
-                        <option value="SBA">Small Business Administration</option>
-                        <option value="HHS">Department of Health and Human Services</option>
-                        <option value="NASA">National Aeronautics and Space Administration</option>
-                        <option value="HUD">Department of Housing and Urban Development</option>
-                        <option value="DOE">Department of Energy</option>
-                        <option value="Education">Department of Education</option>
-                        <option value="DOD">Department of Defense</option>
+                        <option value="Treasury">Department of the Treasury</option>
+                        <option value="VA">Department of Veterans Affairs</option>
+                        <option value="EPA">Environmental Protection Agency</option>
+                        <option value="GSA">General Services Administration</option>
                         <option value="GW">Government Wide</option>
+                        <option value="NASA">National Aeronautics and Space Administration</option>
+                        <option value="NSF">National Science Foundation</option>
+                        <option value="NRC">Nuclear Regulatory Commission</option>
+                        <option value="OPM">Office of Personnel Management</option>
+                        <option value="SBA">Small Business Administration</option>
+                        <option value="SSA">Social Security Administration</option>
                     </select>
                 </label>
 
@@ -108,7 +108,7 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th><span data-fiscal_year_previous>PYYYY</span> Achievement</th>
+                            <th><span data-fiscal_year_previous>2020</span> Achievement</th>
                             <th><span data-fiscal_year>YYYY</span> Goal</th>
                             <th><span data-fiscal_year>YYYY</span> Achievement</th>
                             <th>Dollars</th>
@@ -164,6 +164,8 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- This will need to be marked with a data- attribute when the data set updates to handle it -->
+                <p>Prime contracting data as of February 22, 2022.</p>
             </details>
 
             <div class="section-charts">
@@ -174,7 +176,6 @@
                     <canvas id="primeLineChart"></canvas>
                 </div>
             </div>
-
         </section>
 
         <section>
@@ -190,7 +191,7 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th><span data-fiscal_year_previous>PYYYY</span> Achievement</th>
+                            <th><span data-fiscal_year_previous>2020</span> Achievement</th>
                             <th><span data-fiscal_year>YYYY</span> Goal</th>
                             <th><span data-fiscal_year>YYYY</span> Achievement</th>
                             <th>Dollars</th>
@@ -246,6 +247,8 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- This will need to be marked with a data- attribute when the data set updates to handle it -->
+                <p>Subcontracting data as of March 15, 2022.</p>
             </details>
             <div class="section-charts">
                 <div>
@@ -409,7 +412,7 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th><span data-fiscal_year_previous>PYYYY</span> Count</th>
+                            <th><span data-fiscal_year_previous>2020</span> Count</th>
                             <th><span data-fiscal_year>YYYY</span> Count</th>
                             <th>Percent Change</th>
                             <th>Performance</th>
@@ -530,7 +533,7 @@
             </div>
         </section>
 
-        <a href="landing.html "><button>Return to Scorecard List</button></a>
+        <a href="index.html "><button>Return to Scorecard List</button></a>
     </main>
 
     <footer>
@@ -632,11 +635,13 @@
         charter.init(primeBarChart, primeLineChart, subBarChart, subLineChart, comparisonBarChart);
 
         // Capture DOM element for Letter Grade and container element for data- elements
+        let selectElement = document.querySelector('#selectedAgency');
+        console.log(selectElement);
         let letterGradeBlock = document.querySelector('.grade');
         let mainElement = document.querySelector('main');
 
         // Initialize the Hydrator module with references to DOM elements
-        hydrator.init(letterGradeBlock, mainElement);
+        hydrator.init(selectElement, letterGradeBlock, mainElement);
 
         // Variable to store input from Agency select box
         let newAgency;

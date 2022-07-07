@@ -2,12 +2,17 @@ var hydrator = (function() {
 
     // Variables
 
+    let selectElement;
     let letterGradeBlock;
     let mainElement;
 
     var public = {};
 
     // Private Methods
+
+    var selectAgency = function() {
+        selectElement.querySelect()
+    }
 
     /*!
      * Style the background color of the div representing an agency's grade
@@ -79,7 +84,8 @@ var hydrator = (function() {
         styleLetterGrade(agencyData.agency_grade, letterGradeBlock);
     }
 
-    public.init = function(lGB, mE) {
+    public.init = function(sE, lGB, mE) {
+        selectElement = sE;
         letterGradeBlock = lGB;
         mainElement = mE;
     }
