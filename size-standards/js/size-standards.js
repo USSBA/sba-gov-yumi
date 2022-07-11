@@ -175,6 +175,7 @@ let sizeStandards = (function() {
                 oilLimit = '';
             }
 
+
             let exceptions = '';
 
             let listFiltered = NAICS.filter(function(value) {
@@ -186,8 +187,7 @@ let sizeStandards = (function() {
                 }
             })
 
-            console.debug(listFiltered);
-            if (listFiltered) {
+            if (listFiltered.length) {
                 let exceptionHTML = '';
 
                 listFiltered.forEach(function(exception) {
