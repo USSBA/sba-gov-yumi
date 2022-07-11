@@ -105,19 +105,19 @@ let sizeStandards = (function() {
 
     let generateResults = function() {
         let results = [];
-        console.log('Printing all current NAICS');
+        console.debug('Printing all current NAICS');
 
         currentNAICS.forEach(function(code) {
-            console.log(code);
+            console.debug(code);
 
             let fullCode = getNAICS(code);
 
-            console.log(fullCode);
+            console.debug(fullCode);
 
             // Special case for Petroleum Refineries
             if (fullCode.id === '324110') {
                 if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
-                    console.log(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
+                    console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
                     fullCode.isSmall = true;
                     results.push(fullCode);
                     return;
@@ -126,7 +126,7 @@ let sizeStandards = (function() {
 
             if (fullCode.employeeCountLimit) {
                 if (companyEmployees <= fullCode.employeeCountLimit) {
-                    console.log(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
+                    console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
                     fullCode.isSmall = true;
                     results.push(fullCode);
                     return;
@@ -135,9 +135,9 @@ let sizeStandards = (function() {
 
             if (fullCode.revenueLimit) {
                 let realDollarLimit = fullCode.revenueLimit * 1000000;
-                console.log(realDollarLimit);
+
                 if (companyRevenue <= realDollarLimit) {
-                    console.log(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
+                    console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
                     results.push(fullCode);
                     return;
@@ -147,16 +147,16 @@ let sizeStandards = (function() {
             results.push(fullCode);
         })
 
-        console.log('End determining size')
+        console.debug('End determining size')
 
         let resultsHTML = '';
 
-        console.log("Results: " + results.length)
-        console.log(results);
+        console.debug("Results: " + results.length)
+        console.debug(results);
 
         results.forEach(function(result) {
-            console.log("Result:")
-            console.log(result);
+            console.debug("Result:")
+            console.debug(result);
             let sizeLimit = calculateLimit(result);
             let sizeString;
 
@@ -199,33 +199,33 @@ let sizeStandards = (function() {
                                         `;
         })
 
-        console.log("ResultsHTML:")
-        console.log(resultsHTML);
+        console.debug("ResultsHTML:")
+        console.debug(resultsHTML);
         return resultsHTML;
     }
 
     let calculateLimit = function(code) {
-        console.log('calculateLimit()');
-        console.log(code);
+        console.debug('calculateLimit()');
+        console.debug(code);
 
         if (code.employeeCountLimit != null) {
-            console.log('Returning ' + code.employeeCountLimit);
+            console.debug('Returning ' + code.employeeCountLimit);
             return formatEmployeeCountLimit(code.employeeCountLimit) + ' employees';
         }
 
         if (code.revenueLimit != null) {
-            console.log('Returning ' + code.revenueLimit);
+            console.debug('Returning ' + code.revenueLimit);
             return formatRevenueLimit(code.revenueLimit) + ' annual revenue';
         }
 
     }
 
     let shouldAskEmployees = function() {
-        console.log('shouldAskEmployees()')
+        console.debug('shouldAskEmployees()')
         let employeeQuestion = false;
 
         currentNAICS.forEach(function(code) {
-            console.log(getNAICS(code).employeeCountLimit);
+            console.debug(getNAICS(code).employeeCountLimit);
             if (getNAICS(code).employeeCountLimit) {
                 employeeQuestion = true;
             }
@@ -235,13 +235,13 @@ let sizeStandards = (function() {
     }
 
     let shouldAskRevenue = function() {
-        console.log('shouldAskRevenue()')
+        console.debug('shouldAskRevenue()')
         let revenueQuestion = false;
 
         currentNAICS.forEach(function(code) {
-            console.log(getNAICS(code).revenueLimit);
+            console.debug(getNAICS(code).revenueLimit);
             if (getNAICS(code).revenueLimit) {
-                console.log('You should ask for Revenue!!')
+                console.debug('You should ask for Revenue!!')
                 revenueQuestion = true;
             }
         })
@@ -250,13 +250,13 @@ let sizeStandards = (function() {
     }
 
     let shouldAskOilBarrels = function() {
-        console.log('shouldAskOilBarrels()')
+        console.debug('shouldAskOilBarrels()')
         let oilBarrels = false;
 
         currentNAICS.forEach(function(code) {
-            console.log(getNAICS(code).id);
+            console.debug(getNAICS(code).id);
             if (getNAICS(code).id === '324110') {
-                console.log('You should ask for Oil Barrels!!')
+                console.debug('You should ask for Oil Barrels!!')
                 oilBarrels = true;
             }
         })
@@ -444,7 +444,7 @@ let sizeStandards = (function() {
 
         // Add value to array to-be-searched
         currentNAICS.push(naics);
-        console.log(currentNAICS);
+        console.debug(currentNAICS);
 
         // Clear flash message
         flash();
@@ -553,7 +553,7 @@ let sizeStandards = (function() {
             case 'result':
 
                 let sizeResult = generateResults(currentNAICS);
-                console.log(sizeResult);
+                console.debug(sizeResult);
 
                 containerElement.innerHTML = resultPage(sizeResult);
                 break;
