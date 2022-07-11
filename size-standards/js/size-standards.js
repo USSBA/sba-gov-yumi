@@ -445,6 +445,10 @@ let sizeStandards = (function() {
         // Add value to array to-be-searched
         currentNAICS.push(naics);
         console.log(currentNAICS);
+
+        // Clear flash message
+        flash();
+
         return currentNAICS;
     }
 
@@ -452,12 +456,17 @@ let sizeStandards = (function() {
         let flashElement = document.querySelector('#flash');
 
         if (flashElement) {
-            flashElement.textContent = msg;
-            flashElement.classList.remove('hidden');
-            return true;
-        } else {
-            return false;
+            if (msg) {
+                flashElement.textContent = msg;
+                flashElement.classList.remove('hidden');
+                return true;
+            } else {
+                flashElement.classList.add('hidden');
+                return true;
+            }
         }
+
+        return false;
     }
 
     public.setCompanySize = function(type) {
@@ -511,6 +520,12 @@ let sizeStandards = (function() {
 
             case 'size':
                 console.debug(currentNAICS);
+
+                if (!currentNAICS.length) {
+                    this.render('search');
+                    flash('You must select at least one NAICS code.');
+                    break;
+                }
 
                 if (!companyEmployees) {
                     if (shouldAskEmployees()) {
