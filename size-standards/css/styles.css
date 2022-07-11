@@ -8,6 +8,10 @@ body {
     font-size: 16px;
 }
 
+details>p {
+    margin-top: 1rem;
+}
+
 footer ul {
     text-decoration: none;
     list-style: none;
@@ -76,7 +80,7 @@ li {
 
 section {
     text-align: left;
-    max-width: 65ch;
+    max-width: 85ch;
 }
 
 table {
@@ -155,6 +159,10 @@ caption {
     margin-bottom: 1rem;
 }
 
+.flex>* {
+    width: 100%;
+}
+
 .hidden {
     display: none;
 }
@@ -171,7 +179,7 @@ caption {
     margin-bottom: .75rem;
     padding: .5rem;
     transition: border-color 150ms ease;
-    width: 15ch;
+    width: 20ch;
 }
 
 .logo {
@@ -204,6 +212,7 @@ caption {
 
 .result {
     border-bottom: 1px solid black;
+    padding: 1rem 0;
 }
 
 .width50 {

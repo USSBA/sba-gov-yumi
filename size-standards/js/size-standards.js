@@ -16,7 +16,7 @@ let sizeStandards = (function() {
 
     let apiURLs = {
         dev: 'https://sba-gov-yumi.s3.amazonaws.com/size-standards/data/naics.json',
-        prod: 'https://www.sba.gov/naics.json'
+        prod: 'https://www.sba.gov/naics'
     }
 
     // Methods
@@ -38,7 +38,9 @@ let sizeStandards = (function() {
         }).then(function(data) {
             // data is JSON of the response
             console.debug(`fetchNAICS() succcess`);
+
             NAICS = data;
+
             return data;
         }).catch(function(err) {
             // err is the raw response
@@ -70,7 +72,26 @@ let sizeStandards = (function() {
 
     // Creates list of Strings combining NAICS codes + descriptions for autocomplete
     let generateAutocompleteList = function() {
-        let listFormatted = NAICS.map((code) => {
+
+        // Remove exceptions and empty rows from the data
+        let listFiltered = NAICS.filter(function(value, index, arr) {
+
+            // Exceptions
+            if (value.id.includes('_Except')) {
+                return false;
+            }
+
+            // Empty rows
+            if (value.id === '') {
+                return false;
+            }
+
+            return true;
+        })
+
+        // Format list into 'id - decription' for text searching on either
+        let listFormatted = listFiltered.map((code) => {
+
             let codeItem = {
                 label: `${code.id} - ${code.description}`,
                 value: code.id
@@ -79,7 +100,6 @@ let sizeStandards = (function() {
             return codeItem;
         });
 
-        console.debug(listFormatted);
         return listFormatted;
     }
 
@@ -155,11 +175,28 @@ let sizeStandards = (function() {
                 oilLimit = '';
             }
 
-            resultsHTML = resultsHTML + `<div class="flex result">
-                                            <span><strong>${result.id}</strong> <br> ${result.description} </span>
-                                            <span><strong>Size Standard</strong> <br> ${sizeLimit} <br> ${oilLimit}</span>
-                                            <span>${sizeString}</span>
-                                        </div>`;
+            let footnote = '';
+
+            if (result.footnote) {
+                footnote = `<details>
+                                <summary>Footnote applies</summary>
+                                <p>
+                                ${result.footnote}
+                                </p>
+                            </details>`
+            }
+
+            resultsHTML = resultsHTML + `
+                                        <div class="result">
+                                            <div class="flex">
+                                                <span><strong>${result.id}</strong> <br> ${result.description} </span>
+                                                <span><strong>Size Standard</strong> <br> ${sizeLimit} <br> ${oilLimit}</span>
+                                                <span>${sizeString}</span>
+                                                <br>
+                                            </div>
+                                            ${footnote}
+                                        </div>
+                                        `;
         })
 
         console.log("ResultsHTML:")
@@ -351,8 +388,8 @@ let sizeStandards = (function() {
                     ${adviceString}
                     <div class="flex">
                         <div class="border">
-                            <p>Learn more about SBA small business size standards.</p>
-                            <h3>SBA Office of Size Standards</h3>
+                            <p>Learn more about small business size standards.</p>
+                            <h3>Office of Size Standards</h3>
                             <div>
                                 <i className="fa fa-map-marker" aria-hidden="true"></i>
                                 <p>409 3rd Street, SW</p>
@@ -365,7 +402,7 @@ let sizeStandards = (function() {
                         </div>
                         <div class="border">
                             <p>Find out how you can sell to the Federal Government.</p>
-                            <h3>SBA Office of Contracting</h3>
+                            <h3>Office of Contracting</h3>
                             <div>
                                 <i className="fa fa-map-marker" aria-hidden="true"></i>
                                 <p>409 3rd Street, SW</p>
@@ -454,8 +491,6 @@ let sizeStandards = (function() {
                 companyRevenue = null;
                 currentNAICS = [];
 
-                console.debug(companyEmployees, companyOilBarrels, companyRevenue, currentNAICS);
-
                 containerElement.innerHTML = startPage();
                 break;
 
@@ -521,12 +556,7 @@ let sizeStandards = (function() {
             let url = window.location.hostname.includes('sba.gov') ? apiURLs.prod : apiURLs.dev;
             console.debug(`Calling API at: ${url}`)
             NAICS = fetchNAICS(url);
-            console.debug(NAICS);
         }
-
-        // URL Detector
-        // let params = getParams();
-        // console.debug(`URL detected.  Query String(s) for stage: ${params.step} , for naics: ${params.naics} , with employeeLimit: ${params.employeeLimit} , with revenueLimit: ${params.revenueLimit}`);
 
         // HTML Renderer
         containerElement = ele;
