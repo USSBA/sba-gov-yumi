@@ -175,11 +175,44 @@ let sizeStandards = (function() {
                 oilLimit = '';
             }
 
+            let exceptions = '';
+
+            let listFiltered = NAICS.filter(function(value) {
+                // Exceptions
+                if (value.id.includes('_Except')) {
+                    if (value.id.startsWith(result.id)) {
+                        return true;
+                    }
+                }
+            })
+
+            console.debug(listFiltered);
+            if (listFiltered) {
+                let exceptionHTML = '';
+
+                listFiltered.forEach(function(exception) {
+                    exceptionHTML = exceptionHTML + `
+                                                    <div class="result">
+                                                        <div class="flex">
+                                                            <span><strong>${exception.id}</strong> <br> ${exception.description} </span>
+                                                            <span><strong>Size Standard</strong> <br>  <br> ${oilLimit}</span>
+                                                            <span></span>
+                                                            <br>
+                                                        </div>
+                                                    </div>`;
+                })
+
+                exceptions = `<details>
+                                <summary>Exceptions may apply</summary>
+                                ${exceptionHTML}
+                              </details>`;
+            }
+
             let footnote = '';
 
             if (result.footnote) {
                 footnote = `<details>
-                                <summary>Footnote applies</summary>
+                                <summary>Footnotes may apply</summary>
                                 <p>
                                 ${result.footnote}
                                 </p>
@@ -194,6 +227,7 @@ let sizeStandards = (function() {
                                                 <span>${sizeString}</span>
                                                 <br>
                                             </div>
+                                            ${exceptions}
                                             ${footnote}
                                         </div>
                                         `;
@@ -522,8 +556,12 @@ let sizeStandards = (function() {
                 console.debug(currentNAICS);
 
                 if (!currentNAICS.length) {
+
+                    // This will return the user to the search page!
+
                     this.render('search');
                     flash('You must select at least one NAICS code.');
+
                     break;
                 }
 
