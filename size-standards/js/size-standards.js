@@ -103,11 +103,10 @@ let sizeStandards = (function() {
         return listFormatted;
     }
 
-    let generateResults = function() {
-        let results = [];
-        console.debug('Printing all current NAICS');
+    let determineSizes = function(arr) {
+        let sizes = [];
 
-        currentNAICS.forEach(function(code) {
+        arr.forEach(function(code) {
             console.debug(code);
 
             let fullCode = getNAICS(code);
@@ -119,7 +118,7 @@ let sizeStandards = (function() {
                 if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
                     console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
                     fullCode.isSmall = true;
-                    results.push(fullCode);
+                    sizes.push(fullCode);
                     return;
                 }
             }
@@ -128,7 +127,7 @@ let sizeStandards = (function() {
                 if (companyEmployees <= fullCode.employeeCountLimit) {
                     console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
                     fullCode.isSmall = true;
-                    results.push(fullCode);
+                    sizes.push(fullCode);
                     return;
                 }
             }
@@ -139,13 +138,61 @@ let sizeStandards = (function() {
                 if (companyRevenue <= realDollarLimit) {
                     console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
-                    results.push(fullCode);
+                    sizes.push(fullCode);
                     return;
                 }
             }
 
-            results.push(fullCode);
+            sizes.push(fullCode);
         })
+
+        return sizes;
+    }
+
+    let generateResults = function() {
+        let results = determineSizes(currentNAICS);
+        console.debug('Printing all current NAICS');
+
+
+        // currentNAICS.forEach(function(code) {
+        //     console.debug(code);
+
+        //     let fullCode = getNAICS(code);
+
+        //     console.debug(fullCode);
+
+        //     // Special case for Petroleum Refineries
+        //     if (fullCode.id === '324110') {
+        //         if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
+        //             console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
+        //             fullCode.isSmall = true;
+        //             results.push(fullCode);
+        //             return;
+        //         }
+        //     }
+
+        //     if (fullCode.employeeCountLimit) {
+        //         if (companyEmployees <= fullCode.employeeCountLimit) {
+        //             console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
+        //             fullCode.isSmall = true;
+        //             results.push(fullCode);
+        //             return;
+        //         }
+        //     }
+
+        //     if (fullCode.revenueLimit) {
+        //         let realDollarLimit = fullCode.revenueLimit * 1000000;
+
+        //         if (companyRevenue <= realDollarLimit) {
+        //             console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
+        //             fullCode.isSmall = true;
+        //             results.push(fullCode);
+        //             return;
+        //         }
+        //     }
+
+        //     results.push(fullCode);
+        // })
 
         console.debug('End determining size')
 
