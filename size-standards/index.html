@@ -7,6 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Small Business Size Standards</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor/awesomplete.css" />
+
+    <script src="https://kit.fontawesome.com/c4140c4288.js" crossorigin="anonymous">
+        // This needs to be removed when an overall solution for these is decided upon
+    </script>
+    <script src="js/vendor/awesomplete.js" async>
+        // Auto-complete widget - https://projects.verou.me/awesomplete/
+    </script>
+    <script src="js/size-standards.js" type="text/javascript">
+        // render module provides navigation between sections
+        // render.init() - invoked after the DOM loads (see script tag at bottom of HTML), attaches to the id=render element
+        // render.render(page) - renders the next page or section in the flow
+        // loader module fetches NAICS data and exposes it
+    </script>
 </head>
 
 <body>
@@ -32,19 +46,15 @@
         </nav>
     </header>
     <main>
-        <section class="container" id="render">
+        <section class="container" id="render" title="main section">
             <h2 id="heading">Size Standards Tool</h2>
-            <form>
+            <form action="javascript:navigate('search');">
                 <img src="img/size-standards-ruler-business.png" alt="Illustration of a business being measured by rulers." />
                 <p class="question">Do you qualify as a small business for government contracting purposes?</p>
-                <a href="search.html">
-                    <submit class="button">Start</submit>
-                </a>
+                <p id="flash" class="hidden"></p>
+                <input class="button" type="submit" value="start">
             </form>
         </section>
-        <!-- <div class="container">
-
-        </div> -->
     </main>
     <footer>
         <div id="footer-menu">
@@ -133,6 +143,18 @@
             </ul>
         </div>
     </footer>
+    <script type="text/javascript">
+        let renderElement = document.querySelector('#render');
+        let naicsData = sizeStandards.init(renderElement);
+
+        function navigate(page) {
+            sizeStandards.render(page);
+        }
+
+        function setCompanySize(type) {
+            sizeStandards.setCompanySize(type);
+        }
+    </script>
 </body>
 
 </html>
