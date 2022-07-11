@@ -149,131 +149,93 @@ let sizeStandards = (function() {
         return sizes;
     }
 
+    let generateResultHTML = function(result) {
+        let resultHTML = '';
+        let sizeLimit = calculateLimit(result);
+        let sizeString;
+
+        if (result.isSmall) {
+            sizeString = '<i class="fa fa-check-circle" area-hidden="true" style="color: #609f00;;"></i><br>YES';
+        } else {
+            sizeString = '<i class="fa fa-times-circle" area-hidden="true" style="color: #e21234;"></i><br>NO';
+        }
+
+        let oilLimit = '';
+
+        if (result.id === '324110') {
+            oilLimit = "200,000 barrels";
+        } else {
+            oilLimit = '';
+        }
+
+        resultHTML = `<div class="flex">
+                        <span><strong>${result.id}</strong> <br> ${result.description} </span>
+                        <span><strong>Size Standard</strong> <br> ${sizeLimit} <br> ${oilLimit}</span>
+                        <span>${sizeString}</span>
+                        <br>
+                    </div>`;
+
+        return resultHTML;
+    }
+
+    let generateExceptionHTML = function(result) {
+        let exceptionHTML = '';
+        let exceptions = '';
+
+        let listFiltered = NAICS.filter(function(value) {
+            // Exceptions
+            if (value.id.includes('_Except')) {
+                if (value.id.startsWith(result.id)) {
+                    return true;
+                }
+            }
+        })
+
+        if (listFiltered.length) {
+            let exceptionHTML = '';
+
+            listFiltered.forEach(function(exception) {
+                exceptionHTML = exceptionHTML +
+            })
+
+            exceptions = `<details>
+                            <summary>Exceptions may apply</summary>
+                            ${exceptionHTML}
+                          </details>`;
+        }
+
+        return exceptionHTML;
+    }
+
+    let generateFootnoteHTML = function(result) {
+        let footnoteHTML = '';
+
+        if (result.footnote) {
+            footnoteHTML = `<details>
+                            <summary>Footnotes may apply</summary>
+                            <p>
+                            ${result.footnote}
+                            </p>
+                        </details>`
+        }
+
+        return footnoteHTML;
+    }
+
     let generateResults = function() {
         let results = determineSizes(currentNAICS);
-        console.debug('Printing all current NAICS');
-
-
-        // currentNAICS.forEach(function(code) {
-        //     console.debug(code);
-
-        //     let fullCode = getNAICS(code);
-
-        //     console.debug(fullCode);
-
-        //     // Special case for Petroleum Refineries
-        //     if (fullCode.id === '324110') {
-        //         if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
-        //             console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
-        //             fullCode.isSmall = true;
-        //             results.push(fullCode);
-        //             return;
-        //         }
-        //     }
-
-        //     if (fullCode.employeeCountLimit) {
-        //         if (companyEmployees <= fullCode.employeeCountLimit) {
-        //             console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
-        //             fullCode.isSmall = true;
-        //             results.push(fullCode);
-        //             return;
-        //         }
-        //     }
-
-        //     if (fullCode.revenueLimit) {
-        //         let realDollarLimit = fullCode.revenueLimit * 1000000;
-
-        //         if (companyRevenue <= realDollarLimit) {
-        //             console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
-        //             fullCode.isSmall = true;
-        //             results.push(fullCode);
-        //             return;
-        //         }
-        //     }
-
-        //     results.push(fullCode);
-        // })
-
-        console.debug('End determining size')
-
-        let resultsHTML = '';
-
         console.debug("Results: " + results.length)
         console.debug(results);
 
+        let resultsHTML = '';
+
         results.forEach(function(result) {
+
             console.debug("Result:")
             console.debug(result);
-            let sizeLimit = calculateLimit(result);
-            let sizeString;
-
-
-            if (result.isSmall) {
-                sizeString = '<i class="fa fa-check-circle" area-hidden="true" style="color: #609f00;;"></i><br>YES';
-            } else {
-                sizeString = '<i class="fa fa-times-circle" area-hidden="true" style="color: #e21234;"></i><br>NO';
-            }
-
-            let oilLimit = '';
-
-            if (result.id === '324110') {
-                oilLimit = "200,000 barrels";
-            } else {
-                oilLimit = '';
-            }
-
-
-            let exceptions = '';
-
-            let listFiltered = NAICS.filter(function(value) {
-                // Exceptions
-                if (value.id.includes('_Except')) {
-                    if (value.id.startsWith(result.id)) {
-                        return true;
-                    }
-                }
-            })
-
-            if (listFiltered.length) {
-                let exceptionHTML = '';
-
-                listFiltered.forEach(function(exception) {
-                    exceptionHTML = exceptionHTML + `
-                                                    <div class="result">
-                                                        <div class="flex">
-                                                            <span><strong>${exception.id}</strong> <br> ${exception.description} </span>
-                                                            <span><strong>Size Standard</strong> <br>  <br> ${oilLimit}</span>
-                                                            <span></span>
-                                                            <br>
-                                                        </div>
-                                                    </div>`;
-                })
-
-                exceptions = `<details>
-                                <summary>Exceptions may apply</summary>
-                                ${exceptionHTML}
-                              </details>`;
-            }
-
-            let footnote = '';
-
-            if (result.footnote) {
-                footnote = `<details>
-                                <summary>Footnotes may apply</summary>
-                                <p>
-                                ${result.footnote}
-                                </p>
-                            </details>`
-            }
 
             resultsHTML = resultsHTML + `
                                         <div class="result">
-                                            <div class="flex">
-                                                <span><strong>${result.id}</strong> <br> ${result.description} </span>
-                                                <span><strong>Size Standard</strong> <br> ${sizeLimit} <br> ${oilLimit}</span>
-                                                <span>${sizeString}</span>
-                                                <br>
-                                            </div>
                                             ${exceptions}
                                             ${footnote}
                                         </div>
