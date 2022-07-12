@@ -1,11 +1,8 @@
 html {
     color: #222;
     font-size: 1em;
-    /* 1 */
     line-height: 1.4;
-    /* 2 */
     -webkit-text-size-adjust: 100%;
-    /* 3 */
 }
 
 *::before,
@@ -186,7 +183,11 @@ td[data-peer_review_k21='1'] {
     background-color: #C4E9B3;
 }
 
-td[data-peer_review_k0*='.'],
+
+/* If the office ever wants to code partial (0 to 1 or any figure containing a decimal point) in yellow */
+
+
+/* td[data-peer_review_k0*='.'],
 td[data-peer_review_k1*='.'],
 td[data-peer_review_k2*='.'],
 td[data-peer_review_k3*='.'],
@@ -209,7 +210,7 @@ td[data-peer_review_k19*='.'],
 td[data-peer_review_k20*='.'],
 td[data-peer_review_k21*='.'] {
     background-color: #FFFFB3;
-}
+} */
 
 td[data-peer_review_k0='0'],
 td[data-peer_review_k1='0'],
