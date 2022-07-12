@@ -53,7 +53,7 @@ let charter = (function() {
             chartData.prime_sdb_cfy_goal,
             chartData.prime_sdvosb_cfy_goal,
             chartData.prime_hz_cfy_goal
-        ].map((goal) => parseInt(goal));
+        ].map((goal) => parseFloat(goal));
 
         const primeBarChartAchievements = [
             chartData.prime_sb_cfy_achievement,
@@ -61,7 +61,7 @@ let charter = (function() {
             chartData.prime_sdb_cfy_achievement,
             chartData.prime_sdvosb_cfy_achievement,
             chartData.prime_hz_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Define chart from data with format and colors and labels 
         const primeDataBar = {
@@ -128,7 +128,7 @@ let charter = (function() {
             chartData.prime_sb_pfy2_achievement,
             chartData.prime_sb_pfy_achievement,
             chartData.prime_sb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Women Owned Small Business
         const primeLineChartAchievementsWOSB = [
@@ -137,7 +137,7 @@ let charter = (function() {
             chartData.prime_wosb_pfy2_achievement,
             chartData.prime_wosb_pfy_achievement,
             chartData.prime_wosb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Disadvantaged
         const primeLineChartAchievementsSDB = [
@@ -146,7 +146,7 @@ let charter = (function() {
             chartData.prime_sdb_pfy2_achievement,
             chartData.prime_sdb_pfy_achievement,
             chartData.prime_sdb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Service Disabled Veteran Owned
         const primeLineChartAchievementsSDVOSB = [
@@ -155,7 +155,7 @@ let charter = (function() {
             chartData.prime_sdvosb_pfy2_achievement,
             chartData.prime_sdvosb_pfy_achievement,
             chartData.prime_sdvosb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // HUBZone
         const primeLineChartAchievementsHZ = [
@@ -164,7 +164,7 @@ let charter = (function() {
             chartData.prime_hz_pfy2_achievement,
             chartData.prime_hz_pfy_achievement,
             chartData.prime_hz_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Define chart from data with format and colors and labels 
         const primeDataLine = {
@@ -237,7 +237,7 @@ let charter = (function() {
             chartData.sub_sdb_cfy_goal,
             chartData.sub_sdvosb_cfy_goal,
             chartData.sub_hz_cfy_goal
-        ].map((goal) => parseInt(goal));
+        ].map((goal) => parseFloat(goal));
 
         const subBarChartAchievements = [
             chartData.sub_sb_cfy_achievement,
@@ -245,7 +245,7 @@ let charter = (function() {
             chartData.sub_sdb_cfy_achievement,
             chartData.sub_sdvosb_cfy_achievement,
             chartData.sub_hz_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         const subDataBar = {
             labels: labelsBar,
@@ -302,7 +302,7 @@ let charter = (function() {
             chartData.sub_sb_pfy2_achievement,
             chartData.sub_sb_pfy_achievement,
             chartData.sub_sb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Women Owned Small Business
         const subLineChartAchievementsWOSB = [
@@ -311,7 +311,7 @@ let charter = (function() {
             chartData.sub_wosb_pfy2_achievement,
             chartData.sub_wosb_pfy_achievement,
             chartData.sub_wosb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Disadvantaged
         const subLineChartAchievementsSDB = [
@@ -320,7 +320,7 @@ let charter = (function() {
             chartData.sub_sdb_pfy2_achievement,
             chartData.sub_sdb_pfy_achievement,
             chartData.sub_sdb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // Service Disabled Veteran Owned
         const subLineChartAchievementsSDVOSB = [
@@ -329,7 +329,7 @@ let charter = (function() {
             chartData.sub_sdvosb_pfy2_achievement,
             chartData.sub_sdvosb_pfy_achievement,
             chartData.sub_sdvosb_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         // HUBZone
         const subLineChartAchievementsHZ = [
@@ -338,7 +338,7 @@ let charter = (function() {
             chartData.sub_hz_pfy2_achievement,
             chartData.sub_hz_pfy_achievement,
             chartData.sub_hz_cfy_achievement
-        ].map((achievement) => parseInt(achievement));
+        ].map((achievement) => parseFloat(achievement));
 
         const subDataLine = {
             labels: lineLabelsLine,
@@ -412,7 +412,7 @@ let charter = (function() {
             chartData.category_sdb_pfy_vendor_count,
             chartData.category_sdvosb_pfy_vendor_count,
             chartData.category_hz_pfy_vendor_count
-        ].map((comparison) => parseInt(comparison.replace(/,/g, '')));
+        ].map((comparison) => parseFloat(comparison.replace(/,/g, '')));
 
         // Current Fiscal Year Count
         const comparisonCFYCount = [
@@ -421,7 +421,7 @@ let charter = (function() {
             chartData.category_sdb_cfy_vendor_count,
             chartData.category_sdvosb_cfy_vendor_count,
             chartData.category_hz_cfy_vendor_count
-        ].map((comparison) => parseInt(comparison.replace(/,/g, '')));
+        ].map((comparison) => parseFloat(comparison.replace(/,/g, '')));
 
         const comparisonDataBar = {
             labels: labelsBar,
