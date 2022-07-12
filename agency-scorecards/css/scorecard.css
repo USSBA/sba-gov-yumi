@@ -313,7 +313,10 @@ tfoot {
     font-weight: bold;
     font-size: 1.8rem;
     justify-content: center;
+    margin-left: auto;
     text-align: center;
+    height: 10rem;
+    width: 10rem;
 }
 
 .grade span:first-of-type {
@@ -321,8 +324,7 @@ tfoot {
 }
 
 .overview {
-    display: grid;
-    grid-template-columns: 90% 10%;
+    display: flex;
     position: relative;
 }
 
