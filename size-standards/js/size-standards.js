@@ -5,15 +5,17 @@ let sizeStandards = (function() {
 
     // Variables
 
-    let containerElement;
 
+    let containerElement; // DOM Element for this module to attach to
+
+    // Individual variables representing the current company's stats
     let companyAssets;
     let companyEmployees;
     let companyOilBarrels;
     let companyRevenue;
 
-    let currentNAICS = [];
-    let NAICS;
+    let currentNAICS = []; // Dynamic list of NAICS being searched for
+    let NAICS; // Static list/reference of all NAICS codes
 
     let apiURLs = {
         dev: 'https://sba-gov-yumi.s3.amazonaws.com/size-standards/data/naics.json',
@@ -26,6 +28,11 @@ let sizeStandards = (function() {
 
     // Data handling
 
+    /*!
+     * Retrieve NAICS code reference representing size standards table
+     * @param  {String}  url   Location of JSON file containing NAICS data
+     * @return {Object}        JSON representation of the current size standards
+     */
     let fetchNAICS = function(url) {
         return fetch(url).then(function(response) {
             // The API call was successful, so check if response is valid (200)
@@ -51,6 +58,11 @@ let sizeStandards = (function() {
         })
     };
 
+    /*!
+     * Format asset limit for display
+     * @param  {String}  totalAssetLimit    assetLimit in millions of dollars (e.g. 600)
+     * @return {String}                     Formatted value for display (e.g. $600M)
+     */
     let formatAssetLimit = function(totalAssetLimit) {
         let result = Number(totalAssetLimit)
             .toString()
@@ -61,6 +73,11 @@ let sizeStandards = (function() {
         return result;
     }
 
+    /*!
+     * Format employee limit for display
+     * @param  {String}  employeeCountLimit Number of employees (e.g. 5000)
+     * @return {String}                     Formatted value for display (e.g. 5,000)
+     */
     let formatEmployeeCountLimit = function(employeeCountLimit) {
         let result = Number(employeeCountLimit)
             .toString()
@@ -70,6 +87,11 @@ let sizeStandards = (function() {
         return result;
     }
 
+    /*!
+     * Format revenue limit for display
+     * @param  {String}  revenueLimit   Revenue in millions of dollars (e.g. 50)
+     * @return {String}                 Formatted value for display (e.g. $50,000,000)
+     */
     let formatRevenueLimit = function(revenueLimit) {
         let annualRevenueConstant = 1000000;
         let result = (Number(revenueLimit) * annualRevenueConstant)
@@ -81,7 +103,10 @@ let sizeStandards = (function() {
         return result;
     }
 
-    // Creates list of Strings combining NAICS codes + descriptions for autocomplete
+    /*!
+     * Creates list of Strings combining NAICS codes + descriptions for autocomplete
+     * @return {Array}  Containing Objects (e.g. {label: '111110 - Soybean Farming', value: '111110'} )
+     */
     let generateAutocompleteList = function() {
 
         // Remove exceptions and empty rows from the data
@@ -111,15 +136,23 @@ let sizeStandards = (function() {
             return codeItem;
         });
 
+        console.log(listFormatted);
         return listFormatted;
     }
 
+    /*!
+     * For an Array of NAICS codes, determine if they qualify as small given current company data
+     * @param  {Array}  arr     List of NAICS codes to check the current company's size against
+     * @return {Array}          Array of codes augmented with isSmall boolean attribute
+     */
     let determineSizes = function(arr) {
         let sizes = [];
 
+        // Loop through each NAICS code
         arr.forEach(function(code) {
             console.debug(code);
 
+            // Take the NAICS code and hydrate it from reference data
             let fullCode = getNAICS(code);
 
             console.debug(fullCode);
@@ -171,6 +204,11 @@ let sizeStandards = (function() {
         return sizes;
     }
 
+    /*!
+     * Generate HTML to display size status for a given NAICS code
+     * @param  {Object}  result     NAICS object
+     * @return {String}             HTML representing single NAICS result
+     */
     let generateResultHTML = function(result) {
         let resultHTML = '';
         let sizeLimit = calculateLimit(result);
@@ -200,6 +238,11 @@ let sizeStandards = (function() {
         return resultHTML;
     }
 
+    /*!
+     * Generate HTML to display exception status status for a given NAICS code
+     * @param  {Object}  result     NAICS object
+     * @return {String}             HTML representing single NAICS exceptions
+     */
     let generateExceptionHTML = function(result) {
         let exceptions = '';
         let exceptionHTML = '';
@@ -213,13 +256,11 @@ let sizeStandards = (function() {
             }
         })
 
+        // Test the exceptions for sizing 
         let listFilteredandSized = determineSizes(listFiltered);
 
         // If there are any exceptions
         if (listFiltered.length) {
-
-            // Augment each item of list with isSmall attribute
-
 
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
@@ -236,6 +277,11 @@ let sizeStandards = (function() {
         return exceptionHTML;
     }
 
+    /*!
+     * Generate HTML to display footnotes related to a given NAICS code
+     * @param  {Object}  result     NAICS object
+     * @return {String}             HTML representing single NAICS footnotes
+     */
     let generateFootnoteHTML = function(result) {
         let footnoteHTML = '';
 
@@ -251,6 +297,10 @@ let sizeStandards = (function() {
         return footnoteHTML;
     }
 
+    /*!
+     * Generate HTML parent function that orchestrates a full response screen
+     * @return {String}     HTML representing all results
+     */
     let generateResults = function() {
         let results = determineSizes(currentNAICS);
         console.debug("Results: " + results.length)
@@ -276,6 +326,11 @@ let sizeStandards = (function() {
         return resultsHTML;
     }
 
+    /*!
+     * Guard function that takes a code and returns proper display String for a code's size limit
+     * @param  {Object}  code   NAICS object
+     * @return {String}         String representing the limit, which is used for display
+     */
     let calculateLimit = function(code) {
         console.debug('calculateLimit()');
         console.debug(code);
@@ -297,6 +352,10 @@ let sizeStandards = (function() {
 
     }
 
+    /*!
+     * Test the currentNAICS Array to see if any require we know the company's assets
+     * @return {Boolean}    True if we should ask the asset question
+     */
     let shouldAskAssets = function() {
         console.debug('shouldAskAssets()')
         let assetQuestion = false;
@@ -311,6 +370,10 @@ let sizeStandards = (function() {
         return assetQuestion;
     }
 
+    /*!
+     * Test the currentNAICS Array to see if any require we know the company's employees
+     * @return {Boolean}    True if we should ask the employee question
+     */
     let shouldAskEmployees = function() {
         console.debug('shouldAskEmployees()')
         let employeeQuestion = false;
@@ -325,6 +388,10 @@ let sizeStandards = (function() {
         return employeeQuestion;
     }
 
+    /*!
+     * Test the currentNAICS Array to see if any require we know the company's revenue
+     * @return {Boolean}    True if we should ask the revenue question
+     */
     let shouldAskRevenue = function() {
         console.debug('shouldAskRevenue()')
         let revenueQuestion = false;
@@ -340,6 +407,10 @@ let sizeStandards = (function() {
         return revenueQuestion;
     }
 
+    /*!
+     * Test the currentNAICS Array to see if any require we know the company's oil barrels
+     * @return {Boolean}    True if we should ask the oil barrel question
+     */
     let shouldAskOilBarrels = function() {
         console.debug('shouldAskOilBarrels()')
         let oilBarrels = false;
@@ -355,7 +426,12 @@ let sizeStandards = (function() {
         return oilBarrels;
     }
 
-    // Return a full NAICS object with all properties
+
+    /*!
+     * Returns a full NAICS object with all properties
+     * @param  {String}  naics  id representing a NAICS code
+     * @return {Object}         Full NAICS Object with related metadata
+     */
     let getNAICS = function(naics) {
 
         if (typeof(naics) === 'string') {
@@ -374,6 +450,10 @@ let sizeStandards = (function() {
         console.debug(`sizeStandards.getNAICS(${naics}) not a String or an Object`);
     }
 
+    /*!
+     * Returns HTML to load the Start Page
+     * @return {String}     HTML
+     */
     let startPage = function() {
         return `<h2 id="heading">Size Standards Tool</h2>
                     <form action="javascript:navigate('search');">
@@ -384,6 +464,10 @@ let sizeStandards = (function() {
                 </form>`;
     }
 
+    /*!
+     * Returns HTML to load the Search Page
+     * @return {String}     HTML
+     */
     let searchPage = function() {
         return `<div class="width70">
                     <h2>What's your industry?</h2>
@@ -409,6 +493,11 @@ let sizeStandards = (function() {
                 </div>`;
     }
 
+
+    /*!
+     * Returns HTML to load the Assets Question
+     * @return {String}     HTML
+     */
     let sizePageAssets = function() {
         return `<div class="width70">
                     <form action="javascript:setCompanySize('assets');">
@@ -425,6 +514,10 @@ let sizeStandards = (function() {
                 </div>`;
     }
 
+    /*!
+     * Returns HTML to load the Employee Question
+     * @return {String}     HTML
+     */
     let sizePageEmployee = function() {
         return `<div class="width70">
                     <form action="javascript:setCompanySize('employee');">
@@ -440,6 +533,10 @@ let sizeStandards = (function() {
                 </div>`;
     }
 
+    /*!
+     * Returns HTML to load the Revenue Question
+     * @return {String}     HTML
+     */
     let sizePageRevenue = function() {
         return `<div class="width70">
                     <form action="javascript:setCompanySize('revenue');">
@@ -456,6 +553,10 @@ let sizeStandards = (function() {
                 </div>`;
     }
 
+    /*!
+     * Returns HTML to load the Oil Question
+     * @return {String}     HTML
+     */
     let sizePageOil = function() {
         return `<div class="width70">
                     <form action="javascript:setCompanySize('oil');">
@@ -478,6 +579,11 @@ let sizeStandards = (function() {
     }
 
 
+    /*!
+     * Returns HTML representing the entire Result Page
+     * @param  {String}  renderedResult  HTML representing the results for each NAICS code
+     * @return {String}  HTML
+     */
     let resultPage = function(renderedResult) {
 
         let adviceString = '';
@@ -531,7 +637,11 @@ let sizeStandards = (function() {
                 </div>`;
     }
 
-    // Populating search list with a NAICS code
+    /*!
+     * Populating search list with a NAICS code - this does modify the DOM
+     * @param  {String}  naics  A naics code id
+     * @return {Array}          Current list of NAICS to be searched
+     */
     let addSearch = function(naics) {
         // Show the search list
         let searchListTableElement = document.querySelector("#search-list");
@@ -562,6 +672,11 @@ let sizeStandards = (function() {
         return currentNAICS;
     }
 
+    /*!
+     * Send flash messages in case of lack of data loading or missing user input
+     * @param  {String}  msg     Message to display on screen
+     * @return {Boolean}         True if valid element was found to flash against, otherwise false
+     */
     let flash = function(msg) {
         let flashElement = document.querySelector('#flash');
 
@@ -579,6 +694,10 @@ let sizeStandards = (function() {
         return false;
     }
 
+    /*!
+     * Store user input as variables corresponding to each dimension of size
+     * @param  {String}  type    The company attribute type (assets, employees, revenue, or oil barrels)
+     */
     public.setCompanySize = function(type) {
         let inputElement = document.querySelector('.input-number');
 
@@ -602,8 +721,10 @@ let sizeStandards = (function() {
         this.render('size');
     }
 
-    // Master render function
-
+    /*!
+     * Master render function resets variables on start and controls logic around UI display
+     * @param  {String}  page    Page to display for the stage (start, search, size, result)
+     */
     public.render = function(page) {
 
         switch (page) {
@@ -689,6 +810,11 @@ let sizeStandards = (function() {
         }
     };
 
+    /*!
+     * Initialize the module, retrieving data and attaching to the DOM
+     * @param  {Element}  ele    Container DOM element that this module will manipulate forward
+     * @return {Array}           Returns the JSON data fetched from a remote source
+     */
     public.init = function(ele) {
         // Data Loader
         if (!NAICS) {
@@ -709,7 +835,6 @@ let sizeStandards = (function() {
     };
 
     // Return the Public APIs
-
     return public;
 
 })();
