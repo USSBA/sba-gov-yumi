@@ -10,8 +10,8 @@ var hydrator = (function() {
 
     // Private Methods
 
-    var selectAgency = function() {
-        selectElement.querySelect()
+    var updateAgencySelector = function(acronym) {
+        selectElement.value = acronym;
     }
 
     /*!
@@ -82,6 +82,7 @@ var hydrator = (function() {
         console.log(agencyData);
         hydrateDataElements(agencyData);
         styleLetterGrade(agencyData.agency_grade, letterGradeBlock);
+        updateAgencySelector(agencyData.department_acronym)
     }
 
     public.init = function(sE, lGB, mE) {
