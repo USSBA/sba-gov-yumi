@@ -216,7 +216,8 @@ let charter = (function() {
                     },
                     legend: {
                         display: true,
-                        position: 'right'
+                        position: 'right',
+                        maxWidth: 235
                     }
                 },
             }
@@ -389,7 +390,8 @@ let charter = (function() {
                     },
                     legend: {
                         display: true,
-                        position: 'right'
+                        position: 'right',
+                        maxWidth: 235
                     }
                 },
             }
