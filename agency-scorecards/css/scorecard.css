@@ -86,6 +86,22 @@ header {
     width: 100%;
 }
 
+input[type='submit'] {
+    color: #ffffff;
+    background-color: #58acef;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.6px;
+    line-height: 1;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    transition: all 150ms ease;
+    user-select: none;
+    vertical-align: middle;
+}
+
 nav {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -115,6 +131,12 @@ li {
     width: 193px;
 }
 
+label {
+    font-style: normal;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
 main {
     margin: 0 auto;
     max-width: 130ch;
@@ -130,6 +152,15 @@ pre {
 
 section {
     margin: 2rem 0;
+}
+
+select {
+    display: inline-block;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 1rem;
+    vertical-align: middle;
 }
 
 summary {
@@ -261,6 +292,7 @@ tfoot {
     display: flex;
     /* gap: 2rem; */
     margin: 3rem 0;
+    flex-wrap: wrap;
 }
 
 .section-charts>div {
