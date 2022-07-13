@@ -5,7 +5,6 @@ let sizeStandards = (function() {
 
     // Variables
 
-
     let containerElement; // DOM Element for this module to attach to
 
     // Individual variables representing the current company's stats
@@ -27,6 +26,152 @@ let sizeStandards = (function() {
     let public = {};
 
     // Data handling
+
+    /*!
+     * Populating search list with a NAICS code - this does modify the DOM
+     * @param  {String}  naics  A NAICS code id
+     * @return {Array}          Current list of NAICS to be searched
+     */
+    let addSearch = function(naics) {
+        // Show the search list
+        let searchListTableElement = document.querySelector("#search-list");
+        searchListTableElement.classList.remove('hidden');
+
+        // Create new row in table
+        let newSearchItemRow = searchListTableElement.insertRow();
+
+        // Add a new cell for the NAICS code
+        let newSearchItemCode = newSearchItemRow.insertCell();
+        newSearchItemCode.textContent = naics;
+
+        // Add a new cell for the NAICS description
+        let newSearchItemDescription = newSearchItemRow.insertCell();
+        newSearchItemDescription.textContent = getNAICS(naics).description;
+
+        // Clear out input box
+        let inputElement = document.querySelector("#search-input");
+        inputElement.value = '';
+
+        // Add value to Array to-be-searched
+        currentNAICS.push(naics);
+
+        // Clear flash message
+        flash();
+
+        return currentNAICS;
+    }
+
+    /*!
+     * Guard function that takes a code and returns proper display String for a code's size limit
+     * @param  {Object}  code   NAICS object
+     * @return {String}         String representing the limit, which is used for display
+     */
+    let calculateLimit = function(code) {
+        console.debug('calculateLimit()');
+        console.debug(code);
+
+        if (code.employeeCountLimit != null) {
+            console.debug('Returning ' + code.employeeCountLimit);
+            return formatEmployeeCountLimit(code.employeeCountLimit) + ' employees';
+        }
+
+        if (code.revenueLimit != null) {
+            console.debug('Returning ' + code.revenueLimit);
+            return formatRevenueLimit(code.revenueLimit) + ' annual revenue';
+        }
+
+        if (code.assetLimit != null) {
+            console.debug('Returning ' + code.assetLimit);
+            return formatAssetLimit(code.assetLimit) + ' in assets';
+        }
+
+    }
+
+    /*!
+     * For an Array of NAICS codes, determine if they qualify as small given current company data
+     * @param  {Array}  arr     List of NAICS codes to check the current company's size against
+     * @return {Array}          Array of codes augmented with isSmall boolean attribute
+     */
+    let determineSizes = function(arr) {
+        let sizes = [];
+
+        // Loop through each NAICS code
+        arr.forEach(function(code) {
+            console.debug(code);
+
+            // Take each NAICS code and hydrate it from reference data
+            let fullCode = getNAICS(code);
+
+            console.debug(fullCode);
+
+            // Special case for Petroleum Refineries
+            if (fullCode.id === '324110') {
+                if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
+                    console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
+                    fullCode.isSmall = true;
+                    sizes.push(fullCode);
+                    return;
+                }
+            }
+
+            if (fullCode.employeeCountLimit) {
+                if (companyEmployees <= fullCode.employeeCountLimit) {
+                    console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
+                    fullCode.isSmall = true;
+                    sizes.push(fullCode);
+                    return;
+                }
+            }
+
+            if (fullCode.revenueLimit) {
+                let realDollarLimit = fullCode.revenueLimit * 1000000;
+
+                if (companyRevenue <= realDollarLimit) {
+                    console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
+                    fullCode.isSmall = true;
+                    sizes.push(fullCode);
+                    return;
+                }
+            }
+
+            if (fullCode.assetLimit) {
+                let realAssetLimit = fullCode.assetLimit * 1000000;
+
+                if (companyAssets <= realAssetLimit) {
+                    console.debug(`companyAssets ${companyAssets} is less than ${realAssetLimit}`);
+                    fullCode.isSmall = true;
+                    sizes.push(fullCode);
+                    return;
+                }
+            }
+
+            sizes.push(fullCode);
+        })
+
+        return sizes;
+    }
+
+    /*!
+     * Send flash messages in case of lack of data loading or missing user input
+     * @param  {String}  msg     Message to display on screen
+     * @return {Boolean}         True if valid element was found to flash against, otherwise false
+     */
+    let flash = function(msg) {
+        let flashElement = document.querySelector('#flash');
+
+        if (flashElement) {
+            if (msg) {
+                flashElement.textContent = msg;
+                flashElement.classList.remove('hidden');
+                return true;
+            } else {
+                flashElement.classList.add('hidden');
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     /*!
      * Retrieve NAICS code reference representing size standards table
@@ -104,6 +249,33 @@ let sizeStandards = (function() {
     }
 
     /*!
+     * Returns a full NAICS object with all properties
+     * @param  {String}  naics  id representing a NAICS code
+     * @return {Object}         Full NAICS Object with related metadata
+     */
+    let getNAICS = function(naics) {
+
+        if (typeof(naics) === 'string') {
+            // Need to trim out _Except characters, if we're only returning primary NAICS codes (not exceptions)
+            // This was originally requested by the stakeholder, then reversed (07/13/22)
+            // Commented code remains in case minds change again, but can be deleted after launch
+            // if (naics.length > 6) {
+            //     // Trim first 6 characters
+            //     naics = naics.substring(0, 6);
+            // }
+            return NAICS.find(code => code.id === naics);
+        }
+
+        // This is hacky, but it's necessary to support the Exception use case
+        if (typeof(naics) === 'object') {
+            return naics;
+        }
+
+        console.debug(`sizeStandards.getNAICS(${naics}) not a String or an Object`);
+        return null;
+    }
+
+    /*!
      * Creates list of Strings combining NAICS codes + descriptions for autocomplete
      * @return {Array}  Containing Objects (e.g. {label: '111110 - Soybean Farming', value: '111110'} )
      */
@@ -112,10 +284,12 @@ let sizeStandards = (function() {
         // Remove exceptions and empty rows from the data
         let listFiltered = NAICS.filter(function(value) {
 
+            // This was requested by the stakeholder, then reversed (07/13/22)
+            // Code remains in case minds change again, but can be deleted after launch
             // Exceptions
-            if (value.id.includes('_Except')) {
-                return false;
-            }
+            // if (value.id.includes('_Except')) {
+            //     return false;
+            // }
 
             // Empty rows
             if (value.id === '') {
@@ -138,70 +312,6 @@ let sizeStandards = (function() {
 
         console.log(listFormatted);
         return listFormatted;
-    }
-
-    /*!
-     * For an Array of NAICS codes, determine if they qualify as small given current company data
-     * @param  {Array}  arr     List of NAICS codes to check the current company's size against
-     * @return {Array}          Array of codes augmented with isSmall boolean attribute
-     */
-    let determineSizes = function(arr) {
-        let sizes = [];
-
-        // Loop through each NAICS code
-        arr.forEach(function(code) {
-            console.debug(code);
-
-            // Take the NAICS code and hydrate it from reference data
-            let fullCode = getNAICS(code);
-
-            console.debug(fullCode);
-
-            // Special case for Petroleum Refineries
-            if (fullCode.id === '324110') {
-                if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
-                    console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
-                    fullCode.isSmall = true;
-                    sizes.push(fullCode);
-                    return;
-                }
-            }
-
-            if (fullCode.employeeCountLimit) {
-                if (companyEmployees <= fullCode.employeeCountLimit) {
-                    console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
-                    fullCode.isSmall = true;
-                    sizes.push(fullCode);
-                    return;
-                }
-            }
-
-            if (fullCode.revenueLimit) {
-                let realDollarLimit = fullCode.revenueLimit * 1000000;
-
-                if (companyRevenue <= realDollarLimit) {
-                    console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
-                    fullCode.isSmall = true;
-                    sizes.push(fullCode);
-                    return;
-                }
-            }
-
-            if (fullCode.assetLimit) {
-                let realAssetLimit = fullCode.assetLimit * 1000000;
-
-                if (companyAssets <= realAssetLimit) {
-                    console.debug(`companyAssets ${companyAssets} is less than ${realAssetLimit}`);
-                    fullCode.isSmall = true;
-                    sizes.push(fullCode);
-                    return;
-                }
-            }
-
-            sizes.push(fullCode);
-        })
-
-        return sizes;
     }
 
     /*!
@@ -238,44 +348,47 @@ let sizeStandards = (function() {
         return resultHTML;
     }
 
+    // Exceptions being generated were originally requested by the stakeholder, then reversed (07/13/22)
+    // Commented code remains in case minds change again, but can be deleted after launch
+
     /*!
      * Generate HTML to display exception status status for a given NAICS code
      * @param  {Object}  result     NAICS object
      * @return {String}             HTML representing single NAICS exceptions
      */
-    let generateExceptionHTML = function(result) {
-        let exceptions = '';
-        let exceptionHTML = '';
+    // let generateExceptionHTML = function(result) {
+    //     let exceptions = '';
+    //     let exceptionHTML = '';
 
-        let listFiltered = NAICS.filter(function(value) {
-            // Exceptions
-            if (value.id.includes('_Except')) {
-                if (value.id.startsWith(result.id)) {
-                    return true;
-                }
-            }
-        })
+    //     let listFiltered = NAICS.filter(function(value) {
+    //         // Exceptions
+    //         if (value.id.includes('_Except')) {
+    //             if (value.id.startsWith(result.id)) {
+    //                 return true;
+    //             }
+    //         }
+    //     })
 
-        // Test the exceptions for sizing 
-        let listFilteredandSized = determineSizes(listFiltered);
+    //     // Test the exceptions for sizing 
+    //     let listFilteredandSized = determineSizes(listFiltered);
 
-        // If there are any exceptions
-        if (listFiltered.length) {
+    //     // If there are any exceptions
+    //     if (listFiltered.length) {
 
-            // Loop through them and generate each as if they were a separate result
-            listFilteredandSized.forEach(function(exception) {
-                exceptions = exceptions + generateResultHTML(exception);
-            });
+    //         // Loop through them and generate each as if they were a separate result
+    //         listFilteredandSized.forEach(function(exception) {
+    //             exceptions = exceptions + generateResultHTML(exception);
+    //         });
 
-            // Wrap the entire list in a details block for UX
-            exceptionHTML = `<details>
-                            <summary>Exceptions may apply</summary>
-                            ${exceptions}
-                          </details>`;
-        }
+    //         // Wrap the entire list in a details block for UX
+    //         exceptionHTML = `<details>
+    //                         <summary>Exceptions may apply</summary>
+    //                         ${exceptions}
+    //                       </details>`;
+    //     }
 
-        return exceptionHTML;
-    }
+    //     return exceptionHTML;
+    // }
 
     /*!
      * Generate HTML to display footnotes related to a given NAICS code
@@ -312,10 +425,12 @@ let sizeStandards = (function() {
             console.debug("Result:")
             console.debug(result);
 
+            // This was removed on 7/13/22 at stakeholder request, see function comments
+            // ${generateExceptionHTML(result)}
+
             resultsHTML = resultsHTML + `
                                         <div class="result">
                                             ${generateResultHTML(result)}
-                                            ${generateExceptionHTML(result)}
                                             ${generateFootnoteHTML(result)}
                                         </div>
                                         `;
@@ -324,32 +439,6 @@ let sizeStandards = (function() {
         console.debug("ResultsHTML:")
         console.debug(resultsHTML);
         return resultsHTML;
-    }
-
-    /*!
-     * Guard function that takes a code and returns proper display String for a code's size limit
-     * @param  {Object}  code   NAICS object
-     * @return {String}         String representing the limit, which is used for display
-     */
-    let calculateLimit = function(code) {
-        console.debug('calculateLimit()');
-        console.debug(code);
-
-        if (code.employeeCountLimit != null) {
-            console.debug('Returning ' + code.employeeCountLimit);
-            return formatEmployeeCountLimit(code.employeeCountLimit) + ' employees';
-        }
-
-        if (code.revenueLimit != null) {
-            console.debug('Returning ' + code.revenueLimit);
-            return formatRevenueLimit(code.revenueLimit) + ' annual revenue';
-        }
-
-        if (code.assetLimit != null) {
-            console.debug('Returning ' + code.assetLimit);
-            return formatAssetLimit(code.assetLimit) + ' in assets';
-        }
-
     }
 
     /*!
@@ -424,30 +513,6 @@ let sizeStandards = (function() {
         })
 
         return oilBarrels;
-    }
-
-
-    /*!
-     * Returns a full NAICS object with all properties
-     * @param  {String}  naics  id representing a NAICS code
-     * @return {Object}         Full NAICS Object with related metadata
-     */
-    let getNAICS = function(naics) {
-
-        if (typeof(naics) === 'string') {
-            if (naics.length > 6) {
-                // Trim first 6 characters
-                naics = naics.substring(0, 6);
-            }
-            return NAICS.find(code => code.id === naics);
-        }
-
-        // This is hacky, but it's necessary to support the Exception use case
-        if (typeof(naics) === 'object') {
-            return naics;
-        }
-
-        console.debug(`sizeStandards.getNAICS(${naics}) not a String or an Object`);
     }
 
     /*!
@@ -635,63 +700,6 @@ let sizeStandards = (function() {
                         <input class="button" type="submit" value="Start Over" />
                     </form>
                 </div>`;
-    }
-
-    /*!
-     * Populating search list with a NAICS code - this does modify the DOM
-     * @param  {String}  naics  A naics code id
-     * @return {Array}          Current list of NAICS to be searched
-     */
-    let addSearch = function(naics) {
-        // Show the search list
-        let searchListTableElement = document.querySelector("#search-list");
-        searchListTableElement.classList.remove('hidden');
-
-        // Create new row in table
-        let newSearchItemRow = searchListTableElement.insertRow();
-
-        // Add a new cell for the NAICS code
-        let newSearchItemCode = newSearchItemRow.insertCell();
-        newSearchItemCode.textContent = naics;
-
-        // Add a new cell for the NAICS description
-        let newSearchItemDescription = newSearchItemRow.insertCell();
-        newSearchItemDescription.textContent = getNAICS(naics).description;
-
-        // Clear out input box
-        let inputElement = document.querySelector("#search-input");
-        inputElement.value = '';
-
-        // Add value to array to-be-searched
-        currentNAICS.push(naics);
-        console.debug(currentNAICS);
-
-        // Clear flash message
-        flash();
-
-        return currentNAICS;
-    }
-
-    /*!
-     * Send flash messages in case of lack of data loading or missing user input
-     * @param  {String}  msg     Message to display on screen
-     * @return {Boolean}         True if valid element was found to flash against, otherwise false
-     */
-    let flash = function(msg) {
-        let flashElement = document.querySelector('#flash');
-
-        if (flashElement) {
-            if (msg) {
-                flashElement.textContent = msg;
-                flashElement.classList.remove('hidden');
-                return true;
-            } else {
-                flashElement.classList.add('hidden');
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /*!
