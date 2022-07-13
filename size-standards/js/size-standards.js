@@ -33,6 +33,8 @@ let sizeStandards = (function() {
      * @return {Array}          Current list of NAICS to be searched
      */
     let addSearch = function(naics) {
+        console.debug(`sizeStandards.addSearch(${naics})`);
+
         // Show the search list
         let searchListTableElement = document.querySelector("#search-list");
         searchListTableElement.classList.remove('hidden');
@@ -67,21 +69,17 @@ let sizeStandards = (function() {
      * @return {String}         String representing the limit, which is used for display
      */
     let calculateLimit = function(code) {
-        console.debug('calculateLimit()');
-        console.debug(code);
+        console.debug(`sizeStandards.calculateLimit(${code}`);
 
         if (code.employeeCountLimit != null) {
-            console.debug('Returning ' + code.employeeCountLimit);
             return formatEmployeeCountLimit(code.employeeCountLimit) + ' employees';
         }
 
         if (code.revenueLimit != null) {
-            console.debug('Returning ' + code.revenueLimit);
             return formatRevenueLimit(code.revenueLimit) + ' annual revenue';
         }
 
         if (code.assetLimit != null) {
-            console.debug('Returning ' + code.assetLimit);
             return formatAssetLimit(code.assetLimit) + ' in assets';
         }
 
@@ -93,30 +91,36 @@ let sizeStandards = (function() {
      * @return {Array}          Array of codes augmented with isSmall boolean attribute
      */
     let determineSizes = function(arr) {
+        console.debug(`sizeStandards.determineSizes(${arr}`);
+
         let sizes = [];
 
         // Loop through each NAICS code
         arr.forEach(function(code) {
-            console.debug(code);
 
             // Take each NAICS code and hydrate it from reference data
             let fullCode = getNAICS(code);
 
-            console.debug(fullCode);
-
             // Special case for Petroleum Refineries
             if (fullCode.id === '324110') {
-                if (2000 >= companyOilBarrels && fullCode.employeeCountLimit >= companyEmployees) {
-                    console.debug(`OilBarrelLimit 2000 is greater than ${companyOilBarrels} and EmployeeCount Limit ${fullCode.employeeCountLimit} is greater than ${companyEmployees}`);
-                    fullCode.isSmall = true;
-                    sizes.push(fullCode);
-                    return;
+                console.debug(`Petroleum Refineries special case!!!`);
+                if (companyOilBarrels <= 2000) {
+                    console.debug(`For ${fullCode.id}: ${companyOilBarrels} is less than OilBarrelLimit of 2000`);
+                    if (companyEmployees <= fullCode.employeeCountLimit) {
+                        console.debug(`For ${fullCode.id}: ${companyEmployees} is less than EmployeeCount Limit ${fullCode.employeeCountLimit}`);
+                        fullCode.isSmall = true;
+                        sizes.push(fullCode);
+                        return;
+                    }
                 }
+                // I do not like this short-circuit, but I found it to be a necessary evil!
+                // You need this extra return to prevent the next employeeCountLimit from evaluating
+                return;
             }
 
             if (fullCode.employeeCountLimit) {
                 if (companyEmployees <= fullCode.employeeCountLimit) {
-                    console.debug(`companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
+                    console.debug(`For ${fullCode.id}: companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
@@ -127,7 +131,7 @@ let sizeStandards = (function() {
                 let realDollarLimit = fullCode.revenueLimit * 1000000;
 
                 if (companyRevenue <= realDollarLimit) {
-                    console.debug(`companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
+                    console.debug(`For ${fullCode.id}: companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
@@ -138,7 +142,7 @@ let sizeStandards = (function() {
                 let realAssetLimit = fullCode.assetLimit * 1000000;
 
                 if (companyAssets <= realAssetLimit) {
-                    console.debug(`companyAssets ${companyAssets} is less than ${realAssetLimit}`);
+                    console.debug(`For ${fullCode.id}: companyAssets ${companyAssets} is less than ${realAssetLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
@@ -157,6 +161,8 @@ let sizeStandards = (function() {
      * @return {Boolean}         True if valid element was found to flash against, otherwise false
      */
     let flash = function(msg) {
+        console.debug(`sizeStandards.flash(${msg})`);
+
         let flashElement = document.querySelector('#flash');
 
         if (flashElement) {
@@ -179,6 +185,8 @@ let sizeStandards = (function() {
      * @return {Object}        JSON representation of the current size standards
      */
     let fetchNAICS = function(url) {
+        console.debug(`sizeStandards.fetchNAICS(${url})`);
+
         return fetch(url).then(function(response) {
             // The API call was successful, so check if response is valid (200)
             if (response.ok) {
@@ -190,15 +198,17 @@ let sizeStandards = (function() {
             }
         }).then(function(data) {
             // data is JSON of the response
-            console.debug(`fetchNAICS() succcess`);
+            console.debug(`sizeStandards.fetchNAICS() succcess`);
 
             NAICS = data;
 
             return data;
         }).catch(function(err) {
             // err is the raw response
-            console.warn(`fetchNAICS() failed`, err.status, err.statusText, err.url);
+            console.warn(`sizeStandards.fetchNAICS() failed`, err.status, err.statusText, err.url);
+
             flash(`Unable to load NAICS codes, error ${err.status}: ${err.statusText}`);
+
             return err;
         })
     };
@@ -209,6 +219,8 @@ let sizeStandards = (function() {
      * @return {String}                     Formatted value for display (e.g. $600M)
      */
     let formatAssetLimit = function(totalAssetLimit) {
+        console.debug(`sizeStandards.formatAssetLimit(${totalAssetLimit})`);
+
         let result = Number(totalAssetLimit)
             .toString()
             .split(/(?=(?:\d{3})+(?:\.|$))/g)
@@ -224,6 +236,7 @@ let sizeStandards = (function() {
      * @return {String}                     Formatted value for display (e.g. 5,000)
      */
     let formatEmployeeCountLimit = function(employeeCountLimit) {
+        console.debug(`sizeStandards.formatEmployeeCountLimit(${employeeCountLimit})`);
         let result = Number(employeeCountLimit)
             .toString()
             .split(/(?=(?:\d{3})+(?:\.|$))/g)
@@ -238,6 +251,7 @@ let sizeStandards = (function() {
      * @return {String}                 Formatted value for display (e.g. $50,000,000)
      */
     let formatRevenueLimit = function(revenueLimit) {
+        console.debug(`sizeStandards.formatRevenueLimit(${revenueLimit})`);
         let annualRevenueConstant = 1000000;
         let result = (Number(revenueLimit) * annualRevenueConstant)
             .toString()
@@ -254,6 +268,7 @@ let sizeStandards = (function() {
      * @return {Object}         Full NAICS Object with related metadata
      */
     let getNAICS = function(naics) {
+        console.debug(`sizeStandards.getNAICS(${naics})`);
 
         if (typeof(naics) === 'string') {
             // Need to trim out _Except characters, if we're only returning primary NAICS codes (not exceptions)
@@ -280,6 +295,7 @@ let sizeStandards = (function() {
      * @return {Array}  Containing Objects (e.g. {label: '111110 - Soybean Farming', value: '111110'} )
      */
     let generateAutocompleteList = function() {
+        console.debug(`sizeStandards.generateAutocompleteList()`);
 
         // Remove exceptions and empty rows from the data
         let listFiltered = NAICS.filter(function(value) {
@@ -310,7 +326,7 @@ let sizeStandards = (function() {
             return codeItem;
         });
 
-        console.log(listFormatted);
+        console.debug(`sizeStandards.generateAutocompleteList() returning ${listFormatted.length} entries`);
         return listFormatted;
     }
 
@@ -320,6 +336,8 @@ let sizeStandards = (function() {
      * @return {String}             HTML representing single NAICS result
      */
     let generateResultHTML = function(result) {
+        console.debug(`sizeStandards.generateResultHTML(${result})`);
+
         let resultHTML = '';
         let sizeLimit = calculateLimit(result);
         let sizeString;
@@ -396,6 +414,8 @@ let sizeStandards = (function() {
      * @return {String}             HTML representing single NAICS footnotes
      */
     let generateFootnoteHTML = function(result) {
+        console.debug(`sizeStandards.generateFootnoteHTML(${result})`);
+
         let footnoteHTML = '';
 
         if (result.footnote) {
@@ -415,17 +435,15 @@ let sizeStandards = (function() {
      * @return {String}     HTML representing all results
      */
     let generateResults = function() {
+        console.debug(`sizeStandards.generateResults()`);
+
         let results = determineSizes(currentNAICS);
-        console.debug("Results: " + results.length)
-        console.debug(results);
 
         let resultsHTML = '';
 
         results.forEach(function(result) {
-            console.debug("Result:")
-            console.debug(result);
 
-            // This was removed on 7/13/22 at stakeholder request, see function comments
+            // This was removed from resultsHTML on 7/13/22 at stakeholder request, see function comments
             // ${generateExceptionHTML(result)}
 
             resultsHTML = resultsHTML + `
@@ -436,8 +454,6 @@ let sizeStandards = (function() {
                                         `;
         })
 
-        console.debug("ResultsHTML:")
-        console.debug(resultsHTML);
         return resultsHTML;
     }
 
@@ -446,16 +462,18 @@ let sizeStandards = (function() {
      * @return {Boolean}    True if we should ask the asset question
      */
     let shouldAskAssets = function() {
-        console.debug('shouldAskAssets()')
+        console.debug(`sizeStandards.shouldAskAssets()`);
+
         let assetQuestion = false;
 
         currentNAICS.forEach(function(code) {
-            console.debug(getNAICS(code).assetLimit);
+
             if (getNAICS(code).assetLimit) {
                 assetQuestion = true;
             }
         })
 
+        console.debug(`sizeStandards.shouldAskAssets() ${assetQuestion}`);
         return assetQuestion;
     }
 
@@ -464,16 +482,17 @@ let sizeStandards = (function() {
      * @return {Boolean}    True if we should ask the employee question
      */
     let shouldAskEmployees = function() {
-        console.debug('shouldAskEmployees()')
+        console.debug('sizeStandards.shouldAskEmployees()');
+
         let employeeQuestion = false;
 
         currentNAICS.forEach(function(code) {
-            console.debug(getNAICS(code).employeeCountLimit);
             if (getNAICS(code).employeeCountLimit) {
                 employeeQuestion = true;
             }
         })
 
+        console.debug(`sizeStandards.shouldAskEmployees() ${employeeQuestion}`);
         return employeeQuestion;
     }
 
@@ -482,17 +501,17 @@ let sizeStandards = (function() {
      * @return {Boolean}    True if we should ask the revenue question
      */
     let shouldAskRevenue = function() {
-        console.debug('shouldAskRevenue()')
+        console.debug('sizeStandards.shouldAskRevenue()')
+
         let revenueQuestion = false;
 
         currentNAICS.forEach(function(code) {
-            console.debug(getNAICS(code).revenueLimit);
             if (getNAICS(code).revenueLimit) {
-                console.debug('You should ask for Revenue!!')
                 revenueQuestion = true;
             }
         })
 
+        console.debug(`sizeStandards.shouldAskRevenue() ${revenueQuestion}`);
         return revenueQuestion;
     }
 
@@ -501,17 +520,16 @@ let sizeStandards = (function() {
      * @return {Boolean}    True if we should ask the oil barrel question
      */
     let shouldAskOilBarrels = function() {
-        console.debug('shouldAskOilBarrels()')
+        console.debug('sizeStandards.shouldAskOilBarrels()')
         let oilBarrels = false;
 
         currentNAICS.forEach(function(code) {
-            console.debug(getNAICS(code).id);
             if (getNAICS(code).id === '324110') {
-                console.debug('You should ask for Oil Barrels!!')
                 oilBarrels = true;
             }
         })
 
+        console.debug(`sizeStandards.shouldAskOilBarrels() ${oilBarrels}`);
         return oilBarrels;
     }
 
@@ -520,6 +538,8 @@ let sizeStandards = (function() {
      * @return {String}     HTML
      */
     let startPage = function() {
+        console.debug(`sizeStandards.startPage()`);
+
         return `<h2 id="heading">Size Standards Tool</h2>
                     <form action="javascript:navigate('search');">
                     <img src="img/size-standards-ruler-business.png" alt="Illustration of a business being measured by rulers." />
@@ -534,6 +554,8 @@ let sizeStandards = (function() {
      * @return {String}     HTML
      */
     let searchPage = function() {
+        console.debug(`sizeStandards.searchPage()`);
+
         return `<div class="width70">
                     <h2>What's your industry?</h2>
                     <p>Select your 6-digit NAICS code</p>
@@ -564,6 +586,8 @@ let sizeStandards = (function() {
      * @return {String}     HTML
      */
     let sizePageAssets = function() {
+        console.debug(`sizeStandards.sizePageAssets()`);
+
         return `<div class="width70">
                     <form action="javascript:setCompanySize('assets');">
                     <h2>How many total assets in the last year?</h2>
@@ -584,6 +608,8 @@ let sizeStandards = (function() {
      * @return {String}     HTML
      */
     let sizePageEmployee = function() {
+        console.debug(`sizeStandards.sizePageEmployee()`);
+
         return `<div class="width70">
                     <form action="javascript:setCompanySize('employee');">
                     <h2>How many employees?</h2>
@@ -603,6 +629,8 @@ let sizeStandards = (function() {
      * @return {String}     HTML
      */
     let sizePageRevenue = function() {
+        console.debug(`sizeStandards.sizePageRevenue()`);
+
         return `<div class="width70">
                     <form action="javascript:setCompanySize('revenue');">
                     <h2>How much average annual receipts or revenue?</h2>
@@ -623,6 +651,8 @@ let sizeStandards = (function() {
      * @return {String}     HTML
      */
     let sizePageOil = function() {
+        console.debug(`sizeStandards.sizePageOil()`);
+
         return `<div class="width70">
                     <form action="javascript:setCompanySize('oil');">
                     <h2>How many barrels of oil does your company refine?</h2>
@@ -650,6 +680,7 @@ let sizeStandards = (function() {
      * @return {String}  HTML
      */
     let resultPage = function(renderedResult) {
+        console.debug(`sizeStandards.resultPage()`);
 
         let adviceString = '';
 
@@ -707,6 +738,8 @@ let sizeStandards = (function() {
      * @param  {String}  type    The company attribute type (assets, employees, revenue, or oil barrels)
      */
     public.setCompanySize = function(type) {
+        console.debug(`sizeStandards.setCompanySize(${type})`);
+
         let inputElement = document.querySelector('.input-number');
 
         switch (type) {
@@ -734,6 +767,7 @@ let sizeStandards = (function() {
      * @param  {String}  page    Page to display for the stage (start, search, size, result)
      */
     public.render = function(page) {
+        console.debug(`sizeStandards.render(${page})`);
 
         switch (page) {
             case 'start':
@@ -762,15 +796,10 @@ let sizeStandards = (function() {
                 break;
 
             case 'size':
-                console.debug(currentNAICS);
-
                 if (!currentNAICS.length) {
-
                     // This will return the user to the search page!
-
                     this.render('search');
                     flash('You must select at least one NAICS code.');
-
                     break;
                 }
 
@@ -805,15 +834,13 @@ let sizeStandards = (function() {
                 // This will fall through to the 'result' section!
 
             case 'result':
-
                 let sizeResult = generateResults(currentNAICS);
-                console.debug(sizeResult);
 
                 containerElement.innerHTML = resultPage(sizeResult);
                 break;
 
             default:
-                console.warn(`Sorry, no type / limit detected for ${page}.`);
+                console.warn(`sizeStandards.render(), case: default: Sorry, no type / limit detected for ${page}.`);
                 containerElement.innerHTML = startPage();
         }
     };
@@ -824,20 +851,22 @@ let sizeStandards = (function() {
      * @return {Array}           Returns the JSON data fetched from a remote source
      */
     public.init = function(ele) {
+        console.debug(`sizeStandards.init(${ele.id})`);
+
         // Data Loader
         if (!NAICS) {
-            console.debug(`Hostname detected: ${window.location.hostname}`);
+            console.debug(`sizeStandards.init(): Hostname detected: ${window.location.hostname}`);
             let url = window.location.hostname.includes('sba.gov') ? apiURLs.prod : apiURLs.dev;
-            console.debug(`Calling API at: ${url}`)
+            console.debug(`sizeStandards.init(): Calling API at: ${url}`)
             NAICS = fetchNAICS(url);
         }
 
         // HTML Renderer
         containerElement = ele;
-        console.debug(`Renderer attached: ${containerElement.title}`);
+        console.debug(`sizeStandards.init(): Renderer attached: ${containerElement.title}`);
         this.render('start');
 
-        console.debug(`sizeStandards initialized`);
+        console.debug(`sizeStandards.init() initialized`);
 
         return NAICS;
     };
