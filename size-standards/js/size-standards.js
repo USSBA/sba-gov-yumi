@@ -351,6 +351,7 @@ let sizeStandards = (function() {
         let oilLimit = '';
 
         if (result.id === '324110') {
+            console.log('Adding oil barrels!');
             oilLimit = "200,000 barrels";
         } else {
             oilLimit = '';
@@ -438,6 +439,8 @@ let sizeStandards = (function() {
         console.debug(`sizeStandards.generateResults()`);
 
         let results = determineSizes(currentNAICS);
+
+        console.log(results);
 
         let resultsHTML = '';
 
@@ -837,6 +840,7 @@ let sizeStandards = (function() {
                 let sizeResult = generateResults(currentNAICS);
 
                 containerElement.innerHTML = resultPage(sizeResult);
+
                 break;
 
             default:
@@ -867,7 +871,7 @@ let sizeStandards = (function() {
         this.render('start');
 
         console.debug(`sizeStandards.init() initialized`);
-
+        console.debug(NAICS);
         return NAICS;
     };
 
