@@ -2,7 +2,7 @@ let loader = (function() {
 
     // Variables
     let agencyData = {};
-    let dataURL = 'https://sba-gov-yumi.s3.amazonaws.com/agency-scorecards/data'
+    let dataURL = 'https://' + location.host + '/agency-scorecards/data'
     let scorecardData = [];
 
     // Public API
