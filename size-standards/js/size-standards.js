@@ -274,10 +274,10 @@ let sizeStandards = (function() {
             // Need to trim out _Except characters, if we're only returning primary NAICS codes (not exceptions)
             // This was originally requested by the stakeholder, then reversed (07/13/22)
             // Commented code remains in case minds change again, but can be deleted after launch
-            // if (naics.length > 6) {
-            //     // Trim first 6 characters
-            //     naics = naics.substring(0, 6);
-            // }
+            if (naics.length > 6) {
+                // Trim first 6 characters
+                naics = naics.substring(0, 6);
+            }
             return NAICS.find(code => code.id === naics);
         }
 
@@ -303,9 +303,9 @@ let sizeStandards = (function() {
             // This was requested by the stakeholder, then reversed (07/13/22)
             // Code remains in case minds change again, but can be deleted after launch
             // Exceptions
-            // if (value.id.includes('_Except')) {
-            //     return false;
-            // }
+            if (value.id.includes('_Except')) {
+                return false;
+            }
 
             // Empty rows
             if (value.id === '') {
@@ -375,39 +375,39 @@ let sizeStandards = (function() {
      * @param  {Object}  result     NAICS object
      * @return {String}             HTML representing single NAICS exceptions
      */
-    // let generateExceptionHTML = function(result) {
-    //     let exceptions = '';
-    //     let exceptionHTML = '';
+    let generateExceptionHTML = function(result) {
+        let exceptions = '';
+        let exceptionHTML = '';
 
-    //     let listFiltered = NAICS.filter(function(value) {
-    //         // Exceptions
-    //         if (value.id.includes('_Except')) {
-    //             if (value.id.startsWith(result.id)) {
-    //                 return true;
-    //             }
-    //         }
-    //     })
+        let listFiltered = NAICS.filter(function(value) {
+            // Exceptions
+            if (value.id.includes('_Except')) {
+                if (value.id.startsWith(result.id)) {
+                    return true;
+                }
+            }
+        })
 
-    //     // Test the exceptions for sizing 
-    //     let listFilteredandSized = determineSizes(listFiltered);
+        // Test the exceptions for sizing 
+        let listFilteredandSized = determineSizes(listFiltered);
 
-    //     // If there are any exceptions
-    //     if (listFiltered.length) {
+        // If there are any exceptions
+        if (listFiltered.length) {
 
-    //         // Loop through them and generate each as if they were a separate result
-    //         listFilteredandSized.forEach(function(exception) {
-    //             exceptions = exceptions + generateResultHTML(exception);
-    //         });
+            // Loop through them and generate each as if they were a separate result
+            listFilteredandSized.forEach(function(exception) {
+                exceptions = exceptions + generateResultHTML(exception);
+            });
 
-    //         // Wrap the entire list in a details block for UX
-    //         exceptionHTML = `<details>
-    //                         <summary>Exceptions may apply</summary>
-    //                         ${exceptions}
-    //                       </details>`;
-    //     }
+            // Wrap the entire list in a details block for UX
+            exceptionHTML = `<details open>
+                            <summary>Exceptions may apply</summary>
+                            ${exceptions}
+                          </details>`;
+        }
 
-    //     return exceptionHTML;
-    // }
+        return exceptionHTML;
+    }
 
     /*!
      * Generate HTML to display footnotes related to a given NAICS code
@@ -447,11 +447,12 @@ let sizeStandards = (function() {
         results.forEach(function(result) {
 
             // This was removed from resultsHTML on 7/13/22 at stakeholder request, see function comments
-            // ${generateExceptionHTML(result)}
+
 
             resultsHTML = resultsHTML + `
                                         <div class="result">
                                             ${generateResultHTML(result)}
+                                            ${generateExceptionHTML(result)}
                                             ${generateFootnoteHTML(result)}
                                         </div>
                                         `;
