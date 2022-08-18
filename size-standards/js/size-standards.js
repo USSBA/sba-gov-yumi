@@ -103,7 +103,7 @@ let sizeStandards = (function() {
     let determineSizes = function(arr) {
         console.debug(`sizeStandards.determineSizes(${arr}`);
 
-        let sizes = [];
+        const sizes = [];
 
         // Loop through each NAICS code
         arr.forEach(function(code) {
@@ -114,13 +114,15 @@ let sizeStandards = (function() {
             // Special case for Petroleum Refineries
             if (fullCode.id === '324110') {
                 console.debug(`Petroleum Refineries special case!!!`);
-                if (companyOilBarrels <= 2000) {
+                if (Number(companyOilBarrels) <= 2000) {
                     console.debug(`For ${fullCode.id}: ${companyOilBarrels} is less than OilBarrelLimit of 2000`);
-                    if (companyEmployees <= fullCode.employeeCountLimit) {
+                    if (parseInt(companyEmployees) <= parseInt(fullCode.employeeCountLimit)) {
                         console.debug(`For ${fullCode.id}: ${companyEmployees} is less than EmployeeCount Limit ${fullCode.employeeCountLimit}`);
                         fullCode.isSmall = true;
                         sizes.push(fullCode);
                         return;
+                    } else {
+                        fullCode.isSmall = false;
                     }
                 }
                 // I do not like this short-circuit, but I found it to be a necessary evil!
@@ -129,33 +131,40 @@ let sizeStandards = (function() {
             }
 
             if (fullCode.employeeCountLimit) {
-                if (companyEmployees <= fullCode.employeeCountLimit) {
+                const companyEmployeesNumber = parseInt(companyEmployees);
+                const employeeCountLimitNumber = parseInt(fullCode.employeeCountLimit)
+
+                if (companyEmployeesNumber <= employeeCountLimitNumber) {
                     console.debug(`For ${fullCode.id}: companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
+                } else {
+                    fullCode.isSmall = false;
                 }
             }
 
             if (fullCode.revenueLimit) {
-                let realDollarLimit = fullCode.revenueLimit * 1000000;
-
-                if (companyRevenue <= realDollarLimit) {
+                let realDollarLimit = Number(fullCode.revenueLimit) * 1000000;
+                if (Number(companyRevenue) <= realDollarLimit) {
                     console.debug(`For ${fullCode.id}: companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
+                } else {
+                    fullCode.isSmall = false;
                 }
             }
 
             if (fullCode.assetLimit) {
-                let realAssetLimit = fullCode.assetLimit * 1000000;
-
-                if (companyAssets <= realAssetLimit) {
+                let realAssetLimit = Number(fullCode.assetLimit) * 1000000;
+                if (Number(companyAssets) <= realAssetLimit) {
                     console.debug(`For ${fullCode.id}: companyAssets ${companyAssets} is less than ${realAssetLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
+                } else {
+                    fullCode.isSmall = false;
                 }
             }
 
@@ -361,7 +370,6 @@ let sizeStandards = (function() {
         let oilLimit = '';
 
         if (result.id === '324110') {
-            console.log('Adding oil barrels!');
             oilLimit = "200,000 barrels";
         } else {
             oilLimit = '';
@@ -392,7 +400,6 @@ let sizeStandards = (function() {
      */
 
     let searchCurrentNaicsException = function (result) {
-        console.log('12')
         return NAICS.filter(function(value) {
             // Exceptions
             if (value.id.includes('_Except')) {
@@ -488,8 +495,8 @@ let sizeStandards = (function() {
             resultsHTML = resultsHTML + `
                 <div class="result">
                     ${generateResultHTML(result)}
-                    ${exceptionExist.length <= 0 ? generateFootnoteHTML(result.footnote) : `<span></span>`}
-                    ${generateExceptionHTML(exceptionExist)}
+                    ${exceptionExist.length <= 0 ? generateFootnoteHTML(result.footnote) : ``}
+                    ${exceptionExist.length > 0 ? generateExceptionHTML(exceptionExist) : ``}
                 </div>
                 `;
         })
