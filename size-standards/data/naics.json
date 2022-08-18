@@ -857,7 +857,7 @@
     "subsectorDescription": "Oil and Gas Extraction",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -870,7 +870,7 @@
     "subsectorDescription": "Oil and Gas Extraction",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -883,7 +883,7 @@
     "subsectorDescription": "Mining (except Oil and Gas)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -896,7 +896,7 @@
     "subsectorDescription": "Mining (except Oil and Gas)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -935,7 +935,7 @@
     "subsectorDescription": "Mining (except Oil and Gas)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -1117,7 +1117,7 @@
     "subsectorDescription": "Mining (except Oil and Gas)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1156,7 +1156,7 @@
     "subsectorDescription": "Support Activities for Mining",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1338,7 +1338,7 @@
     "subsectorDescription": "Utilities",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1351,7 +1351,7 @@
     "subsectorDescription": "Utilities",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1836,7 +1836,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1862,7 +1862,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1901,7 +1901,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -1914,7 +1914,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1927,7 +1927,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1940,7 +1940,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1966,7 +1966,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1979,7 +1979,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -1992,7 +1992,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2005,7 +2005,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2018,7 +2018,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2031,20 +2031,20 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
   {
     "id": "311421",
-    "description": "Fruit and Vegetable Canning3",
+    "description": "Fruit and Vegetable Canning",
     "sectorId": "31-33",
     "sectorDescription": "Manufacturing",
     "subsectorId": "311",
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": [
       "NAICS code 311421 – For purposes of Government procurement for food canning and preserving, the standard of 500 employees excludes agricultural labor as defined in section 3306(k) of the Internal Revenue Code, 26 U.S.C. 3306(k)."
@@ -2059,7 +2059,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2085,7 +2085,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2111,7 +2111,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2137,7 +2137,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2150,7 +2150,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2163,7 +2163,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2189,7 +2189,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2228,7 +2228,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2254,7 +2254,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2280,7 +2280,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2306,7 +2306,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2332,7 +2332,7 @@
     "subsectorDescription": "Food Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2397,7 +2397,7 @@
     "subsectorDescription": "Beverage and Tobacco Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2410,7 +2410,7 @@
     "subsectorDescription": "Beverage and Tobacco Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2436,7 +2436,7 @@
     "subsectorDescription": "Beverage and Tobacco Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2449,7 +2449,7 @@
     "subsectorDescription": "Beverage and Tobacco Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2462,7 +2462,7 @@
     "subsectorDescription": "Beverage and Tobacco Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2475,7 +2475,7 @@
     "subsectorDescription": "Beverage and Tobacco Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -2488,7 +2488,7 @@
     "subsectorDescription": "Textile Mills",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2501,7 +2501,7 @@
     "subsectorDescription": "Textile Mills",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2553,7 +2553,7 @@
     "subsectorDescription": "Textile Mills",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2566,7 +2566,7 @@
     "subsectorDescription": "Textile Mills",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2579,7 +2579,7 @@
     "subsectorDescription": "Textile Product Mills",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -2618,7 +2618,7 @@
     "subsectorDescription": "Textile Product Mills",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2748,7 +2748,7 @@
     "subsectorDescription": "Leather and Allied Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2826,7 +2826,7 @@
     "subsectorDescription": "Wood Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2878,7 +2878,7 @@
     "subsectorDescription": "Wood Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -2930,7 +2930,7 @@
     "subsectorDescription": "Wood Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -2982,7 +2982,7 @@
     "subsectorDescription": "Paper Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3008,7 +3008,7 @@
     "subsectorDescription": "Paper Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3021,7 +3021,7 @@
     "subsectorDescription": "Paper Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3047,7 +3047,7 @@
     "subsectorDescription": "Paper Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3086,7 +3086,7 @@
     "subsectorDescription": "Paper Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -3138,7 +3138,7 @@
     "subsectorDescription": "Printing and Related Support Activities",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3164,7 +3164,7 @@
     "subsectorDescription": "Petroleum and Coal Products Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": [
       "NAICS code 324110 – To qualify as small for purposes of Government procurement, the petroleum refiner, including its affiliates, must be a concern that has either no more than 1,500 employees or no more than 200,000 barrels per calendar day total Operable Atmospheric Crude Oil Distillation capacity.  Capacity includes all domestic and foreign affiliates, all owned or leased facilities, and all facilities under a processing agreement or an arrangement such as an exchange agreement or a throughput.  To qualify under the capacity size standard, the firm, together with its affiliates, must be primarily engaged in refining crude petroleum into refined petroleum products.  A firm’s “primary industry” is determined in accordance with 13 CFR § 121.107."
@@ -3231,7 +3231,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3244,7 +3244,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3257,7 +3257,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3270,7 +3270,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3283,7 +3283,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3296,7 +3296,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3309,7 +3309,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3322,7 +3322,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3335,7 +3335,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3348,7 +3348,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3361,7 +3361,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3400,7 +3400,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3413,7 +3413,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3426,7 +3426,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3439,7 +3439,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3452,7 +3452,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3465,7 +3465,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3491,7 +3491,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3530,7 +3530,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3582,7 +3582,7 @@
     "subsectorDescription": "Chemical Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -3621,7 +3621,7 @@
     "subsectorDescription": "Plastics and Rubber Products Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3686,7 +3686,7 @@
     "subsectorDescription": "Plastics and Rubber Products Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3712,7 +3712,7 @@
     "subsectorDescription": "Plastics and Rubber Products Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3751,7 +3751,7 @@
     "subsectorDescription": "Plastics and Rubber Products Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": [
       "NAICS code 326211 –For Government procurement, a firm is small for bidding on a contract for pneumatic tires within Census NAICS Product Classification codes 3262111 and 3262113, provided that:",
@@ -3821,7 +3821,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3847,7 +3847,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3860,7 +3860,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3873,7 +3873,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -3886,7 +3886,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3899,7 +3899,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -3977,7 +3977,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -4029,7 +4029,7 @@
     "subsectorDescription": "Nonmetallic Mineral Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -4055,7 +4055,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -4068,7 +4068,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4081,7 +4081,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4094,7 +4094,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4107,7 +4107,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4133,7 +4133,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -4159,7 +4159,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4172,7 +4172,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4211,7 +4211,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4224,7 +4224,7 @@
     "subsectorDescription": "Primary Metal Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4484,7 +4484,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -4640,7 +4640,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4653,7 +4653,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4679,7 +4679,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -4692,7 +4692,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -4705,7 +4705,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -4718,7 +4718,7 @@
     "subsectorDescription": "Fabricated Metal Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -4757,7 +4757,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": [
       "NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."
@@ -4772,7 +4772,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": [
       "NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."
@@ -4787,7 +4787,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": [
       "NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."
@@ -4815,7 +4815,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -4841,7 +4841,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -4906,7 +4906,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -4919,7 +4919,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -4958,7 +4958,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5036,7 +5036,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5075,7 +5075,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5088,7 +5088,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5114,7 +5114,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5140,7 +5140,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5179,7 +5179,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5231,7 +5231,7 @@
     "subsectorDescription": "Machinery Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5270,7 +5270,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5283,7 +5283,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5296,7 +5296,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5309,7 +5309,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5322,7 +5322,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5374,7 +5374,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5400,7 +5400,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5439,7 +5439,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5452,7 +5452,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5517,7 +5517,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5530,7 +5530,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5556,7 +5556,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5569,7 +5569,7 @@
     "subsectorDescription": "Computer and Electronic Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5582,7 +5582,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5634,7 +5634,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5647,7 +5647,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5673,7 +5673,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5686,7 +5686,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5712,7 +5712,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5725,7 +5725,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5738,7 +5738,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5751,7 +5751,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5777,7 +5777,7 @@
     "subsectorDescription": "Electrical Equipment, Appliance and Component Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5816,7 +5816,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5829,7 +5829,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5842,7 +5842,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5855,7 +5855,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5868,7 +5868,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5881,7 +5881,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5894,7 +5894,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5907,7 +5907,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5920,7 +5920,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5933,7 +5933,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5946,7 +5946,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5959,7 +5959,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5972,7 +5972,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5985,7 +5985,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -5998,7 +5998,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6011,7 +6011,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6024,7 +6024,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6037,7 +6037,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS code 336413 – Contracts for the rebuilding or overhaul of aircraft ground support equipment on a contract basis are classified under NAICS code 336413."]
   },
@@ -6050,7 +6050,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6063,7 +6063,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6076,7 +6076,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6089,7 +6089,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6102,7 +6102,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6115,7 +6115,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6128,7 +6128,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6141,7 +6141,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6154,7 +6154,7 @@
     "subsectorDescription": "Transportation Equipment Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": ["NAICS Subsectors 333, 334, 335 and 336 – For rebuilding machinery or equipment on a factory basis, or equivalent, use the NAICS code for a newly manufactured product. Concerns performing major rebuilding or overhaul activities do not necessarily have to meet the criteria for being a \"manufacturer\" although the activities may be classified under a manufacturing NAICS code. Ordinary repair services or preservation are not considered rebuilding."]
   },
@@ -6180,7 +6180,7 @@
     "subsectorDescription": "Furniture and Related Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6245,7 +6245,7 @@
     "subsectorDescription": "Furniture and Related Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6271,7 +6271,7 @@
     "subsectorDescription": "Furniture and Related Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6297,7 +6297,7 @@
     "subsectorDescription": "Furniture and Related Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6310,7 +6310,7 @@
     "subsectorDescription": "Furniture and Related Product Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6323,7 +6323,7 @@
     "subsectorDescription": "Miscellaneous Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6362,7 +6362,7 @@
     "subsectorDescription": "Miscellaneous Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6466,7 +6466,7 @@
     "subsectorDescription": "Miscellaneous Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -6505,7 +6505,7 @@
     "subsectorDescription": "Miscellaneous Manufacturing",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -8338,7 +8338,7 @@
     "subsectorDescription": "Air Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8351,7 +8351,7 @@
     "subsectorDescription": "Air Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8364,7 +8364,7 @@
     "subsectorDescription": "Air Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8377,7 +8377,7 @@
     "subsectorDescription": "Air Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8403,7 +8403,7 @@
     "subsectorDescription": "Rail Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8416,7 +8416,7 @@
     "subsectorDescription": "Rail Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8442,7 +8442,7 @@
     "subsectorDescription": "Water Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8728,7 +8728,7 @@
     "subsectorDescription": "Pipeline Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -8754,7 +8754,7 @@
     "subsectorDescription": "Pipeline Transportation",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -9014,7 +9014,7 @@
     "subsectorDescription": "Couriers and Messengers",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -9092,7 +9092,7 @@
     "subsectorDescription": "Publishing Industries (except Internet)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -9105,7 +9105,7 @@
     "subsectorDescription": "Publishing Industries (except Internet)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -9118,7 +9118,7 @@
     "subsectorDescription": "Publishing Industries (except Internet)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -9131,7 +9131,7 @@
     "subsectorDescription": "Publishing Industries (except Internet)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,250",
+    "employeeCountLimit": "1250",
     "parent": null,
     "footnote": null
   },
@@ -9144,7 +9144,7 @@
     "subsectorDescription": "Publishing Industries (except Internet)",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -9365,7 +9365,7 @@
     "subsectorDescription": "Telecommunications",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -9378,7 +9378,7 @@
     "subsectorDescription": "Telecommunications",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -9404,7 +9404,7 @@
     "subsectorDescription": "Telecommunications",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
@@ -9469,7 +9469,7 @@
     "subsectorDescription": "Other Information Services",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,000",
+    "employeeCountLimit": "1000",
     "parent": null,
     "footnote": null
   },
@@ -9833,7 +9833,7 @@
     "subsectorDescription": "Insurance Carriers and Related Activities",
     "revenueLimit": null,
     "assetLimit": null,
-    "employeeCountLimit": "1,500",
+    "employeeCountLimit": "1500",
     "parent": null,
     "footnote": null
   },
