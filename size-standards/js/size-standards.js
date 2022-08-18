@@ -646,7 +646,7 @@ let sizeStandards = (function() {
                     <br>
                     <label>Number of employees<br><input class="input-number" type="number"></label>
                     <p>
-                        This should be the average number of full-time or part-time employees over the last 12 months.
+                        This should be the average number of full-time or part-time employees over the last 24 months.
                     </p>
                     <p id="flash" class="hidden"></p>
                     <input class="button" type="submit" value="Check Size" />
