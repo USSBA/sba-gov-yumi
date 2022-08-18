@@ -114,7 +114,7 @@ let sizeStandards = (function() {
             // Special case for Petroleum Refineries
             if (fullCode.id === '324110') {
                 console.debug(`Petroleum Refineries special case!!!`);
-                if (Number(companyOilBarrels) <= 2000) {
+                if (Number(companyOilBarrels) <= 200000) {
                     console.debug(`For ${fullCode.id}: ${companyOilBarrels} is less than OilBarrelLimit of 2000`);
                     if (parseInt(companyEmployees) <= parseInt(fullCode.employeeCountLimit)) {
                         console.debug(`For ${fullCode.id}: ${companyEmployees} is less than EmployeeCount Limit ${fullCode.employeeCountLimit}`);
@@ -124,10 +124,12 @@ let sizeStandards = (function() {
                     } else {
                         fullCode.isSmall = false;
                     }
+                } else {
+                    fullCode.isSmall = false;
                 }
                 // I do not like this short-circuit, but I found it to be a necessary evil!
                 // You need this extra return to prevent the next employeeCountLimit from evaluating
-                return;
+                return sizes.push(fullCode);;
             }
 
             if (fullCode.employeeCountLimit) {
