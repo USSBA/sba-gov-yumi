@@ -274,6 +274,7 @@ caption {
 
 #footnote {
     text-indent: 10px;
+    padding-bottom: 20px;
 }
 
 #nav-toggle,
@@ -302,7 +303,7 @@ caption {
 }
 
 #summary {
-    padding-bottom:8px;
+    padding-bottom: 8px;
 }
 
 @media only screen and (max-width: 769px) {

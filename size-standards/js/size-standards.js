@@ -14,6 +14,7 @@ let sizeStandards = (function() {
     let companyRevenue;
 
     let currentNAICS = []; // Dynamic list of NAICS being searched for
+    let currentNAICSFootnote = []; // Push one footnote in this array per NAICS and its Except family to only print once
     let NAICS; // Static list/reference of all NAICS codes
 
     let apiURLs = {
@@ -381,7 +382,6 @@ let sizeStandards = (function() {
         return resultHTML;
     }
 
-
     // Exceptions being generated were originally requested by the stakeholder, then reversed (07/13/22)
     // Commented code remains in case minds change again, but can be deleted after launch
 
@@ -390,11 +390,10 @@ let sizeStandards = (function() {
      * @param  {Object}  result     NAICS object
      * @return {String}             HTML representing single NAICS exceptions
      */
-    let generateExceptionHTML = function(result) {
-        let exceptions = '';
-        let exceptionHTML = '';
 
-        let listFiltered = NAICS.filter(function(value) {
+    let searchCurrentNaicsException = function (result) {
+        console.log('12')
+        return NAICS.filter(function(value) {
             // Exceptions
             if (value.id.includes('_Except')) {
                 if (value.id.startsWith(result.id)) {
@@ -402,23 +401,42 @@ let sizeStandards = (function() {
                 }
             }
         })
+    }
+
+    let generateExceptionHTML = function(exceptionList) {
+        let exceptions = '';
+        let exceptionHTML = '';
+
+        // let listFiltered = NAICS.filter(function(value) {
+        //     // Exceptions
+        //     if (value.id.includes('_Except')) {
+        //         if (value.id.startsWith(result.id)) {
+        //             return true;
+        //         }
+        //     }
+        // })
 
         // Test the exceptions for sizing 
-        let listFilteredandSized = determineSizes(listFiltered);
+        let listFilteredandSized = determineSizes(exceptionList);
 
         // If there are any exceptions
-        if (listFiltered.length) {
+        if (exceptionList.length) {
 
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
-                exceptions = exceptions + generateResultHTML(exception) + generateFootnoteHTML(exception);
+                if (currentNAICSFootnote.length <= 0) {
+                    currentNAICSFootnote.push(exception.footnote)
+                }
+                exceptions = exceptions + generateResultHTML(exception);
             });
-
+        
             // Wrap the entire list in a details block for UX
-            exceptionHTML = `<details open>
-                            <summary id="summary">Exceptions may apply</summary>
-                            ${exceptions}
-                          </details>`;
+            exceptionHTML = 
+                `<details open>
+                    <summary id="summary">Exceptions may apply</summary>
+                    ${exceptions}
+                    ${generateFootnoteHTML(currentNAICSFootnote)}
+                </details>`;
         }
 
         return exceptionHTML;
@@ -429,16 +447,16 @@ let sizeStandards = (function() {
      * @param  {Object}  result     NAICS object
      * @return {String}             HTML representing single NAICS footnotes
      */
-    let generateFootnoteHTML = function(result) {
-        console.debug(`sizeStandards.generateFootnoteHTML(${result})`);
+    let generateFootnoteHTML = function(footnote) {
+        console.debug(`sizeStandards.generateFootnoteHTML(${footnote})`);
 
         let footnoteHTML = '';
 
-        if (result.footnote) {
+        if (footnote) {
             footnoteHTML = `<details id="footnote">
                             <summary>Footnotes may apply</summary>
                             <p>
-                            ${result.footnote}
+                            ${footnote}
                             </p>
                         </details>`
         }
@@ -465,20 +483,18 @@ let sizeStandards = (function() {
         let resultsHTML = '';
 
         results.forEach(function(result) {
-
-            // This was removed from resultsHTML on 7/13/22 at stakeholder request, see function comments
+            exceptionExist = searchCurrentNaicsException(result)
 
             resultsHTML = resultsHTML + `
-                                        <div class="result">
-                                            ${generateResultHTML(result)}
-                                            ${generateFootnoteHTML(result)}
-                                            ${generateExceptionHTML(result)}
-                                        </div>
-                                        `;
-            
-            
+                <div class="result">
+                    ${generateResultHTML(result)}
+                    ${exceptionExist.length <= 0 ? generateFootnoteHTML(result.footnote) : `<span></span>`}
+                    ${generateExceptionHTML(exceptionExist)}
+                </div>
+                `;
         })
 
+        currentNAICSFootnote = [];
         return resultsHTML;
     }
 
