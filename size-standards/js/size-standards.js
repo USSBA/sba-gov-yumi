@@ -411,20 +411,15 @@ let sizeStandards = (function() {
 
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
-                exceptions = exceptions + generateResultHTML(exception);
+                exceptions = exceptions + generateResultHTML(exception) + generateFootnoteHTML(exception);
             });
 
             // Wrap the entire list in a details block for UX
             exceptionHTML = `<details open>
-                            <summary>Exceptions may apply</summary>
+                            <summary id="summary">Exceptions may apply</summary>
                             ${exceptions}
                           </details>`;
         }
-
-        // const index = array.indexOf(5);
-        // if (index > -1) { // only splice array when item is found
-        //     array.splice(index, 1); // 2nd parameter means remove one item only
-        // }
 
         return exceptionHTML;
     }
@@ -440,7 +435,7 @@ let sizeStandards = (function() {
         let footnoteHTML = '';
 
         if (result.footnote) {
-            footnoteHTML = `<details>
+            footnoteHTML = `<details id="footnote">
                             <summary>Footnotes may apply</summary>
                             <p>
                             ${result.footnote}
@@ -476,8 +471,8 @@ let sizeStandards = (function() {
             resultsHTML = resultsHTML + `
                                         <div class="result">
                                             ${generateResultHTML(result)}
-                                            ${generateExceptionHTML(result)}
                                             ${generateFootnoteHTML(result)}
+                                            ${generateExceptionHTML(result)}
                                         </div>
                                         `;
             
@@ -826,6 +821,7 @@ let sizeStandards = (function() {
                 break;
 
             case 'size':
+                console.log()
                 if (!currentNAICS.length) {
                     // This will return the user to the search page!
                     this.render('search');
