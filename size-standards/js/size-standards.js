@@ -57,6 +57,15 @@ let sizeStandards = (function() {
         // Add value to Array to-be-searched
         currentNAICS.push(naics);
 
+        NAICS.filter(function(value) {
+            // Exceptions
+            if (value.id.includes('_Except')) {
+                if (value.id.startsWith(naics)) {
+                    currentNAICS.push(value.id);
+                }
+            }
+        })
+
         // Clear flash message
         flash();
 
@@ -274,10 +283,10 @@ let sizeStandards = (function() {
             // Need to trim out _Except characters, if we're only returning primary NAICS codes (not exceptions)
             // This was originally requested by the stakeholder, then reversed (07/13/22)
             // Commented code remains in case minds change again, but can be deleted after launch
-            if (naics.length > 6) {
-                // Trim first 6 characters
-                naics = naics.substring(0, 6);
-            }
+            // if (naics.length > 6) {
+            //     // Trim first 6 characters
+            //     naics = naics.substring(0, 6);
+            // }
             return NAICS.find(code => code.id === naics);
         }
 
@@ -363,9 +372,15 @@ let sizeStandards = (function() {
                         <span>${sizeString}</span>
                         <br>
                       </div>`;
-
+        
+        const index = currentNAICS.indexOf(result.id);
+        if (index > -1) { // only splice array when item is found
+            currentNAICS.splice(index, 1); // 2nd parameter means remove one item only
+        }
+        
         return resultHTML;
     }
+
 
     // Exceptions being generated were originally requested by the stakeholder, then reversed (07/13/22)
     // Commented code remains in case minds change again, but can be deleted after launch
@@ -406,6 +421,11 @@ let sizeStandards = (function() {
                           </details>`;
         }
 
+        // const index = array.indexOf(5);
+        // if (index > -1) { // only splice array when item is found
+        //     array.splice(index, 1); // 2nd parameter means remove one item only
+        // }
+
         return exceptionHTML;
     }
 
@@ -438,16 +458,20 @@ let sizeStandards = (function() {
     let generateResults = function() {
         console.debug(`sizeStandards.generateResults()`);
 
-        let results = determineSizes(currentNAICS);
+        // Remove NAICS with Excepts to make the codebase run. Refactor later.
+        const currentNAICSWithoutExcepts = currentNAICS.filter(naics => {
+            if (!naics.includes('_Except')) {
+                return true
+            }
+        });
 
-        console.log(results);
+        let results = determineSizes(currentNAICSWithoutExcepts);
 
         let resultsHTML = '';
 
         results.forEach(function(result) {
 
             // This was removed from resultsHTML on 7/13/22 at stakeholder request, see function comments
-
 
             resultsHTML = resultsHTML + `
                                         <div class="result">
@@ -456,6 +480,8 @@ let sizeStandards = (function() {
                                             ${generateFootnoteHTML(result)}
                                         </div>
                                         `;
+            
+            
         })
 
         return resultsHTML;
