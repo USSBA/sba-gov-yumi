@@ -14,6 +14,7 @@ let sizeStandards = (function() {
     let companyRevenue;
 
     let currentNAICS = []; // Dynamic list of NAICS being searched for
+    let currentNAICSFootnote = []; // Push one footnote in this array per NAICS and its Except family to only print once
     let NAICS; // Static list/reference of all NAICS codes
 
     let apiURLs = {
@@ -102,7 +103,7 @@ let sizeStandards = (function() {
     let determineSizes = function(arr) {
         console.debug(`sizeStandards.determineSizes(${arr}`);
 
-        let sizes = [];
+        const sizes = [];
 
         // Loop through each NAICS code
         arr.forEach(function(code) {
@@ -113,13 +114,15 @@ let sizeStandards = (function() {
             // Special case for Petroleum Refineries
             if (fullCode.id === '324110') {
                 console.debug(`Petroleum Refineries special case!!!`);
-                if (companyOilBarrels <= 2000) {
+                if (Number(companyOilBarrels) <= 2000) {
                     console.debug(`For ${fullCode.id}: ${companyOilBarrels} is less than OilBarrelLimit of 2000`);
-                    if (companyEmployees <= fullCode.employeeCountLimit) {
+                    if (parseInt(companyEmployees) <= parseInt(fullCode.employeeCountLimit)) {
                         console.debug(`For ${fullCode.id}: ${companyEmployees} is less than EmployeeCount Limit ${fullCode.employeeCountLimit}`);
                         fullCode.isSmall = true;
                         sizes.push(fullCode);
                         return;
+                    } else {
+                        fullCode.isSmall = false;
                     }
                 }
                 // I do not like this short-circuit, but I found it to be a necessary evil!
@@ -128,33 +131,40 @@ let sizeStandards = (function() {
             }
 
             if (fullCode.employeeCountLimit) {
-                if (companyEmployees <= fullCode.employeeCountLimit) {
+                const companyEmployeesNumber = parseInt(companyEmployees);
+                const employeeCountLimitNumber = parseInt(fullCode.employeeCountLimit)
+
+                if (companyEmployeesNumber <= employeeCountLimitNumber) {
                     console.debug(`For ${fullCode.id}: companyEmployees ${companyEmployees} is less than EmployeeCountLimit ${fullCode.employeeCountLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
+                } else {
+                    fullCode.isSmall = false;
                 }
             }
 
             if (fullCode.revenueLimit) {
-                let realDollarLimit = fullCode.revenueLimit * 1000000;
-
-                if (companyRevenue <= realDollarLimit) {
+                let realDollarLimit = Number(fullCode.revenueLimit) * 1000000;
+                if (Number(companyRevenue) <= realDollarLimit) {
                     console.debug(`For ${fullCode.id}: companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
+                } else {
+                    fullCode.isSmall = false;
                 }
             }
 
             if (fullCode.assetLimit) {
-                let realAssetLimit = fullCode.assetLimit * 1000000;
-
-                if (companyAssets <= realAssetLimit) {
+                let realAssetLimit = Number(fullCode.assetLimit) * 1000000;
+                if (Number(companyAssets) <= realAssetLimit) {
                     console.debug(`For ${fullCode.id}: companyAssets ${companyAssets} is less than ${realAssetLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
                     return;
+                } else {
+                    fullCode.isSmall = false;
                 }
             }
 
@@ -360,7 +370,6 @@ let sizeStandards = (function() {
         let oilLimit = '';
 
         if (result.id === '324110') {
-            console.log('Adding oil barrels!');
             oilLimit = "200,000 barrels";
         } else {
             oilLimit = '';
@@ -381,7 +390,6 @@ let sizeStandards = (function() {
         return resultHTML;
     }
 
-
     // Exceptions being generated were originally requested by the stakeholder, then reversed (07/13/22)
     // Commented code remains in case minds change again, but can be deleted after launch
 
@@ -390,11 +398,9 @@ let sizeStandards = (function() {
      * @param  {Object}  result     NAICS object
      * @return {String}             HTML representing single NAICS exceptions
      */
-    let generateExceptionHTML = function(result) {
-        let exceptions = '';
-        let exceptionHTML = '';
 
-        let listFiltered = NAICS.filter(function(value) {
+    let searchCurrentNaicsException = function (result) {
+        return NAICS.filter(function(value) {
             // Exceptions
             if (value.id.includes('_Except')) {
                 if (value.id.startsWith(result.id)) {
@@ -402,29 +408,43 @@ let sizeStandards = (function() {
                 }
             }
         })
+    }
+
+    let generateExceptionHTML = function(exceptionList) {
+        let exceptions = '';
+        let exceptionHTML = '';
+
+        // let listFiltered = NAICS.filter(function(value) {
+        //     // Exceptions
+        //     if (value.id.includes('_Except')) {
+        //         if (value.id.startsWith(result.id)) {
+        //             return true;
+        //         }
+        //     }
+        // })
 
         // Test the exceptions for sizing 
-        let listFilteredandSized = determineSizes(listFiltered);
+        let listFilteredandSized = determineSizes(exceptionList);
 
         // If there are any exceptions
-        if (listFiltered.length) {
+        if (exceptionList.length) {
 
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
+                if (currentNAICSFootnote.length <= 0) {
+                    currentNAICSFootnote.push(exception.footnote)
+                }
                 exceptions = exceptions + generateResultHTML(exception);
             });
-
+        
             // Wrap the entire list in a details block for UX
-            exceptionHTML = `<details open>
-                            <summary>Exceptions may apply</summary>
-                            ${exceptions}
-                          </details>`;
+            exceptionHTML = 
+                `<details open>
+                    <summary id="summary">Exceptions may apply</summary>
+                    ${exceptions}
+                    ${generateFootnoteHTML(currentNAICSFootnote)}
+                </details>`;
         }
-
-        // const index = array.indexOf(5);
-        // if (index > -1) { // only splice array when item is found
-        //     array.splice(index, 1); // 2nd parameter means remove one item only
-        // }
 
         return exceptionHTML;
     }
@@ -434,16 +454,16 @@ let sizeStandards = (function() {
      * @param  {Object}  result     NAICS object
      * @return {String}             HTML representing single NAICS footnotes
      */
-    let generateFootnoteHTML = function(result) {
-        console.debug(`sizeStandards.generateFootnoteHTML(${result})`);
+    let generateFootnoteHTML = function(footnote) {
+        console.debug(`sizeStandards.generateFootnoteHTML(${footnote})`);
 
         let footnoteHTML = '';
 
-        if (result.footnote) {
-            footnoteHTML = `<details>
+        if (footnote) {
+            footnoteHTML = `<details id="footnote">
                             <summary>Footnotes may apply</summary>
                             <p>
-                            ${result.footnote}
+                            ${footnote}
                             </p>
                         </details>`
         }
@@ -470,20 +490,18 @@ let sizeStandards = (function() {
         let resultsHTML = '';
 
         results.forEach(function(result) {
-
-            // This was removed from resultsHTML on 7/13/22 at stakeholder request, see function comments
+            exceptionExist = searchCurrentNaicsException(result)
 
             resultsHTML = resultsHTML + `
-                                        <div class="result">
-                                            ${generateResultHTML(result)}
-                                            ${generateExceptionHTML(result)}
-                                            ${generateFootnoteHTML(result)}
-                                        </div>
-                                        `;
-            
-            
+                <div class="result">
+                    ${generateResultHTML(result)}
+                    ${exceptionExist.length <= 0 ? generateFootnoteHTML(result.footnote) : ``}
+                    ${exceptionExist.length > 0 ? generateExceptionHTML(exceptionExist) : ``}
+                </div>
+                `;
         })
 
+        currentNAICSFootnote = [];
         return resultsHTML;
     }
 
