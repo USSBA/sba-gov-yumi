@@ -844,6 +844,7 @@ let sizeStandards = (function() {
                 break;
 
             case 'size':
+                console.log()
                 if (!currentNAICS.length) {
                     // This will return the user to the search page!
                     this.render('search');
