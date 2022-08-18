@@ -272,6 +272,11 @@ caption {
     padding: .5rem;
 }
 
+#footnote {
+    text-indent: 10px;
+    padding-bottom: 20px;
+}
+
 #nav-toggle,
 .hamburger-menu {
     display: none;
@@ -295,6 +300,10 @@ caption {
 #special-naics-name {
     color: hsl(0, 0%, 30%);
     font-size: 1.5rem;
+}
+
+#summary {
+    padding-bottom: 8px;
 }
 
 @media only screen and (max-width: 769px) {
