@@ -434,7 +434,7 @@ let sizeStandards = (function() {
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
                 if (currentNAICSFootnote.length <= 0) {
-                    currentNAICSFootnote.push(exception.footnote)
+                    currentNAICSFootnote = exception.footnote
                 }
                 exceptions = exceptions + generateResultHTML(exception);
             });
@@ -462,12 +462,25 @@ let sizeStandards = (function() {
         let footnoteHTML = '';
 
         if (footnote) {
+            let combinedFootnote = '';
+
+            footnote.forEach(function(eachFootnote, index) {
+
+                if (index >= 1) {
+                    const numberToLetter = (index + 9).toString(36).toUpperCase()
+
+                    combinedFootnote += `<p>${numberToLetter}. ${eachFootnote}</p>`
+                } else {
+                    combinedFootnote += `<p>${eachFootnote}</p>`
+                }
+            })
+
             footnoteHTML = `<details id="footnote">
-                            <summary>Footnotes may apply</summary>
-                            <p>
-                            ${footnote}
-                            </p>
-                        </details>`
+                <summary>Footnotes may apply</summary>
+                <p>
+                    ${combinedFootnote}
+                </p>
+            </details>`
         }
 
         return footnoteHTML;
