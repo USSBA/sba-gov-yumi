@@ -14,7 +14,7 @@ let sizeStandards = (function() {
     let companyRevenue;
 
     let currentNAICS = []; // Dynamic list of NAICS being searched for
-    let currentNAICSFootnote = []; // Push one footnote in this array per NAICS and its Except family to only print once
+    let currentNAICSFootnote = []; // Push one footnote in this array per NAICS, which its Except family to only print once
     let NAICS; // Static list/reference of all NAICS codes
 
     let apiURLs = {
@@ -448,6 +448,7 @@ let sizeStandards = (function() {
                 </details>`;
         }
 
+        currentNAICSFootnote = [];
         return exceptionHTML;
     }
 
@@ -516,7 +517,6 @@ let sizeStandards = (function() {
                 `;
         })
 
-        currentNAICSFootnote = [];
         return resultsHTML;
     }
 
