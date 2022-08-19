@@ -163,6 +163,11 @@ caption {
     width: 100%;
 }
 
+.footnote {
+    text-indent: 10px;
+    padding-bottom: 20px;
+}
+
 .hidden {
     display: none;
 }
@@ -213,6 +218,10 @@ caption {
 .result {
     border-bottom: 1px solid black;
     padding: 1rem 0;
+}
+
+.summary {
+    padding-bottom: 8px;
 }
 
 .width50 {
@@ -272,11 +281,6 @@ caption {
     padding: .5rem;
 }
 
-#footnote {
-    text-indent: 10px;
-    padding-bottom: 20px;
-}
-
 #nav-toggle,
 .hamburger-menu {
     display: none;
@@ -300,10 +304,6 @@ caption {
 #special-naics-name {
     color: hsl(0, 0%, 30%);
     font-size: 1.5rem;
-}
-
-#summary {
-    padding-bottom: 8px;
 }
 
 @media only screen and (max-width: 769px) {
