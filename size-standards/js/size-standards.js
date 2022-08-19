@@ -442,7 +442,7 @@ let sizeStandards = (function() {
             // Wrap the entire list in a details block for UX
             exceptionHTML = 
                 `<details open>
-                    <summary id="summary">Exceptions may apply</summary>
+                    <summary class="summary">Exceptions may apply</summary>
                     ${exceptions}
                     ${generateFootnoteHTML(currentNAICSFootnote)}
                 </details>`;
@@ -476,7 +476,7 @@ let sizeStandards = (function() {
                 }
             })
 
-            footnoteHTML = `<details id="footnote">
+            footnoteHTML = `<details class="footnote">
                 <summary>Footnotes may apply</summary>
                 <p>
                     ${combinedFootnote}
