@@ -68,7 +68,7 @@ let sizeStandards = (function() {
 
         // Clear flash message
         flash();
-console.log('1', currentNAICS)
+
         return currentNAICS;
     }
 
@@ -126,8 +126,7 @@ console.log('1', currentNAICS)
                 } else {
                     fullCode.isSmall = false;
                 }
-                // I do not like this short-circuit, but I found it to be a necessary evil!
-                // You need this extra return to prevent the next employeeCountLimit from evaluating
+
                 return sizes.push(fullCode);;
             }
 
@@ -320,8 +319,6 @@ console.log('1', currentNAICS)
         // Remove exceptions and empty rows from the data
         let listFiltered = NAICS.filter(function(value) {
 
-            // This was requested by the stakeholder, then reversed (07/13/22)
-            // Code remains in case minds change again, but can be deleted after launch
             // Exceptions
             if (value.id.includes('_Except')) {
                 return false;
@@ -391,9 +388,6 @@ console.log('1', currentNAICS)
         return resultHTML;
     }
 
-    // Exceptions being generated were originally requested by the stakeholder, then reversed (07/13/22)
-    // Commented code remains in case minds change again, but can be deleted after launch
-
     /*!
      * Generate HTML to display exception status status for a given NAICS code
      * @param  {Object}  result     NAICS object
@@ -415,21 +409,13 @@ console.log('1', currentNAICS)
         let exceptions = '';
         let exceptionHTML = '';
 
-        // let listFiltered = NAICS.filter(function(value) {
-        //     // Exceptions
-        //     if (value.id.includes('_Except')) {
-        //         if (value.id.startsWith(result.id)) {
-        //             return true;
-        //         }
-        //     }
-        // })
-
         // Test the exceptions for sizing 
         let listFilteredandSized = determineSizes(exceptionList);
 
         // If there are any exceptions
         if (exceptionList.length) {
-            let currentNAICSFootnote = []; // Push one footnote in this array per NAICS, which its Except family to only print once
+            // Push one footnote in this array per NAICS, which its Except family to only print once
+            let currentNAICSFootnote = [];
 
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
@@ -493,7 +479,6 @@ console.log('1', currentNAICS)
     let generateResults = function() {
         console.debug(`sizeStandards.generateResults()`);
 
-        // Remove NAICS with Excepts to make the codebase run. Refactor later.
         const currentNAICSWithoutExcepts = currentNAICS.filter(naics => {
             if (!naics.includes('_Except')) {
                 return true
@@ -892,8 +877,6 @@ console.log('1', currentNAICS)
                         break;
                     }
                 }
-
-                // This will fall through to the 'result' section!
 
             case 'result':
                 let sizeResult = generateResults(currentNAICS);
