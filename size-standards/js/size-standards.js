@@ -68,7 +68,7 @@ let sizeStandards = (function() {
 
         // Clear flash message
         flash();
-
+console.log('1', currentNAICS)
         return currentNAICS;
     }
 
@@ -433,7 +433,7 @@ let sizeStandards = (function() {
 
             // Loop through them and generate each as if they were a separate result
             listFilteredandSized.forEach(function(exception) {
-                if (currentNAICSFootnote.length <= 0) {
+                if (currentNAICSFootnote && currentNAICSFootnote.length <= 0) {
                     currentNAICSFootnote = exception.footnote
                 }
                 exceptions = exceptions + generateResultHTML(exception);
@@ -505,7 +505,7 @@ let sizeStandards = (function() {
         let resultsHTML = '';
 
         results.forEach(function(result) {
-            exceptionExist = searchCurrentNaicsException(result)
+            const exceptionExist = searchCurrentNaicsException(result);
 
             resultsHTML = resultsHTML + `
                 <div class="result">
@@ -858,7 +858,6 @@ let sizeStandards = (function() {
                 break;
 
             case 'size':
-                console.log()
                 if (!currentNAICS.length) {
                     // This will return the user to the search page!
                     this.render('search');
