@@ -18,7 +18,7 @@ let sizeStandards = (function() {
 
     let apiURLs = {
         dev: 'https://sba-gov-yumi.s3.amazonaws.com/size-standards/data/naics.json',
-        prod: 'https://www.sba.gov/naics'
+        prod: 'https://api.sba.gov/naics/naics.json'
     }
 
     // Methods
