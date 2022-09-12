@@ -620,7 +620,7 @@ let sizeStandards = (function() {
                             </tbody>
                         </table>
                         <p>The North American Industry Classification System (NAICS) classifies businesses according to type of economic activity.</p>
-                        <p>If you don't know which NAICS code to select, visit <a href="www.census.gov/NAICS">www.census.gov/NAICS</a> for a comprehensive search and listing.</p>
+                        <p>If you don't know which NAICS code to select, visit <a href="https://www.census.gov/NAICS" target="_blank">www.census.gov/NAICS</a> for a comprehensive search and listing.</p>
                         <p id="flash" class="hidden"></p>
                         <input class="button" type="submit" value="search" />
                     </form>
