@@ -21,6 +21,12 @@ let sizeStandards = (function() {
         prod: 'https://api.sba.gov/naics/naics.json'
     }
 
+    const autoNumericOptions = {
+        decimalPlaces: 0,
+        currencySymbol: '$',
+        minimumValue: 0
+    }
+
     // Methods
 
     let public = {};
@@ -145,8 +151,10 @@ let sizeStandards = (function() {
             }
 
             if (fullCode.revenueLimit) {
-                let realDollarLimit = Number(fullCode.revenueLimit) * 1000000;
-                if (Number(companyRevenue) <= realDollarLimit) {
+                const realDollarLimit = Number(fullCode.revenueLimit) * 1000000;
+                const onlyNumbersInCompanyRevenue = companyRevenue.replace(/[$,]/g, '')
+
+                if (Number(onlyNumbersInCompanyRevenue) <= realDollarLimit) {
                     console.debug(`For ${fullCode.id}: companyRevenue ${companyRevenue} is less than than ${realDollarLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
@@ -157,8 +165,10 @@ let sizeStandards = (function() {
             }
 
             if (fullCode.assetLimit) {
-                let realAssetLimit = Number(fullCode.assetLimit) * 1000000;
-                if (Number(companyAssets) <= realAssetLimit) {
+                const realAssetLimit = Number(fullCode.assetLimit) * 1000000;
+                const onlyNumbersInCompanyAssets = companyAssets.replace(/[$,]/g, '')
+
+                if (Number(onlyNumbersInCompanyAssets) <= realAssetLimit) {
                     console.debug(`For ${fullCode.id}: companyAssets ${companyAssets} is less than ${realAssetLimit}`);
                     fullCode.isSmall = true;
                     sizes.push(fullCode);
@@ -640,7 +650,7 @@ let sizeStandards = (function() {
                         <h2>How many total assets in the last year?</h2>
                         <br>
                         <label>One-year Average<br>
-                            <input class="input-number" type="number">
+                            <input class="input-number dollar-input" type="text">
                         </label>
                         <p>
                             A financial institution's assets are determined by averaging the assets reported on its four quarterly financial statements for the preceding year. 
@@ -684,7 +694,8 @@ let sizeStandards = (function() {
                     <form action="javascript:setCompanySize('revenue');">
                     <h2>How much average annual receipts or revenue?</h2>
                     <br>
-                    <label>Five-year Average<br><input class="input-number" type="number"></label>
+                    <label>Five-year Average<br>
+                    <input class="input-number dollar-input" type="text"></label>
                     <p>
                         Your average annual receipts/revenue is generally calculated as your total receipts/revenue or total income plus cost of goods sold (including all affiliates, if any) over the latest completed five (5) fiscal years divided by five (5). See 13 CFR 121.104
                         for details.
@@ -862,6 +873,7 @@ let sizeStandards = (function() {
                 if (!companyRevenue) {
                     if (shouldAskRevenue()) {
                         containerElement.innerHTML = sizePageRevenue();
+                        new AutoNumeric('.dollar-input', autoNumericOptions);
                         break;
                     }
                 }
@@ -869,6 +881,7 @@ let sizeStandards = (function() {
                 if (!companyAssets) {
                     if (shouldAskAssets()) {
                         containerElement.innerHTML = sizePageAssets();
+                        new AutoNumeric('.dollar-input', autoNumericOptions);
                         break;
                     }
                 }
