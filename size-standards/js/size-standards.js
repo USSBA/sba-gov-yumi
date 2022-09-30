@@ -620,7 +620,7 @@ let sizeStandards = (function() {
                             </tbody>
                         </table>
                         <p>The North American Industry Classification System (NAICS) classifies businesses according to type of economic activity.</p>
-                        <p>If you don't know which NAICS code to select, visit census.gov for a comprehensive search and listing.</p>
+                        <p>If you don't know which NAICS code to select, visit <a href="https://www.census.gov/NAICS" target="_blank">www.census.gov/NAICS</a> for a comprehensive search and listing.</p>
                         <p id="flash" class="hidden"></p>
                         <input class="button" type="submit" value="search" />
                     </form>
@@ -637,15 +637,17 @@ let sizeStandards = (function() {
 
         return `<div class="width70">
                     <form action="javascript:setCompanySize('assets');">
-                    <h2>How many total assets in the last year?</h2>
-                    <br>
-                    <label>One-year Average<br><input class="input-number" type="number"></label>
-                    <p>
-                        A financial institution's assets are determined by averaging the assets reported on its four quarterly financial statements for the preceding year. 
-                        "Assets" means the assets defined according to the Federal Financial Institutions Examination Council 041 call report form for NAICS Codes 522110, 522120, 522190, and 522210 and the National Credit Union Administration 5300 call report form for NAICS code 522130.
-                    </p>
-                    <p id="flash" class="hidden"></p>
-                    <input class="button" type="submit" value="Check Size" />
+                        <h2>How many total assets in the last year?</h2>
+                        <br>
+                        <label>One-year Average<br>
+                            <input class="input-number" type="number">
+                        </label>
+                        <p>
+                            A financial institution's assets are determined by averaging the assets reported on its four quarterly financial statements for the preceding year. 
+                            "Assets" means the assets defined according to the Federal Financial Institutions Examination Council 041 call report form for NAICS Codes 522110, 522120, 522190, and 522210 and the National Credit Union Administration 5300 call report form for NAICS code 522130.
+                        </p>
+                        <p id="flash" class="hidden"></p>
+                        <input class="button" type="submit" value="Check Size" />
                     </form>
                 </div>`;
     }
