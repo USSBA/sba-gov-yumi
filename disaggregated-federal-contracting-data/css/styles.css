@@ -1,11 +1,18 @@
+#chart-container {
+  margin: 0 auto;
+  padding-top: 80px;
+  width: 70%;
+}
+
 #page_title {
-  margin-top: 15%;
+  padding-top: 15%;
+}
+
+.subtitle {
+  padding-top: 60px;
 }
 
 #page_title, .title, .subtitle {
   text-align: center;
 }
 
-.subtitle {
-  padding-top: 60px;
-}
