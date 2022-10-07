@@ -1,0 +1,11 @@
+#page_title {
+  margin-top: 15%;
+}
+
+#page_title, .title, .subtitle {
+  text-align: center;
+}
+
+.subtitle {
+  padding-top: 60px;
+}
