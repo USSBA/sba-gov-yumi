@@ -1,9 +1,3 @@
-#chart-container {
-  margin: 0 auto;
-  padding-top: 80px;
-  width: 70%;
-}
-
 #page_title {
   padding-top: 15%;
 }
@@ -16,3 +10,11 @@
   text-align: center;
 }
 
+/* Larger than phablet */
+@media (min-width: 1000px) {
+  #chart-container {
+    margin: 0 auto;
+    padding-top: 60px;
+    width: 70%;
+  }
+}
