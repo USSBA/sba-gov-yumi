@@ -1,0 +1,561 @@
+[
+  {
+    "title": "Data Summary FY 2021 Federal Contracting",
+    "data": [
+      {
+        "race": "Asian and Pacific Islander Owned Small Business",
+        "total": "$6,962,961,844.48 ",
+        "percent": 0.01
+      },
+      {
+        "race": "Subcontinent Asian American Owned Small Business",
+        "total": "$9,489,416,039.16 ",
+        "percent": 0.02
+      },
+      {
+        "race": "Black Owned Small Business",
+        "total": "$9,049,888,431.68 ",
+        "percent": 0.02
+      },
+      {
+        "race": "Hispanic Owned Small Business",
+        "total": "$10,265,156,604.67 ",
+        "percent": 0.02
+      },
+      {
+        "race": "Native American Owned Small Business",
+        "total": "$17,367,096,922.61 ",
+        "percent": 0.03
+      },
+      {
+        "race": "Other Minority Owned Small Business",
+        "total": "$2,264,499,929.46 ",
+        "percent": 0
+      },
+      {
+        "race": "Other Small Business",
+        "total": "$93,741,661,417.82 ",
+        "percent": 0.17
+      },
+      {
+        "race": "Not a Small Business",
+        "total": "$417,351,302,214.17 ",
+        "percent": 0.74
+      }
+    ]
+  },
+  {
+    "title": "Top 5 Departments by Race",
+    "data": [
+      {
+        "aapi": [
+          {
+            "department": "Small Business Administration",
+            "total-dollar-by-funding-department": "$1,147,247,221.77 ",
+            "total-dollar-obligated-to-demographic": "$92,700,085.13 ",
+            "percent": "8.08%"
+          },
+          {
+            "department": "Housing and Urban Development, Department of",
+            "total-dollar-by-funding-department": "$979,318,364.15 ",
+            "total-dollar-obligated-to-demographic": "$71,065,738.85 ",
+            "percent": "7.26%"
+          },
+          {
+            "department": "Transportation, Department of",
+            "total-dollar-by-funding-department": "$7,494,786,812.99 ",
+            "total-dollar-obligated-to-demographic": "$345,979,514.01 ",
+            "percent": "4.62%"
+          },
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total-dollar-by-funding-department": "$166,881,843.16 ",
+            "total-dollar-obligated-to-demographic": "$7,578,217.56 ",
+            "tercent": "4.54%"
+          },
+          {
+            "department": "Labor, Department of",
+            "total-dollar-by-funding-department": "$2,366,535,332.03 ",
+            "total-dollar-obligated-to-demographic": "$101,629,749.00 ",
+            "percent": "4.29%"
+          }
+        ]
+      },
+      {
+        "black": [
+          {
+            "department": "Small Business Administration",
+            "total_dollar_by_funding_department": "$1,147,247,221.77 ",
+            "total_dollar_obligated_to_demographic": "$144,182,615.03 ",
+            "percent": "12.57%"
+          },
+          {
+            "department": "Labor, Department of",
+            "total_dollar_by_funding_department": "$2,366,535,332.03 ",
+            "total_dollar_obligated_to_demographic": "$158,715,878.22 ",
+            "percent": "6.71%"
+          },
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total_dollar_by_funding_department": "$166,881,843.16 ",
+            "total_dollar_obligated_to_demographic": "$10,210,837.53 ",
+            "percent": "6.12%"
+          },
+          {
+            "department": "National Science Foundation",
+            "total_dollar_by_funding_department": "$510,175,349.14 ",
+            "total_dollar_obligated_to_demographic": "$27,691,614.74 ",
+            "percent": "5.43%"
+          },
+          {
+            "department": "General Services Administration",
+            "total_dollar_by_funding_department": "$5,762,751,482.33 ",
+            "total_dollar_obligated_to_demographic": "$276,789,256.80 ",
+            "percent": "4.80%"
+          }
+        ]
+      },
+      {
+        "hispanic": [
+          {
+            "department": "Office of Personnel Management",
+            "total_dollar_by_funding_department": "$504,850,040.17 ",
+            "total_dollar_obligated_to_demographic": "$40,118,005.53 ",
+            "percent": "7.95%"
+          },
+          {
+            "department": "Labor, Department of",
+            "total_dollar_by_funding_department": "$2,366,535,332.03 ",
+            "total_dollar_obligated_to_demographic": "$151,716,285.73 ",
+            "percent": "6.41%"
+          },
+          {
+            "department": "Interior, Department of the",
+            "total_dollar_by_funding_department": "$4,069,030,594.33 ",
+            "total_dollar_obligated_to_demographic": "$201,188,746.14 ",
+            "percent": "4.94%"
+          },
+          {
+            "department": "General Services Administration",
+            "total_dollar_by_funding_department": "$5,762,751,482.33 ",
+            "total_dollar_obligated_to_demographic": "$259,158,684.18 ",
+            "percent": "4.50%"
+          },
+          {
+            "department": "Housing and Urban Development, Department of",
+            "total_dollar_by_funding_department": "$979,318,364.15 ",
+            "total_dollar_obligated_to_demographic": "$40,831,794.27 ",
+            "percent": "4.17%"
+          }
+        ]
+      },
+      {
+        "native_american": [
+          {
+            "department": "State, Department of",
+            "total_dollar_by_funding_department": "$10,387,474,072.76 ",
+            "total_dollar_obligated_to_demographic": "$1,362,294,722.93 ",
+            "percent": "13.11%"
+          },
+          {
+            "department": "Interior, Department of the",
+            "total_dollar_by_funding_department": "$4,069,030,594.33 ",
+            "total_dollar_obligated_to_demographic": "$519,476,433.92 ",
+            "percent": "12.77%"
+          },
+          {
+            "department": "Office of Personnel Management",
+            "total_dollar_by_funding_department": "$504,850,040.17 ",
+            "total_dollar_obligated_to_demographic": "$39,551,742.89 ",
+            "percent": "7.83%"
+          },
+          {
+            "department": "Labor, Department of",
+            "total_dollar_by_funding_department": "$2,366,535,332.03 ",
+            "total_dollar_obligated_to_demographic": "$145,600,360.46 ",
+            "percent": "6.15%"
+          },
+          {
+            "department": "General Services Administration",
+            "total_dollar_by_funding_department": "$5,762,751,482.33 ",
+            "total_dollar_obligated_to_demographic": "$336,521,012.35 ",
+            "percent": "5.84%"
+          }
+        ]
+      },
+      {
+        "other_minority": [
+          {
+            "department": "Environmental Protection Agency",
+            "total_dollar_by_funding_department": "$1,530,800,694.02 ",
+            "total_dollar_obligated_to_demographic": "$29,165,691.27 ",
+            "percent": "1.91%"
+          },
+          {
+            "department": "Education, Department of",
+            "total_dollar_by_funding_department": "$2,519,422,302.76 ",
+            "total_dollar_obligated_to_demographic": "$45,120,480.41 ",
+            "percent": "1.79%"
+          },
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total_dollar_by_funding_department": "$166,881,843.16 ",
+            "total_dollar_obligated_to_demographic": "$2,174,388.55 ",
+            "percent": "1.30%"
+          },
+          {
+            "department": "Interior, Department of the",
+            "total_dollar_by_funding_department": "$4,069,030,594.33 ",
+            "total_dollar_obligated_to_demographic": "$49,437,923.35 ",
+            "percent": "1.21%"
+          },
+          {
+            "department": "Homeland Security, Department of",
+            "total_dollar_by_funding_department": "$20,813,871,346.74 ",
+            "total_dollar_obligated_to_demographic": "$183,964,575.14 ",
+            "percent": "0.88%"
+          }
+        ]
+      },
+      {
+        "other": [
+          {
+            "department": "Agriculture, Department of",
+            "total_dollar_by_funding_department": "$9,483,673,390.50 ",
+            "total_dollar_obligated_to_demographic": "$3,808,171,928.43 ",
+            "percent": "40.16%"
+          },
+          {
+            "department": "Office of Personnel Management",
+            "total_dollar_by_funding_department": "$504,850,040.17 ",
+            "total_dollar_obligated_to_demographic": "$187,490,941.73 ",
+            "percent": "37.14%"
+          },
+          {
+            "department": "Interior, Department of the",
+            "total_dollar_by_funding_department": "$4,069,030,594.33 ",
+            "total_dollar_obligated_to_demographic": "$1,434,662,233.65 ",
+            "percent": "35.26%"
+          },
+          {
+            "department": "Small Business Administration",
+            "total_dollar_by_funding_department": "$1,147,247,221.77 ",
+            "total_dollar_obligated_to_demographic": "$376,359,312.04 ",
+            "percent": "32.81%"
+          },
+          {
+            "department": "Treasury, Department of The",
+            "total_dollar_by_funding_department": "$9,388,838,458.42 ",
+            "total_dollar_obligated_to_demographic": "$2,962,613,733.96 ",
+            "percent": "31.55%"
+          }
+        ]
+      },
+      {
+        "not_small_business": [
+          {
+            "department": "Housing and Urban Development, Department of",
+            "total_dollar_by_funding_department": "$979,318,364.15 ",
+            "total_dollar_obligated_to_demographic": "$1,041,833,951.27 ",
+            "percent": "106.38%"
+          },
+          {
+            "department": "Energy, Department of",
+            "total_dollar_by_funding_department": "$38,254,108,782.28 ",
+            "total_dollar_obligated_to_demographic": "$36,495,302,665.52 ",
+            "percent": "95.40%"
+          },
+          {
+            "department": "Agency for International Development",
+            "total_dollar_by_funding_department": "$5,556,797,065.50 ",
+            "total_dollar_obligated_to_demographic": "$4,750,375,700.07 ",
+            "percent": "85.49%"
+          },
+          {
+            "department": "Education, Department of",
+            "total_dollar_by_funding_department": "$2,519,422,302.76 ",
+            "total_dollar_obligated_to_demographic": "$2,115,900,749.83 ",
+            "percent": "83.98%"
+          },
+          {
+            "department": "National Aeronautics and Space Administration",
+            "total_dollar_by_funding_department": "$19,044,467,894.98 ",
+            "total_dollar_obligated_to_demographic": "$15,583,257,964.80 ",
+            "percent": "81.83%"
+          }
+        ]
+      },
+      {
+        "south_asian_american": [
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total_dollar_by_funding_department": "$166,881,843.16 ",
+            "total_dollar_obligated_to_demographic": "$17,177,559.73 ",
+            "percent": "10.29%"
+          },
+          {
+            "department": "Housing and Urban Development, Department of",
+            "total_dollar_by_funding_department": "$979,318,364.15 ",
+            "total_dollar_obligated_to_demographic": "$66,087,234.12 ",
+            "percent": "6.75%"
+          },
+          {
+            "department": "Commerce, Department of",
+            "total_dollar_by_funding_department": "$4,764,500,364.22 ",
+            "total_dollar_obligated_to_demographic": "$320,757,649.33 ",
+            "percent": "6.73%"
+          },
+          {
+            "department": "Office of Personnel Management",
+            "total_dollar_by_funding_department": "$504,850,040.17 ",
+            "total_dollar_obligated_to_demographic": "$26,713,931.93 ",
+            "percent": "5.29%"
+          },
+          {
+            "department": "Homeland Security, Department of",
+            "total_dollar_by_funding_department": "$20,813,871,346.74 ",
+            "total_dollar_obligated_to_demographic": "$1,001,855,369.76 ",
+            "percent": "4.81%"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Top 5 NAICS Codes by Race",
+    "data": [
+      {
+        "aapi": [
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$859,777,023.81 "
+          },
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$793,046,840.83 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$725,583,314.38 "
+          },
+          {
+            "naics_code": 541511,
+            "naics_code_description": "Custom Computer Programming Services",
+            "dollars": "$593,881,296.84 "
+          },
+          {
+            "naics_code": 541512,
+            "naics_code_description": "Computer Systems Design Services",
+            "dollars": "$539,716,533.26 "
+          }
+        ]
+      },
+      {
+        "black": [
+          {
+            "naics_code": 541512,
+            "naics_code_description": "Computer Systems Design Services",
+            "dollars": "$1,006,894,358.27 "
+          },
+          {
+            "naics_code": 541611,
+            "naics_code_description": "Administrative Management and General Management Consulting Services",
+            "dollars": "$972,553,395.77 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$720,603,657.39 "
+          },
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$602,092,150.77 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$506,949,656.31 "
+          }
+        ]
+      },
+      {
+        "hispanic": [
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$1,741,651,023.09 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$852,608,367.96 "
+          },
+          {
+            "naics_code": 541712,
+            "naics_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Biotechnology)",
+            "dollars": "$679,013,845.03 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$597,140,162.13 "
+          },
+          {
+            "naics_code": 541512,
+            "naics_code_description": "Computer Systems Design Services",
+            "dollars": "$459,238,969.06 "
+          }
+        ]
+      },
+      {
+        "native_american": [
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$2,321,593,967.71 "
+          },
+          {
+            "naics_code": 561210,
+            "naics_code_description": "Facilities Support Services",
+            "dollars": "$2,270,796,231.26 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$1,308,089,178.57 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$1,189,482,763.72 "
+          },
+          {
+            "naics_code": 541611,
+            "naics_code_description": "Administrative Management and General Management Consulting Services",
+            "dollars": "$993,662,757.25 "
+          }
+        ]
+      },
+      {
+        "not_small_business": [
+          {
+            "naics_code": 336411,
+            "naics_code_description": "Aircraft Manufacturing",
+            "dollars": "$33,210,666,211.02 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$26,962,038,141.77 "
+          },
+          {
+            "naics_code": 561210,
+            "naics_code_description": "Facilities Support Services",
+            "dollars": "$23,794,952,718.09 "
+          },
+          {
+            "naics_code": 541715,
+            "naics_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
+            "dollars": "$23,109,090,722.00 "
+          },
+          {
+            "naics_code": 325414,
+            "naics_code_description": "Biological Product (except Diagnotic) Manufacturing",
+            "dollars": "$19,931,230,348.76 "
+          }
+        ]
+      },
+      {
+        "other_minority": [
+          {
+            "naics_code": 541512,
+            "naics_code_description": "Computer Systems Design Services",
+            "dollars": "$301,736,681.21 "
+          },
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$280,058,804.78 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$207,187,654.42 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$165,368,324.52 "
+          },
+          {
+            "naics_code": 562910,
+            "naics_code_description": "Remediation Services",
+            "dollars": "$110,479,094.75 "
+          }
+        ]
+      },
+      {
+        "other": [
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$7,643,158,958.50 "
+          },
+          {
+            "naics_code": 325412,
+            "naics_code_description": "Pharmaceutical Preparation Manufacturing",
+            "dollars": "$7,355,813,777.16 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$5,850,021,565.81 "
+          },
+          {
+            "naics_code": 541715,
+            "naics_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
+            "dollars": "$5,279,614,588.58 "
+          },
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$4,777,226,407.14 "
+          }
+        ]
+      },
+      {
+        "south_asian_american": [
+          {
+            "naics_code": 541512,
+            "naics_code_description": "Computer Systems Design Services",
+            "dollars": "$1,898,303,842.65 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$1,844,108,313.43 "
+          },
+          {
+            "naics_code": 541511,
+            "naics_code_description": "Custom Computer Programming Services",
+            "dollars": "$915,013,720.13 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$830,494,648.83 "
+          },
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$626,564,924.46 "
+          }
+        ]
+      }
+    ]
+  }
+]
