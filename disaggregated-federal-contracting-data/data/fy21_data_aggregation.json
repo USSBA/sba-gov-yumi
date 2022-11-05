@@ -5,42 +5,42 @@
       {
         "race": "Asian and Pacific Islander Owned Small Business",
         "total": "$6,962,961,844.48 ",
-        "percent": 0.01
+        "percent": 0.012
       },
       {
         "race": "Subcontinent Asian American Owned Small Business",
         "total": "$9,489,416,039.16 ",
-        "percent": 0.02
+        "percent": 0.017
       },
       {
         "race": "Black Owned Small Business",
         "total": "$9,049,888,431.68 ",
-        "percent": 0.02
+        "percent": 0.016
       },
       {
         "race": "Hispanic Owned Small Business",
         "total": "$10,265,156,604.67 ",
-        "percent": 0.02
+        "percent": 0.018
       },
       {
         "race": "Native American Owned Small Business",
         "total": "$17,367,096,922.61 ",
-        "percent": 0.03
+        "percent": 0.031
       },
       {
         "race": "Other Minority Owned Small Business",
         "total": "$2,264,499,929.46 ",
-        "percent": 0
+        "percent": 0.004
       },
       {
         "race": "Other Small Business",
         "total": "$93,741,661,417.82 ",
-        "percent": 0.17
+        "percent": 0.165
       },
       {
         "race": "Not a Small Business",
         "total": "$417,351,302,214.17 ",
-        "percent": 0.74
+        "percent": 0.737
       }
     ]
   },
@@ -48,7 +48,7 @@
     "title": "Top 5 Departments by Race",
     "data": [
       {
-        "aapi": [
+        "asian_and_pacific_islander_owned_small_business": [
           {
             "department": "Small Business Administration",
             "total-dollar-by-funding-department": "$1,147,247,221.77 ",
@@ -82,7 +82,7 @@
         ]
       },
       {
-        "black": [
+        "black_owned_small_business": [
           {
             "department": "Small Business Administration",
             "total_dollar_by_funding_department": "$1,147,247,221.77 ",
@@ -116,7 +116,7 @@
         ]
       },
       {
-        "hispanic": [
+        "hispanic_owned_small_business": [
           {
             "department": "Office of Personnel Management",
             "total_dollar_by_funding_department": "$504,850,040.17 ",
@@ -150,7 +150,7 @@
         ]
       },
       {
-        "native_american": [
+        "native_american-owned-small-business": [
           {
             "department": "State, Department of",
             "total_dollar_by_funding_department": "$10,387,474,072.76 ",
@@ -184,7 +184,7 @@
         ]
       },
       {
-        "other_minority": [
+        "other_minority-owned-small-business": [
           {
             "department": "Environmental Protection Agency",
             "total_dollar_by_funding_department": "$1,530,800,694.02 ",
@@ -218,7 +218,7 @@
         ]
       },
       {
-        "other": [
+        "other_owned_small_business": [
           {
             "department": "Agriculture, Department of",
             "total_dollar_by_funding_department": "$9,483,673,390.50 ",
@@ -252,7 +252,7 @@
         ]
       },
       {
-        "not_small_business": [
+        "not_a_small_business": [
           {
             "department": "Housing and Urban Development, Department of",
             "total_dollar_by_funding_department": "$979,318,364.15 ",
@@ -325,7 +325,7 @@
     "title": "Top 5 NAICS Codes by Race",
     "data": [
       {
-        "aapi": [
+        "asian_and_pacific_islander_owned_small_business": [
           {
             "naics_code": 541330,
             "naics_code_description": "Engineering Services",
@@ -354,7 +354,7 @@
         ]
       },
       {
-        "black": [
+        "black_owned_small_business": [
           {
             "naics_code": 541512,
             "naics_code_description": "Computer Systems Design Services",
@@ -383,7 +383,7 @@
         ]
       },
       {
-        "hispanic": [
+        "hispanic_owned_small_business": [
           {
             "naics_code": 236220,
             "naics_code_description": "Commercial and Institutional Building Construction",
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "native_american": [
+        "native_american_owned_small_business": [
           {
             "naics_code": 236220,
             "naics_code_description": "Commercial and Institutional Building Construction",
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "not_small_business": [
+        "not_a_small_business": [
           {
             "naics_code": 336411,
             "naics_code_description": "Aircraft Manufacturing",
@@ -470,7 +470,7 @@
         ]
       },
       {
-        "other_minority": [
+        "other_minority_owned_small_business": [
           {
             "naics_code": 541512,
             "naics_code_description": "Computer Systems Design Services",
@@ -499,7 +499,7 @@
         ]
       },
       {
-        "other": [
+        "other_small_business": [
           {
             "naics_code": 541519,
             "naics_code_description": "Other Computer Related Services",
@@ -528,7 +528,7 @@
         ]
       },
       {
-        "south_asian_american": [
+        "south_asian_american_owned_small_business": [
           {
             "naics_code": 541512,
             "naics_code_description": "Computer Systems Design Services",
