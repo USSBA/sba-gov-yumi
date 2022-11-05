@@ -14,9 +14,9 @@
     .then(res => {
       res.forEach(data => {
         if (data.title.startsWith('Data Summary')) {
-          organizeDataSummary(data.title, data.data);
-
+          organizeDataSummary(data);
         }
+          createIndividualRaceTable(data)
       })
     }).catch(err => {
       // err is the raw response
@@ -24,13 +24,13 @@
       // return err;
     })
 
-  const organizeDataSummary = (dataTitle, dataSummary) => {
-    const dataSummaryAscendingPercentOrder = dataSummary.sort((a, b) => a.percent - b.percent);
+  const organizeDataSummary = (dataSummary) => {
+    const dataSummaryAscendingPercentOrder = dataSummary.data.sort((a, b) => a.percent - b.percent);
     const races = dataSummaryAscendingPercentOrder.map(data => data.race);
     const businessOwnedPercents = dataSummaryAscendingPercentOrder.map(data => data.percent * 100);
 
     drawChart(races, businessOwnedPercents);
-    createDataSummaryTable(dataTitle, dataSummaryAscendingPercentOrder);
+    createDataSummaryTable({title: dataSummary.title, data: dataSummaryAscendingPercentOrder});
   }
 
   const drawChart = (races, businessOwnedPercents) => {
@@ -65,7 +65,7 @@
     );
   }
 
-  const createDataSummaryTable = (dataTitle, dataSummary) => {
+  const createDataSummaryTable = (dataSummary) => {
     const parentDiv = document.body.getElementsByClassName('container')[0];
     const childDiv = document.createElement('div');
     const tableTitleATag = document.createElement('a');
@@ -74,19 +74,44 @@
     parentDiv.appendChild(childDiv);
 
     tableTitleATag.setAttribute('href', 'javascript:void(0)');
-    tableTitleATag.innerText = dataTitle
+    tableTitleATag.innerText = dataSummary.title;
     childDiv.appendChild(tableTitleATag);
 
     const tbl = document.createElement('table');
     tbl.setAttribute('id', 'data-summary');
     tbl.setAttribute('class', 'u-full-width');
 
-    const data = Object.keys(dataSummary[0]);
+    const data = Object.keys(dataSummary.data[0]);
 
     createTableHeader(tbl, data);
-    createTable(tbl, dataSummary);
+    createTable(tbl, dataSummary.data);
 
     childDiv.appendChild(tbl);
+  }
+
+  const createIndividualRaceTable = (data) => {
+    console.log('1', data)
+    // const parentDiv = document.body.getElementsByClassName('container')[0];
+    // const childDiv = document.createElement('div');
+    // const tableTitleATag = document.createElement('a');
+
+    // childDiv.setAttribute('class', 'data-summary-table-container');
+    // parentDiv.appendChild(childDiv);
+
+    // tableTitleATag.setAttribute('href', 'javascript:void(0)');
+    // tableTitleATag.innerText = dataTitle
+    // childDiv.appendChild(tableTitleATag);
+
+    // const tbl = document.createElement('table');
+    // tbl.setAttribute('id', 'data-summary');
+    // tbl.setAttribute('class', 'u-full-width');
+
+    // const data = Object.keys(dataSummary[0]);
+
+    // createTableHeader(tbl, data);
+    // createTable(tbl, dataSummary);
+
+    // childDiv.appendChild(tbl);
   }
 
   const createTableHeader = (table, data) => {
