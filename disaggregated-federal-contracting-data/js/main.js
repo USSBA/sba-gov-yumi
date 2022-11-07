@@ -10,13 +10,16 @@
     }
   }
 
+  // this number needs to be updated.
   fetchData('2021')
     .then(res => {
       res.forEach(data => {
         if (data.title.startsWith('Data Summary')) {
           organizeDataSummary(data);
         }
+        // else if (data.title.startsWith('Top 5 Departments by Race')) {
           createIndividualRaceTable(data)
+        // }
       })
     }).catch(err => {
       // err is the raw response
@@ -25,12 +28,12 @@
     })
 
   const organizeDataSummary = (dataSummary) => {
-    const dataSummaryAscendingPercentOrder = dataSummary.data.sort((a, b) => a.percent - b.percent);
-    const races = dataSummaryAscendingPercentOrder.map(data => data.race);
-    const businessOwnedPercents = dataSummaryAscendingPercentOrder.map(data => data.percent * 100);
+    // const dataSummaryAscendingPercentOrder = dataSummary.data.sort((a, b) => a.percent - b.percent);
+    const races = dataSummary.data.map(data => data.race);
+    const businessOwnedPercents = dataSummary.data.map(data => data.percent * 100);
 
     drawChart(races, businessOwnedPercents);
-    createDataSummaryTable({title: dataSummary.title, data: dataSummaryAscendingPercentOrder});
+    createDataSummaryTable({title: dataSummary.title, data: dataSummary.data});
   }
 
   const drawChart = (races, businessOwnedPercents) => {
@@ -90,12 +93,16 @@
   }
 
   const createIndividualRaceTable = (data) => {
-    console.log('1', data)
-    // const parentDiv = document.body.getElementsByClassName('container')[0];
-    // const childDiv = document.createElement('div');
-    // const tableTitleATag = document.createElement('a');
+    const parentDiv = document.body.getElementsByClassName('container')[0];
+    const childDiv = document.createElement('div');
+    const tableTitleATag = document.createElement('a');
 
-    // childDiv.setAttribute('class', 'data-summary-table-container');
+    if (data.title.startsWith('Top 5 Departments by Race')) {
+      const some = Object.keys(data.data)
+      console.log('1', some)
+    }
+    
+    childDiv.setAttribute('class', 'data-summary-table-container');
     // parentDiv.appendChild(childDiv);
 
     // tableTitleATag.setAttribute('href', 'javascript:void(0)');
@@ -120,7 +127,6 @@
 
     for (const key of data) {
       const firstLetterCapitalizedTitle = key.charAt(0).toUpperCase() + key.slice(1);
-
       const th = document.createElement("th");
       const text = document.createTextNode(firstLetterCapitalizedTitle);
       
