@@ -51,32 +51,32 @@
         "asian_and_pacific_islander_owned_small_business": [
           {
             "department": "Small Business Administration",
-            "total-dollar-by-funding-department": "$1,147,247,221.77 ",
-            "total-dollar-obligated-to-demographic": "$92,700,085.13 ",
+            "total_dollar_by_funding_department": "$1,147,247,221.77 ",
+            "total_dollar_obligated_to_demographic": "$92,700,085.13 ",
             "percent": "8.08%"
           },
           {
             "department": "Housing and Urban Development, Department of",
-            "total-dollar-by-funding-department": "$979,318,364.15 ",
-            "total-dollar-obligated-to-demographic": "$71,065,738.85 ",
+            "total_dollar_by_funding_department": "$979,318,364.15 ",
+            "total_dollar_obligated_to_demographic": "$71,065,738.85 ",
             "percent": "7.26%"
           },
           {
             "department": "Transportation, Department of",
-            "total-dollar-by-funding-department": "$7,494,786,812.99 ",
-            "total-dollar-obligated-to-demographic": "$345,979,514.01 ",
+            "total_dollar_by_funding_department": "$7,494,786,812.99 ",
+            "total_dollar_obligated_to_demographic": "$345,979,514.01 ",
             "percent": "4.62%"
           },
           {
             "department": "Nuclear Regulatory Commission",
-            "total-dollar-by-funding-department": "$166,881,843.16 ",
-            "total-dollar-obligated-to-demographic": "$7,578,217.56 ",
+            "total_dollar_by_funding_department": "$166,881,843.16 ",
+            "total_dollar_obligated_to_demographic": "$7,578,217.56 ",
             "tercent": "4.54%"
           },
           {
             "department": "Labor, Department of",
-            "total-dollar-by-funding-department": "$2,366,535,332.03 ",
-            "total-dollar-obligated-to-demographic": "$101,629,749.00 ",
+            "total_dollar_by_funding_department": "$2,366,535,332.03 ",
+            "total_dollar_obligated_to_demographic": "$101,629,749.00 ",
             "percent": "4.29%"
           }
         ]
@@ -150,7 +150,7 @@
         ]
       },
       {
-        "native_american-owned-small-business": [
+        "native_american_owned_small_business": [
           {
             "department": "State, Department of",
             "total_dollar_by_funding_department": "$10,387,474,072.76 ",
@@ -184,7 +184,7 @@
         ]
       },
       {
-        "other_minority-owned-small-business": [
+        "other_minority_owned_small_business": [
           {
             "department": "Environmental Protection Agency",
             "total_dollar_by_funding_department": "$1,530,800,694.02 ",
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "south_asian_american": [
+        "south_asian_american_owned_small_business": [
           {
             "department": "Nuclear Regulatory Commission",
             "total_dollar_by_funding_department": "$166,881,843.16 ",
@@ -441,35 +441,6 @@
         ]
       },
       {
-        "not_a_small_business": [
-          {
-            "naics_code": 336411,
-            "naics_code_description": "Aircraft Manufacturing",
-            "dollars": "$33,210,666,211.02 "
-          },
-          {
-            "naics_code": 541330,
-            "naics_code_description": "Engineering Services",
-            "dollars": "$26,962,038,141.77 "
-          },
-          {
-            "naics_code": 561210,
-            "naics_code_description": "Facilities Support Services",
-            "dollars": "$23,794,952,718.09 "
-          },
-          {
-            "naics_code": 541715,
-            "naics_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
-            "dollars": "$23,109,090,722.00 "
-          },
-          {
-            "naics_code": 325414,
-            "naics_code_description": "Biological Product (except Diagnotic) Manufacturing",
-            "dollars": "$19,931,230,348.76 "
-          }
-        ]
-      },
-      {
         "other_minority_owned_small_business": [
           {
             "naics_code": 541512,
@@ -499,7 +470,7 @@
         ]
       },
       {
-        "other_small_business": [
+        "other_owned_small_business": [
           {
             "naics_code": 541519,
             "naics_code_description": "Other Computer Related Services",
@@ -524,6 +495,35 @@
             "naics_code": 236220,
             "naics_code_description": "Commercial and Institutional Building Construction",
             "dollars": "$4,777,226,407.14 "
+          }
+        ]
+      },
+      {
+        "not_a_small_business": [
+          {
+            "naics_code": 336411,
+            "naics_code_description": "Aircraft Manufacturing",
+            "dollars": "$33,210,666,211.02 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$26,962,038,141.77 "
+          },
+          {
+            "naics_code": 561210,
+            "naics_code_description": "Facilities Support Services",
+            "dollars": "$23,794,952,718.09 "
+          },
+          {
+            "naics_code": 541715,
+            "naics_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
+            "dollars": "$23,109,090,722.00 "
+          },
+          {
+            "naics_code": 325414,
+            "naics_code_description": "Biological Product (except Diagnotic) Manufacturing",
+            "dollars": "$19,931,230,348.76 "
           }
         ]
       },
