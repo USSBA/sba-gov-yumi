@@ -17,9 +17,7 @@
         if (data.title.startsWith('Data Summary')) {
           organizeDataSummary(data);
         }
-        // else if (data.title.startsWith('Top 5 Departments by Race')) {
           createIndividualRaceTable(data)
-        // }
       })
     }).catch(err => {
       // err is the raw response
@@ -81,12 +79,11 @@
     childDiv.appendChild(tableTitleATag);
 
     const tbl = document.createElement('table');
-    tbl.setAttribute('id', 'data-summary');
-    tbl.setAttribute('class', 'u-full-width');
+    tbl.setAttribute('class', 'data-summary-table u-full-width');
 
-    const data = Object.keys(dataSummary.data[0]);
+    const tableHeaderTitles = Object.keys(dataSummary.data[0]);
 
-    createTableHeader(tbl, data);
+    createTableHeader(tbl, tableHeaderTitles);
     createTable(tbl, dataSummary.data);
 
     childDiv.appendChild(tbl);
@@ -94,31 +91,45 @@
 
   const createIndividualRaceTable = (data) => {
     const parentDiv = document.body.getElementsByClassName('container')[0];
-    const childDiv = document.createElement('div');
-    const tableTitleATag = document.createElement('a');
 
     if (data.title.startsWith('Top 5 Departments by Race')) {
-      const some = Object.keys(data.data)
-      console.log('1', some)
+      data.data.forEach(tableData => {
+        const race = Object.keys(tableData)[0];
+        const tableTitleATag = document.createElement('a');
+        const childDiv = document.createElement('div');
+
+        childDiv.setAttribute('class', `${race}-tables-container`);
+        tableTitleATag.setAttribute('href', 'javascript:void(0)');
+        tableTitleATag.innerText = normalize(race);
+
+        childDiv.appendChild(tableTitleATag);
+        parentDiv.appendChild(childDiv);
+
+        const tbl = document.createElement('table');
+        tbl.setAttribute('class', `${race}-departments-table u-full-width`);
+
+        const tableHeaderTitles = Object.keys(tableData[race][0]);
+
+        createTableHeader(tbl, tableHeaderTitles);
+        createTable(tbl, tableData[race]);
+
+        childDiv.appendChild(tbl);
+      });
     }
-    
-    childDiv.setAttribute('class', 'data-summary-table-container');
-    // parentDiv.appendChild(childDiv);
 
-    // tableTitleATag.setAttribute('href', 'javascript:void(0)');
-    // tableTitleATag.innerText = dataTitle
-    // childDiv.appendChild(tableTitleATag);
+    if (data.title.startsWith('Top 5 NAICS Codes by Race')) {
+      data.data.forEach(tableData => {
+        const race = Object.keys(tableData)[0];
+        const raceTablesContainer = document.getElementsByClassName(`${race}-tables-container`)[0];
+        
+        const tbl = document.createElement('table');
+        tbl.setAttribute('class', `${race}-naics-table u-full-width`);
 
-    // const tbl = document.createElement('table');
-    // tbl.setAttribute('id', 'data-summary');
-    // tbl.setAttribute('class', 'u-full-width');
+        createTable(tbl, tableData[race]);
 
-    // const data = Object.keys(dataSummary[0]);
-
-    // createTableHeader(tbl, data);
-    // createTable(tbl, dataSummary);
-
-    // childDiv.appendChild(tbl);
+        raceTablesContainer.appendChild(tbl);
+      });
+    }
   }
 
   const createTableHeader = (table, data) => {
@@ -126,7 +137,7 @@
     const row = thead.insertRow();
 
     for (const key of data) {
-      const firstLetterCapitalizedTitle = key.charAt(0).toUpperCase() + key.slice(1);
+      const firstLetterCapitalizedTitle = normalize(key);
       const th = document.createElement("th");
       const text = document.createTextNode(firstLetterCapitalizedTitle);
       
@@ -145,5 +156,13 @@
         cell.appendChild(text);
       }
     }
+  }
+
+  function normalize(str) {
+    const words = str.split('_');
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    return words.join(' ');
   }
 })();
