@@ -125,6 +125,9 @@
         const tbl = document.createElement('table');
         tbl.setAttribute('class', `${race}-naics-table u-full-width`);
 
+        const tableHeaderTitles = Object.keys(tableData[race][0]);
+
+        createTableHeader(tbl, tableHeaderTitles);
         createTable(tbl, tableData[race]);
 
         raceTablesContainer.appendChild(tbl);
