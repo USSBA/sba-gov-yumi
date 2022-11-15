@@ -1,3 +1,9 @@
+function buttonAction (event) {
+  event.target.nextSibling.style.display === 'none'
+    ? event.target.nextSibling.style.display = ''
+    : event.target.nextSibling.style.display = 'none';
+}
+
 (() => {
   const fetchData = async year => {
     const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
@@ -68,25 +74,27 @@
 
   const createDataSummaryTable = (dataSummary) => {
     const parentDiv = document.body.getElementsByClassName('container')[0];
-    const childDiv = document.createElement('div');
-    const tableTitleATag = document.createElement('a');
+    const childContainerDiv = document.createElement('div');
+    const tableButton = document.createElement('button');
 
-    childDiv.setAttribute('class', 'data-summary-table-container');
-    parentDiv.appendChild(childDiv);
+    childContainerDiv.setAttribute('class', 'data-summary-table-container');
+    parentDiv.appendChild(childContainerDiv);
 
-    tableTitleATag.setAttribute('href', 'javascript:void(0)');
-    tableTitleATag.innerText = dataSummary.title;
-    childDiv.appendChild(tableTitleATag);
+    tableButton.setAttribute('id', 'data-summary-table-button');
+    tableButton.setAttribute('onclick', 'buttonAction(event);');
+    tableButton.innerText = dataSummary.title;
+    childContainerDiv.appendChild(tableButton);
 
     const tbl = document.createElement('table');
     tbl.setAttribute('class', 'data-summary-table u-full-width');
+    tbl.setAttribute('style', 'display: none');
 
     const tableHeaderTitles = Object.keys(dataSummary.data[0]);
 
     createTableHeader(tbl, tableHeaderTitles);
     createTable(tbl, dataSummary.data);
 
-    childDiv.appendChild(tbl);
+    childContainerDiv.appendChild(tbl);
   }
 
   const createIndividualRaceTable = (data) => {
@@ -95,15 +103,20 @@
     if (data.title.startsWith('Top 5 Departments by Race')) {
       data.data.forEach(tableData => {
         const race = Object.keys(tableData)[0];
-        const tableTitleATag = document.createElement('a');
-        const childDiv = document.createElement('div');
+        const tableButton = document.createElement('button');
+        const childContainerDiv = document.createElement('div');
+        const tableDiv = document.createElement('div')
 
-        childDiv.setAttribute('class', `${race}-tables-container`);
-        tableTitleATag.setAttribute('href', 'javascript:void(0)');
-        tableTitleATag.innerText = normalize(race);
+        childContainerDiv.setAttribute('class', `${race}-tables-container`);
+        tableDiv.setAttribute('class', `${race}-tables`);
+        tableDiv.setAttribute('style', 'display:none');
 
-        childDiv.appendChild(tableTitleATag);
-        parentDiv.appendChild(childDiv);
+        tableButton.setAttribute('id', `${race}-table-button`);
+        tableButton.setAttribute('onclick', 'buttonAction(event);')
+        tableButton.innerText = normalize(race);
+
+        childContainerDiv.appendChild(tableButton);
+        parentDiv.appendChild(childContainerDiv);
 
         const tbl = document.createElement('table');
         tbl.setAttribute('class', `${race}-departments-table u-full-width`);
@@ -113,14 +126,15 @@
         createTableHeader(tbl, tableHeaderTitles);
         createTable(tbl, tableData[race]);
 
-        childDiv.appendChild(tbl);
+        tableDiv.appendChild(tbl)
+        childContainerDiv.appendChild(tableDiv);
       });
     }
 
     if (data.title.startsWith('Top 5 NAICS Codes by Race')) {
       data.data.forEach(tableData => {
         const race = Object.keys(tableData)[0];
-        const raceTablesContainer = document.getElementsByClassName(`${race}-tables-container`)[0];
+        const raceTablesContainer = document.getElementsByClassName(`${race}-tables`)[0];
         
         const tbl = document.createElement('table');
         tbl.setAttribute('class', `${race}-naics-table u-full-width`);
@@ -168,4 +182,5 @@
     }
     return words.join(' ');
   }
+
 })();
