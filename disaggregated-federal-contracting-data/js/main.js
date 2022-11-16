@@ -23,18 +23,23 @@ function buttonAction (event) {
         if (data.title.startsWith('Data Summary')) {
           organizeDataSummary(data);
         }
-          createIndividualRaceTable(data)
+          createIndividualRaceTable(data);
       })
     }).catch(err => {
       // err is the raw response
       console.log(`Failed to fetch data`, err.status, err.statusText, err.url);
       // return err;
-    })
+    });
 
   const organizeDataSummary = (dataSummary) => {
-    // const dataSummaryAscendingPercentOrder = dataSummary.data.sort((a, b) => a.percent - b.percent);
     const races = dataSummary.data.map(data => data.race);
-    const businessOwnedPercents = dataSummary.data.map(data => data.percent * 100);
+    
+    const businessOwnedPercents = dataSummary.data.map(data => {
+      const numberWithoutPercentSign = data.percent.slice(0, -1);
+      const percentInDecimal = Number(numberWithoutPercentSign);
+
+      return percentInDecimal;
+    });
 
     drawChart(races, businessOwnedPercents);
     createDataSummaryTable({title: dataSummary.title, data: dataSummary.data});
