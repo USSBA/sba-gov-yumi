@@ -126,12 +126,17 @@ function buttonAction (event) {
         const tbl = document.createElement('table');
         tbl.setAttribute('class', `${race}-departments-table u-full-width`);
 
+        const tableTitle = document.createElement('h4');
+        const title = data.title.slice(0, data.title.indexOf('by'))
+        tableTitle.innerHTML = title;
+
         const tableHeaderTitles = Object.keys(tableData[race][0]);
 
         createTableHeader(tbl, tableHeaderTitles);
         createTable(tbl, tableData[race]);
 
-        tableDiv.appendChild(tbl)
+        tableDiv.appendChild(tableTitle);
+        tableDiv.appendChild(tbl);
         childContainerDiv.appendChild(tableDiv);
       });
     }
@@ -139,7 +144,7 @@ function buttonAction (event) {
     if (data.title.startsWith('Top 5 NAICS Codes by Race')) {
       data.data.forEach(tableData => {
         const race = Object.keys(tableData)[0];
-        const raceTablesContainer = document.getElementsByClassName(`${race}-tables`)[0];
+        const tableDiv = document.getElementsByClassName(`${race}-tables`)[0];
         
         const tbl = document.createElement('table');
         tbl.setAttribute('class', `${race}-naics-table u-full-width`);
@@ -149,7 +154,12 @@ function buttonAction (event) {
         createTableHeader(tbl, tableHeaderTitles);
         createTable(tbl, tableData[race]);
 
-        raceTablesContainer.appendChild(tbl);
+        const tableTitle = document.createElement('h4');
+        const title = data.title.slice(0, data.title.indexOf('by'))
+        tableTitle.innerHTML = title;
+
+        tableDiv.appendChild(tableTitle);
+        tableDiv.appendChild(tbl);
       });
     }
   }
@@ -187,5 +197,4 @@ function buttonAction (event) {
     }
     return words.join(' ');
   }
-
 })();
