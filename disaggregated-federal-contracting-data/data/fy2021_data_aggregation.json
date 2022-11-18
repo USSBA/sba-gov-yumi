@@ -8,11 +8,6 @@
         "percent": "1.23%"
       },
       {
-        "race": "Subcontinent Asian American Owned Small Business",
-        "total": "$9,489,416,039.16 ",
-        "percent": "1.68%"
-      },
-      {
         "race": "Black Owned Small Business",
         "total": "$9,049,888,431.68 ",
         "percent": "1.60%"
@@ -26,6 +21,11 @@
         "race": "Native American Owned Small Business",
         "total": "$17,367,096,922.61 ",
         "percent": "3.07%"
+      },
+      {
+        "race": "Subcontinent Asian American Owned Small Business",
+        "total": "$9,489,416,039.16 ",
+        "percent": "1.68%"
       },
       {
         "race": "Other Minority Owned Small Business",
