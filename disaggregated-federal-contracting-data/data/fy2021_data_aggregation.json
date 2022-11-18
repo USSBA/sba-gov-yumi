@@ -218,6 +218,40 @@
         ]
       },
       {
+        "subcontinent-asian-american-owned-small-business": [
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total_dollar_by_funding_department": "$166,881,843.16 ",
+            "total_dollar_obligated_to_demographic": "$17,177,559.73 ",
+            "percent": "10.29%"
+          },
+          {
+            "department": "Housing and Urban Development, Department of",
+            "total_dollar_by_funding_department": "$979,318,364.15 ",
+            "total_dollar_obligated_to_demographic": "$66,087,234.12 ",
+            "percent": "6.75%"
+          },
+          {
+            "department": "Commerce, Department of",
+            "total_dollar_by_funding_department": "$4,764,500,364.22 ",
+            "total_dollar_obligated_to_demographic": "$320,757,649.33 ",
+            "percent": "6.73%"
+          },
+          {
+            "department": "Office of Personnel Management",
+            "total_dollar_by_funding_department": "$504,850,040.17 ",
+            "total_dollar_obligated_to_demographic": "$26,713,931.93 ",
+            "percent": "5.29%"
+          },
+          {
+            "department": "Homeland Security, Department of",
+            "total_dollar_by_funding_department": "$20,813,871,346.74 ",
+            "total_dollar_obligated_to_demographic": "$1,001,855,369.76 ",
+            "percent": "4.81%"
+          }
+        ]
+      },
+      {
         "other_owned_small_business": [
           {
             "department": "Agriculture, Department of",
@@ -282,40 +316,6 @@
             "total_dollar_by_funding_department": "$19,044,467,894.98 ",
             "total_dollar_obligated_to_demographic": "$15,583,257,964.80 ",
             "percent": "81.83%"
-          }
-        ]
-      },
-      {
-        "south_asian_american_owned_small_business": [
-          {
-            "department": "Nuclear Regulatory Commission",
-            "total_dollar_by_funding_department": "$166,881,843.16 ",
-            "total_dollar_obligated_to_demographic": "$17,177,559.73 ",
-            "percent": "10.29%"
-          },
-          {
-            "department": "Housing and Urban Development, Department of",
-            "total_dollar_by_funding_department": "$979,318,364.15 ",
-            "total_dollar_obligated_to_demographic": "$66,087,234.12 ",
-            "percent": "6.75%"
-          },
-          {
-            "department": "Commerce, Department of",
-            "total_dollar_by_funding_department": "$4,764,500,364.22 ",
-            "total_dollar_obligated_to_demographic": "$320,757,649.33 ",
-            "percent": "6.73%"
-          },
-          {
-            "department": "Office of Personnel Management",
-            "total_dollar_by_funding_department": "$504,850,040.17 ",
-            "total_dollar_obligated_to_demographic": "$26,713,931.93 ",
-            "percent": "5.29%"
-          },
-          {
-            "department": "Homeland Security, Department of",
-            "total_dollar_by_funding_department": "$20,813,871,346.74 ",
-            "total_dollar_obligated_to_demographic": "$1,001,855,369.76 ",
-            "percent": "4.81%"
           }
         ]
       }
@@ -441,6 +441,35 @@
         ]
       },
       {
+        "subcontinent-asian-american-owned-small-business": [
+          {
+            "naics_code": 541512,
+            "naics_code_description": "Computer Systems Design Services",
+            "dollars": "$1,898,303,842.65 "
+          },
+          {
+            "naics_code": 541519,
+            "naics_code_description": "Other Computer Related Services",
+            "dollars": "$1,844,108,313.43 "
+          },
+          {
+            "naics_code": 541511,
+            "naics_code_description": "Custom Computer Programming Services",
+            "dollars": "$915,013,720.13 "
+          },
+          {
+            "naics_code": 541330,
+            "naics_code_description": "Engineering Services",
+            "dollars": "$830,494,648.83 "
+          },
+          {
+            "naics_code": 236220,
+            "naics_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$626,564,924.46 "
+          }
+        ]
+      },
+      {
         "other_minority_owned_small_business": [
           {
             "naics_code": 541512,
@@ -524,35 +553,6 @@
             "naics_code": 325414,
             "naics_code_description": "Biological Product (except Diagnotic) Manufacturing",
             "dollars": "$19,931,230,348.76 "
-          }
-        ]
-      },
-      {
-        "south_asian_american_owned_small_business": [
-          {
-            "naics_code": 541512,
-            "naics_code_description": "Computer Systems Design Services",
-            "dollars": "$1,898,303,842.65 "
-          },
-          {
-            "naics_code": 541519,
-            "naics_code_description": "Other Computer Related Services",
-            "dollars": "$1,844,108,313.43 "
-          },
-          {
-            "naics_code": 541511,
-            "naics_code_description": "Custom Computer Programming Services",
-            "dollars": "$915,013,720.13 "
-          },
-          {
-            "naics_code": 541330,
-            "naics_code_description": "Engineering Services",
-            "dollars": "$830,494,648.83 "
-          },
-          {
-            "naics_code": 236220,
-            "naics_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$626,564,924.46 "
           }
         ]
       }
