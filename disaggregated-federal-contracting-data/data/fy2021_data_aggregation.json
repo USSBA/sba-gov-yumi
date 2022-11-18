@@ -184,40 +184,6 @@
         ]
       },
       {
-        "other_minority_owned_small_business": [
-          {
-            "department": "Environmental Protection Agency",
-            "total_dollar_by_funding_department": "$1,530,800,694.02 ",
-            "total_dollar_obligated_to_demographic": "$29,165,691.27 ",
-            "percent": "1.91%"
-          },
-          {
-            "department": "Education, Department of",
-            "total_dollar_by_funding_department": "$2,519,422,302.76 ",
-            "total_dollar_obligated_to_demographic": "$45,120,480.41 ",
-            "percent": "1.79%"
-          },
-          {
-            "department": "Nuclear Regulatory Commission",
-            "total_dollar_by_funding_department": "$166,881,843.16 ",
-            "total_dollar_obligated_to_demographic": "$2,174,388.55 ",
-            "percent": "1.30%"
-          },
-          {
-            "department": "Interior, Department of the",
-            "total_dollar_by_funding_department": "$4,069,030,594.33 ",
-            "total_dollar_obligated_to_demographic": "$49,437,923.35 ",
-            "percent": "1.21%"
-          },
-          {
-            "department": "Homeland Security, Department of",
-            "total_dollar_by_funding_department": "$20,813,871,346.74 ",
-            "total_dollar_obligated_to_demographic": "$183,964,575.14 ",
-            "percent": "0.88%"
-          }
-        ]
-      },
-      {
         "subcontinent-asian-american-owned-small-business": [
           {
             "department": "Nuclear Regulatory Commission",
@@ -248,6 +214,40 @@
             "total_dollar_by_funding_department": "$20,813,871,346.74 ",
             "total_dollar_obligated_to_demographic": "$1,001,855,369.76 ",
             "percent": "4.81%"
+          }
+        ]
+      },
+      {
+        "other_minority_owned_small_business": [
+          {
+            "department": "Environmental Protection Agency",
+            "total_dollar_by_funding_department": "$1,530,800,694.02 ",
+            "total_dollar_obligated_to_demographic": "$29,165,691.27 ",
+            "percent": "1.91%"
+          },
+          {
+            "department": "Education, Department of",
+            "total_dollar_by_funding_department": "$2,519,422,302.76 ",
+            "total_dollar_obligated_to_demographic": "$45,120,480.41 ",
+            "percent": "1.79%"
+          },
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total_dollar_by_funding_department": "$166,881,843.16 ",
+            "total_dollar_obligated_to_demographic": "$2,174,388.55 ",
+            "percent": "1.30%"
+          },
+          {
+            "department": "Interior, Department of the",
+            "total_dollar_by_funding_department": "$4,069,030,594.33 ",
+            "total_dollar_obligated_to_demographic": "$49,437,923.35 ",
+            "percent": "1.21%"
+          },
+          {
+            "department": "Homeland Security, Department of",
+            "total_dollar_by_funding_department": "$20,813,871,346.74 ",
+            "total_dollar_obligated_to_demographic": "$183,964,575.14 ",
+            "percent": "0.88%"
           }
         ]
       },
