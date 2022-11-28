@@ -79,18 +79,13 @@ function buttonAction (event) {
   }
 
   const createDataSummaryTable = (dataSummary) => {
-    const parentDiv = document.body.getElementsByClassName('container')[0];
+    const parentDiv = document.body.getElementsByClassName('table-container')[0];
     const childContainerDiv = document.createElement('section');
     const tableDetails = document.createElement('details');
     const tableTitle = document.createElement('summary');
 
     childContainerDiv.setAttribute('class', 'data-summary-table-container');
     parentDiv.appendChild(childContainerDiv);
-
-    //tableButton.setAttribute('id', 'data-summary-table-button');
-    //tableButton.setAttribute('class', 'section-title');
-
-    //tableButton.setAttribute('onclick', 'buttonAction(event);');
 
     tableTitle.innerText = dataSummary.title;
     childContainerDiv.appendChild(tableDetails);
@@ -108,30 +103,22 @@ function buttonAction (event) {
   }
 
   const createIndividualRaceTable = (data) => {
-    const parentDiv = document.body.getElementsByClassName('container')[0];
+    const parentDiv = document.body.getElementsByClassName('table-container')[0];
 
     if (data.title.startsWith('Top 5 Departments by Race')) {
       data.data.forEach(tableData => {
         const race = Object.keys(tableData)[0];
         const tableSection = document.createElement('section');
+        tableSection.setAttribute('class', `${race}-section`);
+
         const tableDetails = document.createElement('details');
         const tabletitle = document.createElement('summary');
-
-        const childContainerDiv = document.createElement('div');
-        const tableDiv = document.createElement('div')
-
-        tableSection.setAttribute('class', `${race}-section`);
-        childContainerDiv.setAttribute('class', `${race}-tables-container`);
-        tableDiv.setAttribute('class', `${race}-tables`);
-        //tableDiv.setAttribute('style', 'display:none');
-
-        // tableButton.setAttribute('id', `${race}-table-button`);
-       // tableButton.setAttribute('class', 'section-title');
-       // tableButton.setAttribute('onclick', 'buttonAction(event);')
         tabletitle.innerText = normalize(race);
 
+        const tableDiv = document.createElement('div')
+        tableDiv.setAttribute('class', `${race}-tables race-div`);
+
         tableDetails.appendChild(tabletitle);
-        tableDetails.appendChild(childContainerDiv);
         tableSection.appendChild(tableDetails);
         parentDiv.appendChild(tableSection);
 
@@ -149,7 +136,8 @@ function buttonAction (event) {
 
         tableDiv.appendChild(tableTitle);
         tableDiv.appendChild(tbl);
-        childContainerDiv.appendChild(tableDiv);
+
+        tableDetails.appendChild(tableDiv);
       });
     }
 

@@ -15,10 +15,10 @@ html {
 /**
  * Remove default margin.
  */
-
+/* 
 body {
   margin: 0;
-}
+} */
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -41,8 +41,10 @@ hgroup,
 main,
 menu,
 nav,
-section,
-summary {
+section
+/* ,
+summary  */
+  {
   display: block;
 }
 

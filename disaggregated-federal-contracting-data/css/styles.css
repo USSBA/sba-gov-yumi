@@ -40,6 +40,7 @@ a {
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: clamp(1rem, 0.9357rem + 0.2857vw, 1.15rem);
+  margin: 8px;
 }
 
 caption {
@@ -84,6 +85,16 @@ h3 {
   color: gray;
   margin-bottom: 0;
   text-align: center;
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: black;
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+  text-align: left;
 }
 
 header {
@@ -140,7 +151,7 @@ pre {
 }
 
 section {
-  margin: 2rem 0;
+  margin: .5rem 0;
 }
 
 select {
@@ -155,10 +166,11 @@ select {
 summary {
   background-color: #002e6d;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   padding-left: 1rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
+  font-weight: bold;
 }
 
 table {
@@ -176,6 +188,7 @@ td,
 th {
   border-bottom: 1px solid #C5C5C5;
   padding: .5rem;
+  text-align: left;
 }
 
 /* tr td:first-child {
@@ -195,6 +208,10 @@ tfoot {
 }
 
 /* Classes */
+
+.race-div {
+  padding-top: 1rem
+}
 
 .margin-left-auto {
   margin-left: auto;
@@ -314,7 +331,7 @@ From: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-th
 
 #footer-menu {
   border-top: 1px solid lightgray;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(6, 1fr);
   letter-spacing: -0.4px;
   padding-top: 1rem;
