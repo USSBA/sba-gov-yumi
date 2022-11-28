@@ -226,7 +226,9 @@ tfoot {
 /* Classes */
 
 .race-div {
-  padding-top: .75rem
+  padding-top: .75rem;
+  padding-bottom: .75rem
+
 }
 
 .margin-left-auto {
