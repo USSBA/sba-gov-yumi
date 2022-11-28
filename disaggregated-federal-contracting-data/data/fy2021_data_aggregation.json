@@ -184,7 +184,7 @@
         ]
       },
       {
-        "subcontinent-asian-american-owned-small-business": [
+        "subcontinent_asian_american_owned_small_business": [
           {
             "department": "Nuclear Regulatory Commission",
             "total_dollar_by_funding_department": "$166,881,843.16 ",
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "subcontinent-asian-american-owned-small-business": [
+        "subcontinent_asian_american_owned_small_business": [
           {
             "naics_code": 541512,
             "naics_code_description": "Computer Systems Design Services",
