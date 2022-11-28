@@ -10,12 +10,18 @@
   text-align: center;
 }
 
+#chart-container {
+  width: 90%;
+
+}
+
 /* Larger than phablet */
-@media (min-width: 1000px) {
+@media (min-width: 500px) {
   #chart-container {
     margin: 0 auto;
-    padding-top: 60px;
-    width: 70%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 55%;
   }
 }
 
@@ -46,6 +52,16 @@ body {
 caption {
   font-size: 1.3rem;
   text-align: left;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
 
 footer ul {
@@ -93,7 +109,7 @@ h4 {
   font-weight: bold;
   padding-bottom: 0;
   margin-bottom: 0;
-
+  padding-left: .5rem;
   text-align: left;
 }
 
@@ -179,7 +195,7 @@ table {
   border-top: none;
   font-size: 1rem;
   font-style: normal;
-  margin: 1rem 0;
+  margin: .75rem 0;
   text-align: left;
   width: 100%;
 }
@@ -210,7 +226,7 @@ tfoot {
 /* Classes */
 
 .race-div {
-  padding-top: 1rem
+  padding-top: .75rem
 }
 
 .margin-left-auto {
