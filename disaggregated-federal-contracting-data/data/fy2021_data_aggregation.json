@@ -4,7 +4,7 @@
     "data": [
       {
         "race": "Asian and Pacific Islander Owned Small Business",
-        "total": "$6,962,961,844 ",
+        "total": "$6,962,961,844",
         "percent": "1.23%"
       },
       {
@@ -14,17 +14,17 @@
       },
       {
         "race": "Hispanic Owned Small Business",
-        "total": "$10,265,156,604 ",
+        "total": "$10,265,156,604",
         "percent": "1.81%"
       },
       {
         "race": "Native American Owned Small Business",
-        "total": "$17,367,096,922 ",
+        "total": "$17,367,096,922",
         "percent": "3.07%"
       },
       {
         "race": "Subcontinent Asian American Owned Small Business",
-        "total": "$9,489,416,039 ",
+        "total": "$9,489,416,039",
         "percent": "1.68%"
       },
       {
@@ -39,7 +39,7 @@
       },
       {
         "race": "Not a Small Business",
-        "total": "$417,351,302,214 ",
+        "total": "$417,351,302,214",
         "percent": "73.67%"
       }
     ]
@@ -51,14 +51,14 @@
         "asian_and_pacific_islander_owned_small_business": [
           {
             "department": "Small Business Administration",
-            "total_dollars_by_funding_department": "$1,147,247,221 ",
-            "total_dollars_obligated_to_demographic": "$92,700,085 ",
+            "total_dollars_by_funding_department": "$1,147,247,221",
+            "total_dollars_obligated_to_demographic": "$92,700,085",
             "percent": "8.08%"
           },
           {
             "department": "Department of Housing and Urban Development",
-            "total_dollars_by_funding_department": "$979,318,364 ",
-            "total_dollars_obligated_to_demographic": "$71,065,738 ",
+            "total_dollars_by_funding_department": "$979,318,364",
+            "total_dollars_obligated_to_demographic": "$71,065,738",
             "percent": "7.26%"
           },
           {
@@ -160,7 +160,7 @@
           {
             "department": "Department of the Interior",
             "total_dollars_by_funding_department": "$4,069,030,594",
-            "total_dollars_obligated_to_demographic": "$519,476,433 ",
+            "total_dollars_obligated_to_demographic": "$519,476,433",
             "percent": "12.77%"
           },
           {
@@ -227,7 +227,7 @@
           },
           {
             "department": "Department of Education",
-            "total_dollars_by_funding_department": "$2,519,422,302 ",
+            "total_dollars_by_funding_department": "$2,519,422,302",
             "total_dollars_obligated_to_demographic": "$45,120,480",
             "percent": "1.79%"
           },
@@ -256,13 +256,13 @@
           {
             "department": "Department of Agriculture",
             "total_dollars_by_funding_department": "$9,483,673,390",
-            "total_dollars_obligated_to_demographic": "$3,808,171,928 ",
+            "total_dollars_obligated_to_demographic": "$3,808,171,928",
             "percent": "40.16%"
           },
           {
             "department": "Office of Personnel Management",
-            "total_dollars_by_funding_department": "$504,850,040 ",
-            "total_dollars_obligated_to_demographic": "$187,490,941 ",
+            "total_dollars_by_funding_department": "$504,850,040",
+            "total_dollars_obligated_to_demographic": "$187,490,941",
             "percent": "37.14%"
           },
           {
@@ -273,14 +273,14 @@
           },
           {
             "department": "Small Business Administration",
-            "total_dollars_by_funding_department": "$1,147,247,221 ",
+            "total_dollars_by_funding_department": "$1,147,247,221",
             "total_dollars_obligated_to_demographic": "$376,359,312",
             "percent": "32.81%"
           },
           {
             "department": "Department of the Treasury",
             "total_dollars_by_funding_department": "$9,388,838,458",
-            "total_dollars_obligated_to_demographic": "$2,962,613,733 ",
+            "total_dollars_obligated_to_demographic": "$2,962,613,733",
             "percent": "31.55%"
           }
         ]
@@ -290,19 +290,19 @@
           {
             "department": "Department of Housing and Urban Development",
             "total_dollars_by_funding_department": "$979,318,364",
-            "total_dollars_obligated_to_demographic": "$1,041,833,951 ",
+            "total_dollars_obligated_to_demographic": "$1,041,833,951",
             "percent": "106.38%"
           },
           {
             "department": "Department of Energy",
-            "total_dollars_by_funding_department": "$38,254,108,782 ",
-            "total_dollars_obligated_to_demographic": "$36,495,302,665 ",
+            "total_dollars_by_funding_department": "$38,254,108,782",
+            "total_dollars_obligated_to_demographic": "$36,495,302,665",
             "percent": "95.40%"
           },
           {
             "department": "Agency for International Development",
             "total_dollars_by_funding_department": "$5,556,797,065",
-            "total_dollars_obligated_to_demographic": "$4,750,375,700 ",
+            "total_dollars_obligated_to_demographic": "$4,750,375,700",
             "percent": "85.49%"
           },
           {
@@ -314,7 +314,7 @@
           {
             "department": "National Aeronautics and Space Administration",
             "total_dollars_by_funding_department": "$19,044,467,894",
-            "total_dollars_obligated_to_demographic": "$15,583,257,964 ",
+            "total_dollars_obligated_to_demographic": "$15,583,257,964",
             "percent": "81.83%"
           }
         ]
@@ -329,12 +329,12 @@
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$859,777,023 "
+            "dollars": "$859,777,023"
           },
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$793,046,840 "
+            "dollars": "$793,046,840"
           },
           {
             "NAICS_code": 541519,
@@ -344,12 +344,12 @@
           {
             "NAICS_code": 541511,
             "NAICS_code_description": "Custom Computer Programming Services",
-            "dollars": "$593,881,296 "
+            "dollars": "$593,881,296"
           },
           {
             "NAICS_code": 541512,
             "NAICS_code_description": "Computer Systems Design Services",
-            "dollars": "$539,716,533 "
+            "dollars": "$539,716,533"
           }
         ]
       },
@@ -358,27 +358,27 @@
           {
             "NAICS_code": 541512,
             "NAICS_code_description": "Computer Systems Design Services",
-            "dollars": "$1,006,894,358 "
+            "dollars": "$1,006,894,358"
           },
           {
             "NAICS_code": 541611,
             "NAICS_code_description": "Administrative Management and General Management Consulting Services",
-            "dollars": "$972,553,395 "
+            "dollars": "$972,553,395"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$720,603,657 "
+            "dollars": "$720,603,657"
           },
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$602,092,150 "
+            "dollars": "$602,092,150"
           },
           {
             "NAICS_code": 541519,
             "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$506,949,656 "
+            "dollars": "$506,949,656"
           }
         ]
       },
@@ -387,27 +387,27 @@
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$1,741,651,023 "
+            "dollars": "$1,741,651,023"
           },
           {
             "NAICS_code": 541519,
             "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$852,608,367 "
+            "dollars": "$852,608,367"
           },
           {
             "NAICS_code": 541712,
             "NAICS_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Biotechnology)",
-            "dollars": "$679,013,845 "
+            "dollars": "$679,013,845"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$597,140,162 "
+            "dollars": "$597,140,162"
           },
           {
             "NAICS_code": 541512,
             "NAICS_code_description": "Computer Systems Design Services",
-            "dollars": "$459,238,969 "
+            "dollars": "$459,238,969"
           }
         ]
       },
@@ -416,27 +416,27 @@
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$2,321,593,967 "
+            "dollars": "$2,321,593,967"
           },
           {
             "NAICS_code": 561210,
             "NAICS_code_description": "Facilities Support Services",
-            "dollars": "$2,270,796,231 "
+            "dollars": "$2,270,796,231"
           },
           {
             "NAICS_code": 541519,
             "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$1,308,089,178 "
+            "dollars": "$1,308,089,178"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$1,189,482,763 "
+            "dollars": "$1,189,482,763"
           },
           {
             "NAICS_code": 541611,
             "NAICS_code_description": "Administrative Management and General Management Consulting Services",
-            "dollars": "$993,662,757 "
+            "dollars": "$993,662,757"
           }
         ]
       },
@@ -445,27 +445,27 @@
           {
             "NAICS_code": 541512,
             "NAICS_code_description": "Computer Systems Design Services",
-            "dollars": "$1,898,303,842 "
+            "dollars": "$1,898,303,842"
           },
           {
             "NAICS_code": 541519,
             "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$1,844,108,313 "
+            "dollars": "$1,844,108,313"
           },
           {
             "NAICS_code": 541511,
             "NAICS_code_description": "Custom Computer Programming Services",
-            "dollars": "$915,013,720 "
+            "dollars": "$915,013,720"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$830,494,648 "
+            "dollars": "$830,494,648"
           },
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$626,564,924 "
+            "dollars": "$626,564,924"
           }
         ]
       },
@@ -474,22 +474,22 @@
           {
             "NAICS_code": 541512,
             "NAICS_code_description": "Computer Systems Design Services",
-            "dollars": "$301,736,681 "
+            "dollars": "$301,736,681"
           },
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$280,058,804 "
+            "dollars": "$280,058,804"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$207,187,654 "
+            "dollars": "$207,187,654"
           },
           {
             "NAICS_code": 541519,
             "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$165,368,324 "
+            "dollars": "$165,368,324"
           },
           {
             "NAICS_code": 562910,
@@ -503,27 +503,27 @@
           {
             "NAICS_code": 541519,
             "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$7,643,158,958 "
+            "dollars": "$7,643,158,958"
           },
           {
             "NAICS_code": 325412,
             "NAICS_code_description": "Pharmaceutical Preparation Manufacturing",
-            "dollars": "$7,355,813,777 "
+            "dollars": "$7,355,813,777"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$5,850,021,565 "
+            "dollars": "$5,850,021,565"
           },
           {
             "NAICS_code": 541715,
             "NAICS_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
-            "dollars": "$5,279,614,588 "
+            "dollars": "$5,279,614,588"
           },
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$4,777,226,407 "
+            "dollars": "$4,777,226,407"
           }
         ]
       },
@@ -532,12 +532,12 @@
           {
             "NAICS_code": 336411,
             "NAICS_code_description": "Aircraft Manufacturing",
-            "dollars": "$33,210,666,211 "
+            "dollars": "$33,210,666,211"
           },
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
-            "dollars": "$26,962,038,141 "
+            "dollars": "$26,962,038,141"
           },
           {
             "NAICS_code": 561210,
@@ -547,12 +547,12 @@
           {
             "NAICS_code": 541715,
             "NAICS_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
-            "dollars": "$23,109,090,722 "
+            "dollars": "$23,109,090,722"
           },
           {
             "NAICS_code": 325414,
             "NAICS_code_description": "Biological Product (except Diagnotic) Manufacturing",
-            "dollars": "$19,931,230,348 "
+            "dollars": "$19,931,230,348"
           }
         ]
       }

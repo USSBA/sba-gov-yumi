@@ -6,8 +6,7 @@ function buttonAction (event) {
 
 (() => {
   const fetchData = async year => {
-   // const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
-   const url = `data/fy${year}_data_aggregation.json`
+   const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
    const response = await fetch(url)
 
     if (response.ok) {
