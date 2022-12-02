@@ -1,20 +1,416 @@
 #page_title {
-  padding-top: 15%;
+  padding-top: 2.5%;
 }
 
 .subtitle {
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 #page_title, .title, .subtitle {
   text-align: center;
 }
 
+#chart-container {
+  width: 90%;
+
+}
+
 /* Larger than phablet */
-@media (min-width: 1000px) {
+@media (min-width: 500px) {
   #chart-container {
     margin: 0 auto;
-    padding-top: 60px;
-    width: 70%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 55%;
   }
 }
+
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #00518B;
+}
+
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: clamp(1rem, 0.9357rem + 0.2857vw, 1.15rem);
+  margin: 8px;
+}
+
+caption {
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+footer ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+footer ul li {
+  margin-bottom: 1rem;
+}
+
+footer ul li a {
+  color: #686868;
+  font-weight: 300;
+}
+
+footer ul li:first-of-type {
+  color: #002E6D;
+  ;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+}
+
+h3 {
+  color: gray;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: black;
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-left: .5rem;
+  text-align: left;
+}
+
+header {
+  width: 100%;
+}
+
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0 auto;
+  max-width: 1720px;
+}
+
+nav a {
+  color: #002E6D;
+  text-decoration: none;
+  transition: .3s all ease-in-out;
+}
+
+nav a:hover {
+  opacity: .7;
+}
+
+li {
+  display: block;
+  margin-right: .8rem;
+}
+
+.logo {
+  grid-column: 1;
+  height: auto;
+  padding: 1rem;
+  width: 193px;
+}
+
+label {
+  font-style: normal;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 130ch;
+}
+
+main>* {
+  margin-top: 1rem;
+}
+
+pre {
+  line-height: 1.4;
+}
+
+section {
+  margin: .5rem 0;
+}
+
+select {
+  display: inline-block;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+summary {
+  background-color: #002e6d;
+  color: white;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #C5C5C5;
+  border-top: none;
+  font-size: 1rem;
+  font-style: normal;
+  margin: .75rem 0;
+  text-align: left;
+  width: 100%;
+}
+
+td,
+th {
+  border-bottom: 1px solid #C5C5C5;
+  padding: .5rem;
+  text-align: left;
+}
+
+/* tr td:first-child {
+  color: #007DBC;
+} */
+
+thead {
+  background-color: #00518B;
+  border-left: 1px solid #002e6d;
+  border-right: 1px solid #002e6d;
+  color: #ffffff;
+}
+
+tfoot {
+  color: black;
+  font-weight: bold;
+}
+
+/* Classes */
+
+.race-div {
+  padding-top: .75rem;
+  padding-bottom: .75rem
+
+}
+
+.margin-left-auto {
+  margin-left: auto;
+}
+
+.grade {
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 1.8rem;
+  justify-content: center;
+  margin-left: auto;
+  text-align: center;
+  height: 10rem;
+  width: 10rem;
+}
+
+.grade span:first-of-type {
+  font-size: 2.5rem;
+}
+
+.grade span:nth-of-type(2) {
+  font-size: 1.5rem;
+}
+
+.overview {
+  display: flex;
+  position: relative;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.section-title {
+  background-color: #002e6d;
+  color: white;
+  display: flex;
+
+}
+
+.section-explanation {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.section-explanation h3 {
+  color: black;
+  padding-right: 1rem;
+}
+
+.section-comments {
+  border: 1px solid #C5C5C5;
+  margin: 2rem 0;
+  padding: .5rem 1rem;
+}
+
+.osdbu-cards-score {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.osdbu-cards-score>span {
+  margin-right: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: .25rem;
+  padding-top: .5rem;
+}
+
+.osdbu-total-score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: auto;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.section-title>span {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+}
+
+.main-menu {
+  align-self: center;
+  grid-column: 2;
+  padding: 10px 0;
+  margin-right: 1rem;
+  font-weight: 300;
+}
+
+
+/* Use clamp() to scale font size linearly
+From: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ 
+*/
+
+.main-menu a {
+  font-size: clamp(0.6rem, 0.4093rem + 0.8477vw, 1rem);
+  font-weight: bold;
+  padding-right: 1rem;
+}
+
+
+/* Identifiers */
+
+#footer-menu {
+  border-top: 1px solid lightgray;
+  /* display: grid; */
+  grid-template-columns: repeat(6, 1fr);
+  letter-spacing: -0.4px;
+  padding-top: 1rem;
+}
+
+#footer-mobile ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#footer-mobile a {
+  align-self: center;
+  padding: .5rem;
+}
+
+#nav-toggle,
+.hamburger-menu {
+  display: none;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 769px) {
+  #footer-menu {
+      display: none;
+  }
+  #footer-mobile {
+      display: grid;
+  }
+  #national-fundings-link {
+      padding-left: 0px;
+      padding-top: 8px;
+  }
+  #nav-toggle:checked~.main-menu {
+      display: grid;
+      grid-column: 1;
+      grid-row: 2;
+      margin-left: 1rem;
+  }
+  .hamburger-menu {
+      display: inline-block;
+  }
+  .main-menu {
+      display: none;
+  }
+  .show {
+      display: block;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  #footer-menu {
+      display: grid;
+  }
+  #footer-mobile {
+      display: none;
+  }
+}
+
+
+
+

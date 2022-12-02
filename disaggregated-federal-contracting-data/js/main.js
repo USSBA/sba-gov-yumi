@@ -6,8 +6,8 @@ function buttonAction (event) {
 
 (() => {
   const fetchData = async year => {
-    const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
-    const response = await fetch(url)
+   const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
+   const response = await fetch(url)
 
     if (response.ok) {
         return await response.json();
@@ -78,50 +78,48 @@ function buttonAction (event) {
   }
 
   const createDataSummaryTable = (dataSummary) => {
-    const parentDiv = document.body.getElementsByClassName('container')[0];
-    const childContainerDiv = document.createElement('div');
-    const tableButton = document.createElement('button');
+    const parentDiv = document.body.getElementsByClassName('table-container')[0];
+    const childContainerDiv = document.createElement('section');
+    const tableDetails = document.createElement('details');
+    const tableTitle = document.createElement('summary');
 
     childContainerDiv.setAttribute('class', 'data-summary-table-container');
     parentDiv.appendChild(childContainerDiv);
 
-    tableButton.setAttribute('id', 'data-summary-table-button');
-    tableButton.setAttribute('onclick', 'buttonAction(event);');
-    tableButton.innerText = dataSummary.title;
-    childContainerDiv.appendChild(tableButton);
+    tableTitle.innerText = dataSummary.title;
+    childContainerDiv.appendChild(tableDetails);
+    tableDetails.appendChild(tableTitle);
 
     const tbl = document.createElement('table');
     tbl.setAttribute('class', 'data-summary-table u-full-width');
-    tbl.setAttribute('style', 'display: none');
 
     const tableHeaderTitles = Object.keys(dataSummary.data[0]);
 
-    createTableHeader(tbl, tableHeaderTitles);
     createTable(tbl, dataSummary.data);
+    createTableHeader(tbl, tableHeaderTitles);
 
-    childContainerDiv.appendChild(tbl);
+    tableDetails.appendChild(tbl);
   }
 
   const createIndividualRaceTable = (data) => {
-    const parentDiv = document.body.getElementsByClassName('container')[0];
+    const parentDiv = document.body.getElementsByClassName('table-container')[0];
 
     if (data.title.startsWith('Top 5 Departments by Race')) {
       data.data.forEach(tableData => {
         const race = Object.keys(tableData)[0];
-        const tableButton = document.createElement('button');
-        const childContainerDiv = document.createElement('div');
+        const tableSection = document.createElement('section');
+        tableSection.setAttribute('class', `${race}-section`);
+
+        const tableDetails = document.createElement('details');
+        const tabletitle = document.createElement('summary');
+        tabletitle.innerText = normalize(race);
+
         const tableDiv = document.createElement('div')
+        tableDiv.setAttribute('class', `${race}-tables race-div`);
 
-        childContainerDiv.setAttribute('class', `${race}-tables-container`);
-        tableDiv.setAttribute('class', `${race}-tables`);
-        tableDiv.setAttribute('style', 'display:none');
-
-        tableButton.setAttribute('id', `${race}-table-button`);
-        tableButton.setAttribute('onclick', 'buttonAction(event);')
-        tableButton.innerText = normalize(race);
-
-        childContainerDiv.appendChild(tableButton);
-        parentDiv.appendChild(childContainerDiv);
+        tableDetails.appendChild(tabletitle);
+        tableSection.appendChild(tableDetails);
+        parentDiv.appendChild(tableSection);
 
         const tbl = document.createElement('table');
         tbl.setAttribute('class', `${race}-departments-table u-full-width`);
@@ -132,12 +130,13 @@ function buttonAction (event) {
 
         const tableHeaderTitles = Object.keys(tableData[race][0]);
 
-        createTableHeader(tbl, tableHeaderTitles);
         createTable(tbl, tableData[race]);
+        createTableHeader(tbl, tableHeaderTitles);
 
         tableDiv.appendChild(tableTitle);
         tableDiv.appendChild(tbl);
-        childContainerDiv.appendChild(tableDiv);
+
+        tableDetails.appendChild(tableDiv);
       });
     }
 
@@ -151,8 +150,8 @@ function buttonAction (event) {
 
         const tableHeaderTitles = Object.keys(tableData[race][0]);
 
-        createTableHeader(tbl, tableHeaderTitles);
         createTable(tbl, tableData[race]);
+        createTableHeader(tbl, tableHeaderTitles);
 
         const tableTitle = document.createElement('h4');
         const title = data.title.slice(0, data.title.indexOf('by'))
@@ -180,9 +179,9 @@ function buttonAction (event) {
 
   const createTable = (table, data) => {
     for (let element of data) {
-      const row = table.insertRow();
+      const row2 = table.insertRow();
       for (key in element) {
-        const cell = row.insertCell();
+        const cell = row2.insertCell();
         const text = document.createTextNode(element[key]);
 
         cell.appendChild(text);
