@@ -6,8 +6,10 @@ function buttonAction (event) {
 
 (() => {
   const fetchData = async year => {
-   const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
-   const response = await fetch(url)
+  // const url = `https://sba-gov-yumi.s3.amazonaws.com/disaggregated-federal-contracting-data/data/fy${year}_data_aggregation.json`
+  const url = `data/fy${year}_data_aggregation.json`
+ 
+  const response = await fetch(url)
 
     if (response.ok) {
         return await response.json();
@@ -76,6 +78,16 @@ function buttonAction (event) {
       configPie
     );
   }
+
+  const pie =  document.getElementById('pie-chart');
+  pie.setAttribute('alt', 'Pie chart showing FY 2021 federal contracting by race and business size (see data summary below for details).');
+ 
+  // window.addEventListener('beforeprint', () => {
+  //   pieChart.resize(600, 600);
+  // });
+  window.addEventListener('afterprint', () => {
+    pieChart.resize();
+  });
 
   const createDataSummaryTable = (dataSummary) => {
     const parentDiv = document.body.getElementsByClassName('table-container')[0];
@@ -170,6 +182,7 @@ function buttonAction (event) {
     for (const key of data) {
       const firstLetterCapitalizedTitle = normalize(key);
       const th = document.createElement("th");
+      th.setAttribute("scope", "col");
       const text = document.createTextNode(firstLetterCapitalizedTitle);
       
       th.appendChild(text);

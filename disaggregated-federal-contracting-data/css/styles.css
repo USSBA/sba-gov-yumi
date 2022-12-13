@@ -10,9 +10,9 @@
   text-align: center;
 }
 
-#chart-container {
-  width: 90%;
 
+#chart-container {
+  width: 100%;
 }
 
 /* Larger than phablet */

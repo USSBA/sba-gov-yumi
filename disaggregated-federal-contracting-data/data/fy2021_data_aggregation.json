@@ -284,40 +284,6 @@
             "percent": "31.55%"
           }
         ]
-      },
-      {
-        "not_a_small_business": [
-          {
-            "department": "Department of Housing and Urban Development",
-            "total_dollars_by_funding_department": "$979,318,364",
-            "total_dollars_obligated_to_demographic": "$1,041,833,951",
-            "percent": "106.38%"
-          },
-          {
-            "department": "Department of Energy",
-            "total_dollars_by_funding_department": "$38,254,108,782",
-            "total_dollars_obligated_to_demographic": "$36,495,302,665",
-            "percent": "95.40%"
-          },
-          {
-            "department": "Agency for International Development",
-            "total_dollars_by_funding_department": "$5,556,797,065",
-            "total_dollars_obligated_to_demographic": "$4,750,375,700",
-            "percent": "85.49%"
-          },
-          {
-            "department": "Department of Education",
-            "total_dollars_by_funding_department": "$2,519,422,302",
-            "total_dollars_obligated_to_demographic": "$2,115,900,749",
-            "percent": "83.98%"
-          },
-          {
-            "department": "National Aeronautics and Space Administration",
-            "total_dollars_by_funding_department": "$19,044,467,894",
-            "total_dollars_obligated_to_demographic": "$15,583,257,964",
-            "percent": "81.83%"
-          }
-        ]
       }
     ]
   },
@@ -524,35 +490,6 @@
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
             "dollars": "$4,777,226,407"
-          }
-        ]
-      },
-      {
-        "not_a_small_business": [
-          {
-            "NAICS_code": 336411,
-            "NAICS_code_description": "Aircraft Manufacturing",
-            "dollars": "$33,210,666,211"
-          },
-          {
-            "NAICS_code": 541330,
-            "NAICS_code_description": "Engineering Services",
-            "dollars": "$26,962,038,141"
-          },
-          {
-            "NAICS_code": 561210,
-            "NAICS_code_description": "Facilities Support Services",
-            "dollars": "$23,794,952,718"
-          },
-          {
-            "NAICS_code": 541715,
-            "NAICS_code_description": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
-            "dollars": "$23,109,090,722"
-          },
-          {
-            "NAICS_code": 325414,
-            "NAICS_code_description": "Biological Product (except Diagnotic) Manufacturing",
-            "dollars": "$19,931,230,348"
           }
         ]
       }
