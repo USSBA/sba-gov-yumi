@@ -3,7 +3,7 @@
     "title": "Data Summary FY 2021 Federal Contracting",
     "data": [
       {
-        "race": "Asian and Pacific Islander Owned Small Business",
+        "race": "Asian Pacific American Owned Small Business",
         "total": "$6,962,961,844",
         "percent": "1.23%"
       },
@@ -13,12 +13,12 @@
         "percent": "1.68%"
       },
       {
-        "race": "Black Owned Small Business",
+        "race": "Black American Owned Small Business",
         "total": "$9,049,888,431",
         "percent": "1.60%"
       },
       {
-        "race": "Hispanic Owned Small Business",
+        "race": "Hispanic American Owned Small Business",
         "total": "$10,265,156,604",
         "percent": "1.81%"
       },
@@ -49,7 +49,7 @@
     "title": "Top 5 Departments by Race",
     "data": [
       {
-        "asian_and_pacific_islander_owned_small_business": [
+        "asian_pacific_american_owned_small_business": [
           {
             "department": "Small Business Administration",
             "total_dollars_by_funding_department": "$1,147,247,221",
@@ -117,7 +117,7 @@
         ]
       },
       {
-        "black_owned_small_business": [
+        "black_american_owned_small_business": [
           {
             "department": "Small Business Administration",
             "total_dollars_by_funding_department": "$1,147,247,221",
@@ -151,7 +151,7 @@
         ]
       },
       {
-        "hispanic_owned_small_business": [
+        "hispanic_american_owned_small_business": [
           {
             "department": "Office of Personnel Management",
             "total_dollars_by_funding_department": "$504,850,040",
@@ -293,7 +293,7 @@
     "title": "Top 5 NAICS Codes by Race",
     "data": [
       {
-        "asian_and_pacific_islander_owned_small_business": [
+        "asian_pacific_american_owned_small_business": [
           {
             "NAICS_code": 541330,
             "NAICS_code_description": "Engineering Services",
@@ -351,7 +351,7 @@
         ]
       },
       {
-        "black_owned_small_business": [
+        "black_american_owned_small_business": [
           {
             "NAICS_code": 541512,
             "NAICS_code_description": "Computer Systems Design Services",
@@ -380,7 +380,7 @@
         ]
       },
       {
-        "hispanic_owned_small_business": [
+        "hispanic_american_owned_small_business": [
           {
             "NAICS_code": 236220,
             "NAICS_code_description": "Commercial and Institutional Building Construction",
