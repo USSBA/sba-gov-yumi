@@ -8,6 +8,11 @@
         "percent": "1.23%"
       },
       {
+        "race": "Subcontinent Asian American Owned Small Business",
+        "total": "$9,489,416,039",
+        "percent": "1.68%"
+      },
+      {
         "race": "Black Owned Small Business",
         "total": "$9,049,888,431",
         "percent": "1.60%"
@@ -22,11 +27,7 @@
         "total": "$17,367,096,922",
         "percent": "3.07%"
       },
-      {
-        "race": "Subcontinent Asian American Owned Small Business",
-        "total": "$9,489,416,039",
-        "percent": "1.68%"
-      },
+   
       {
         "race": "Other Minority Owned Small Business",
         "total": "$2,264,499,929",
@@ -78,6 +79,40 @@
             "total_dollars_by_funding_department": "$2,366,535,332",
             "total_dollars_obligated_to_demographic": "$101,629,749",
             "percent": "4.29%"
+          }
+        ]
+      },
+      {
+        "subcontinent_asian_american_owned_small_business": [
+          {
+            "department": "Nuclear Regulatory Commission",
+            "total_dollars_by_funding_department": "$166,881,843",
+            "total_dollars_obligated_to_demographic": "$17,177,559",
+            "percent": "10.29%"
+          },
+          {
+            "department": "Department of Housing and Urban Development",
+            "total_dollars_by_funding_department": "$979,318,364",
+            "total_dollars_obligated_to_demographic": "$66,087,234",
+            "percent": "6.75%"
+          },
+          {
+            "department": "Department of Commerce",
+            "total_dollars_by_funding_department": "$4,764,500,364",
+            "total_dollars_obligated_to_demographic": "$320,757,649",
+            "percent": "6.73%"
+          },
+          {
+            "department": "Office of Personnel Management",
+            "total_dollars_by_funding_department": "$504,850,040",
+            "total_dollars_obligated_to_demographic": "$26,713,931",
+            "percent": "5.29%"
+          },
+          {
+            "department": "Department of Homeland Security",
+            "total_dollars_by_funding_department": "$20,813,871,346",
+            "total_dollars_obligated_to_demographic": "$1,001,855,369",
+            "percent": "4.81%"
           }
         ]
       },
@@ -183,40 +218,7 @@
           }
         ]
       },
-      {
-        "subcontinent_asian_american_owned_small_business": [
-          {
-            "department": "Nuclear Regulatory Commission",
-            "total_dollars_by_funding_department": "$166,881,843",
-            "total_dollars_obligated_to_demographic": "$17,177,559",
-            "percent": "10.29%"
-          },
-          {
-            "department": "Department of Housing and Urban Development",
-            "total_dollars_by_funding_department": "$979,318,364",
-            "total_dollars_obligated_to_demographic": "$66,087,234",
-            "percent": "6.75%"
-          },
-          {
-            "department": "Department of Commerce",
-            "total_dollars_by_funding_department": "$4,764,500,364",
-            "total_dollars_obligated_to_demographic": "$320,757,649",
-            "percent": "6.73%"
-          },
-          {
-            "department": "Office of Personnel Management",
-            "total_dollars_by_funding_department": "$504,850,040",
-            "total_dollars_obligated_to_demographic": "$26,713,931",
-            "percent": "5.29%"
-          },
-          {
-            "department": "Department of Homeland Security",
-            "total_dollars_by_funding_department": "$20,813,871,346",
-            "total_dollars_obligated_to_demographic": "$1,001,855,369",
-            "percent": "4.81%"
-          }
-        ]
-      },
+
       {
         "other_minority_owned_small_business": [
           {
@@ -320,6 +322,35 @@
         ]
       },
       {
+        "subcontinent_asian_american_owned_small_business": [
+          {
+            "NAICS_code": 541512,
+            "NAICS_code_description": "Computer Systems Design Services",
+            "dollars": "$1,898,303,842"
+          },
+          {
+            "NAICS_code": 541519,
+            "NAICS_code_description": "Other Computer Related Services",
+            "dollars": "$1,844,108,313"
+          },
+          {
+            "NAICS_code": 541511,
+            "NAICS_code_description": "Custom Computer Programming Services",
+            "dollars": "$915,013,720"
+          },
+          {
+            "NAICS_code": 541330,
+            "NAICS_code_description": "Engineering Services",
+            "dollars": "$830,494,648"
+          },
+          {
+            "NAICS_code": 236220,
+            "NAICS_code_description": "Commercial and Institutional Building Construction",
+            "dollars": "$626,564,924"
+          }
+        ]
+      },
+      {
         "black_owned_small_business": [
           {
             "NAICS_code": 541512,
@@ -406,35 +437,7 @@
           }
         ]
       },
-      {
-        "subcontinent_asian_american_owned_small_business": [
-          {
-            "NAICS_code": 541512,
-            "NAICS_code_description": "Computer Systems Design Services",
-            "dollars": "$1,898,303,842"
-          },
-          {
-            "NAICS_code": 541519,
-            "NAICS_code_description": "Other Computer Related Services",
-            "dollars": "$1,844,108,313"
-          },
-          {
-            "NAICS_code": 541511,
-            "NAICS_code_description": "Custom Computer Programming Services",
-            "dollars": "$915,013,720"
-          },
-          {
-            "NAICS_code": 541330,
-            "NAICS_code_description": "Engineering Services",
-            "dollars": "$830,494,648"
-          },
-          {
-            "NAICS_code": 236220,
-            "NAICS_code_description": "Commercial and Institutional Building Construction",
-            "dollars": "$626,564,924"
-          }
-        ]
-      },
+
       {
         "other_minority_owned_small_business": [
           {

@@ -71,6 +71,17 @@ function buttonAction (event) {
     const configPie = {
       type: 'pie',
       data: dataPie,
+      options: {
+        plugins: {
+          legend: {
+            position: 'bottom',
+            align: 'left',
+            labels: {
+              textAlign:'left'
+            }
+          }
+        }
+      }
     };
     
     const pieChart = new Chart(
