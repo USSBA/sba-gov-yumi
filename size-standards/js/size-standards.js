@@ -647,7 +647,7 @@ let sizeStandards = (function() {
 
         return `<div class="width70">
                     <form action="javascript:setCompanySize('assets');">
-                        <h2>How many total assets in the last year?</h2>
+                        <h2>How many average assets in the last year?</h2>
                         <br>
                         <label>One-year Average<br>
                             <input class="input-number dollar-input" type="text">
