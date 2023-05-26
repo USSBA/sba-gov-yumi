@@ -47,7 +47,7 @@ var hydrator = (function() {
         return gradeFormatted;
     }
 
-    var hydrateDataElements = function(data) {
+    var hydrateScoreCardElements = function(data) {
 
         let dataMissing = [];
 
@@ -85,9 +85,31 @@ var hydrator = (function() {
         return dataMissing;
     }
 
+    public.hydrateHomePageElements = data => {
+        const dataMissing = [];
+        const mainElement = document.querySelector('table');
+      
+        for (const element of data) {
+          const agencyAcronym = element.department_acronym;
+          const firstUrlElement = mainElement.querySelector(`[data-${agencyAcronym}-url_1]`);
+          const secondUrlElement = mainElement.querySelector(`[data-${agencyAcronym}-url_2]`);
+          const gradeElement = mainElement.querySelector(`[data-${agencyAcronym}-agency_grade]`);
+          const scoreElement = mainElement.querySelector(`[data-${agencyAcronym}-agency_score]`);
+      
+          firstUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2022`;
+          secondUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2022`;
+          gradeElement.textContent = element.agency_grade;
+          scoreElement.textContent = element.agency_score;
+        }
+      
+        console.debug(`Unable to locate HTML elements with data- attributes: ${dataMissing}`);
+      
+        return dataMissing;
+      }
 
-    public.hydrate = function(agencyData) {
-        hydrateDataElements(agencyData);
+
+    public.hydrateScoreCard = function(agencyData) {
+        hydrateScoreCardElements(agencyData);
         styleLetterGrade(agencyData.agency_grade, letterGradeBlock);
         updateAgencySelector(agencyData.department_acronym)
     }

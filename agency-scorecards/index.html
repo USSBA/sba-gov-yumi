@@ -324,7 +324,15 @@
             </ul>
         </div>
     </footer>
-    <script type="text/javascript" src="js/mainPageHydrator.js"></script>
+    <script type="text/javascript" src="js/hydrator.js"></script>
+    <script type="text/javascript">
+        async function loadScorecard() {
+            const scorecardData = await loader.fetchScorecardData(2022);
+            hydrator.hydrateHomePageElements(scorecardData);
+        }
+
+        loadScorecard()
+    </script>
 </body>
 
 </html>
