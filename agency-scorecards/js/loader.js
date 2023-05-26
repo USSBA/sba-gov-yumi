@@ -2,7 +2,7 @@ let loader = (function() {
 
     // Variables
     let agencyData = {};
-    let dataURL = '/agency-scorecards/data'
+    let dataURL = 'http://sba-gov-yumi.s3-website-us-east-1.amazonaws.com/agency-scorecards/data'
     let scorecardData = [];
 
     // Public API
@@ -51,7 +51,7 @@ let loader = (function() {
      * @param  {String} year   The year of that agency's scorecard
      * @return {Object}        JSON representation of that year's data
      */
-    let fetchScorecardData = function(year) {
+    public.fetchScorecardData = function(year) {
         // Compose the URL for the JSON file
         var queryURL = dataURL + '/' + year + '.json';
         return fetch(queryURL).then(function(response) {
@@ -94,7 +94,7 @@ let loader = (function() {
         let { agency = 'GW', year = 2022 } = currentParams;
         console.debug(`loader.js initialized with agency: ${agency}, year: ${year}`);
 
-        scorecardData = await fetchScorecardData(year);
+        scorecardData = await public.fetchScorecardData(year);
 
         agencyData = public.getAgencyData(agency);
 
