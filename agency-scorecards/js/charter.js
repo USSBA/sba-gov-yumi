@@ -428,7 +428,7 @@ let charter = (function() {
         const comparisonDataBar = {
             labels: labelsBar,
             datasets: [{
-                label: `2020 Count`,
+                label: `${chartData.fiscal_year_previous} Count`,
                 // When data model is updated to include previous fiscal year, use this:
                 // label: `${chartData.fiscal_year_previous} Count`,
                 backgroundColor: 'rgba(147, 0, 0, 0.2)',
