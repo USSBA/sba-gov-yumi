@@ -85,7 +85,7 @@ var hydrator = (function() {
         return dataMissing;
     }
 
-    public.hydrateHomePageElements = data => {
+    public.hydrateHomePage = data => {
         const dataMissing = [];
         const mainElement = document.querySelector('table');
       

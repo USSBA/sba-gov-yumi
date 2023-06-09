@@ -328,7 +328,7 @@
     <script type="text/javascript">
         async function loadScorecard() {
             const scorecardData = await loader.fetchScorecardData(2022);
-            hydrator.hydrateHomePageElements(scorecardData);
+            hydrator.hydrateHomePage(scorecardData);
         }
 
         loadScorecard()
