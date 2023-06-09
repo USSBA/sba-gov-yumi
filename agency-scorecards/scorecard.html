@@ -645,7 +645,7 @@
 
         // Variable to store the entire scorecard data set for the fiscal year
         let agencyData = loader.init().then((data) => {
-            hydrator.hydrate(data);
+            hydrator.hydrateScoreCard(data);
             charter.hydrateCharts(data);
         });
 
