@@ -179,9 +179,9 @@ function buttonAction (event) {
 
   const createTable = (table, data) => {
     for (let element of data) {
-      const row2 = table.insertRow();
+      const row = table.insertRow();
       for (key in element) {
-        const cell = row2.insertCell();
+        const cell = row.insertCell();
         const text = document.createTextNode(element[key]);
 
         cell.appendChild(text);
