@@ -72,6 +72,14 @@ var hydrator = (function() {
 
         }
 
+        const previousFiscalYearNodeList = document.querySelectorAll('[data-fiscal_year_previous]');
+
+        if (previousFiscalYearNodeList.length > 0) {
+            previousFiscalYearNodeList.forEach(function(node) {
+                node.textContent = data.fiscal_year - 1;
+            });
+        }
+
         console.debug(`Unable to locate HTML elements with data- attributes: ${dataMissing}`);
 
         return dataMissing;
@@ -79,7 +87,6 @@ var hydrator = (function() {
 
 
     public.hydrate = function(agencyData) {
-        console.log(agencyData);
         hydrateDataElements(agencyData);
         styleLetterGrade(agencyData.agency_grade, letterGradeBlock);
         updateAgencySelector(agencyData.department_acronym)

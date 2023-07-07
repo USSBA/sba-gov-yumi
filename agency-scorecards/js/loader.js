@@ -2,7 +2,7 @@ let loader = (function() {
 
     // Variables
     let agencyData = {};
-    let dataURL = 'https://' + location.host + '/agency-scorecards/data'
+    let dataURL = '/agency-scorecards/data'
     let scorecardData = [];
 
     // Public API
@@ -91,7 +91,7 @@ let loader = (function() {
      */
     public.init = async function() {
         let currentParams = getParams();
-        let { agency = 'GW', year = 2021 } = currentParams;
+        let { agency = 'GW', year = 2022 } = currentParams;
         console.debug(`loader.js initialized with agency: ${agency}, year: ${year}`);
 
         scorecardData = await fetchScorecardData(year);
