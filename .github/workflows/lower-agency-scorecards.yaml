@@ -1,0 +1,45 @@
+on:
+  push:
+    tags:
+      - 'dev-agency-scorecards'
+    paths:
+      - 'agency-scorecards/**'
+
+# Set the default shell for the build process.
+# https://docs.github.com/en/actions/using-jobs/setting-default-values-for-jobs
+defaults:
+  run:
+    shell: 'bash'
+
+# Set the build pipeline permissions.
+# https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+permissions:
+  contents: 'read' # used to checkout code
+  id-token: 'write'
+
+# Environment Settings (top level)
+# https://docs.github.com/en/actions/learn-github-actions/variables
+env:
+  AWS_REGION: 'us-east-1'
+  AWS_DEFAULT_REGION: 'us-east-1'
+  CONTENT_BUCKET: 'sba-gov-yumi'
+
+jobs:
+  agency-scorecards:
+    runs-on: 'ubuntu-20.04'
+    environment: 'lower'
+    steps:
+      - name: 'Checkout'
+        uses: 'actions/checkout@v3'
+        with:
+          fetch-depth: 1
+
+      - name: 'OIDC to AWS'
+        uses: 'aws-actions/configure-aws-credentials@v2'
+        with:
+          role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: 'Sync'
+        run: |
+          aws s3 sync --dryrun --delete ./agency-scorecards s3://${CONTENT_BUCKET}/agency-scorecards
