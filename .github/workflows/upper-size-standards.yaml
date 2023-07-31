@@ -42,4 +42,4 @@ jobs:
 
       - name: 'Sync'
         run: |
-          aws s3 sync --dryrun --delete ./size-standards s3://${CONTENT_BUCKET}/size-standards
+          aws s3 sync --delete ./size-standards s3://${CONTENT_BUCKET}/size-standards
