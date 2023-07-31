@@ -42,4 +42,4 @@ jobs:
 
       - name: 'Sync'
         run: |
-          aws s3 sync --dryrun --delete ./agency-scorecards s3://${CONTENT_BUCKET}/agency-scorecards
+          aws s3 sync --delete ./agency-scorecards s3://${CONTENT_BUCKET}/agency-scorecards

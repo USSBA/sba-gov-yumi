@@ -42,4 +42,4 @@ jobs:
 
       - name: 'Sync'
         run: |
-          aws s3 sync --dryrun --delete ./disaggregated-federal-contracting-data s3://${CONTENT_BUCKET}/disaggregated-federal-contracting-data
+          aws s3 sync --delete ./disaggregated-federal-contracting-data s3://${CONTENT_BUCKET}/disaggregated-federal-contracting-data
