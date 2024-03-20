@@ -1,2 +1,6 @@
 .terraform*
 .DS_Store
+.ipynb_checkpoints
+fix_json.ipynb
+loader.js
+franchise-directory-21-09-30.xlsx
