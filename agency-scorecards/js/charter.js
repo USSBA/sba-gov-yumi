@@ -45,20 +45,20 @@ let charter = (function() {
         // https://stackoverflow.com/questions/28180871/grouped-bar-charts-in-chart-js
 
         // Compose data to be used in Prime Bar Chart for CFY Goals and Achievement
-        const labelsBar = ["Small Business", "Women Owned", "Disadvantaged", "Service Disabled Veteran Owned", "HUBZone"];
+        const labelsBar = ["Small Business", "Disadvantaged", "Women Owned", "Service Disabled Veteran Owned", "HUBZone"];
 
         const primeBarChartGoals = [
             chartData.prime_sb_cfy_goal,
-            chartData.prime_wosb_cfy_goal,
             chartData.prime_sdb_cfy_goal,
+            chartData.prime_wosb_cfy_goal,
             chartData.prime_sdvosb_cfy_goal,
             chartData.prime_hz_cfy_goal
         ].map((goal) => parseFloat(goal));
 
         const primeBarChartAchievements = [
             chartData.prime_sb_cfy_achievement,
-            chartData.prime_wosb_cfy_achievement,
             chartData.prime_sdb_cfy_achievement,
+            chartData.prime_wosb_cfy_achievement,
             chartData.prime_sdvosb_cfy_achievement,
             chartData.prime_hz_cfy_achievement
         ].map((achievement) => parseFloat(achievement));
@@ -130,15 +130,6 @@ let charter = (function() {
             chartData.prime_sb_cfy_achievement
         ].map((achievement) => parseFloat(achievement));
 
-        // Women Owned Small Business
-        const primeLineChartAchievementsWOSB = [
-            chartData.prime_wosb_pfy4_achievement,
-            chartData.prime_wosb_pfy3_achievement,
-            chartData.prime_wosb_pfy2_achievement,
-            chartData.prime_wosb_pfy_achievement,
-            chartData.prime_wosb_cfy_achievement
-        ].map((achievement) => parseFloat(achievement));
-
         // Disadvantaged
         const primeLineChartAchievementsSDB = [
             chartData.prime_sdb_pfy4_achievement,
@@ -146,6 +137,15 @@ let charter = (function() {
             chartData.prime_sdb_pfy2_achievement,
             chartData.prime_sdb_pfy_achievement,
             chartData.prime_sdb_cfy_achievement
+        ].map((achievement) => parseFloat(achievement));
+
+        // Women Owned Small Business
+        const primeLineChartAchievementsWOSB = [
+            chartData.prime_wosb_pfy4_achievement,
+            chartData.prime_wosb_pfy3_achievement,
+            chartData.prime_wosb_pfy2_achievement,
+            chartData.prime_wosb_pfy_achievement,
+            chartData.prime_wosb_cfy_achievement
         ].map((achievement) => parseFloat(achievement));
 
         // Service Disabled Veteran Owned
@@ -175,17 +175,17 @@ let charter = (function() {
                 fill: false,
                 borderColor: 'rgb(147, 0, 0)',
                 tension: 0.1
-            }, {
-                label: 'Women Owned',
-                data: primeLineChartAchievementsWOSB,
-                fill: false,
-                borderColor: 'rgba(0, 81, 139, 1)',
-                tension: 0.1
-            }, {
+           }, {
                 label: 'Disadvantaged',
                 data: primeLineChartAchievementsSDB,
                 fill: false,
                 borderColor: 'rgba(88, 172, 239, 1)',
+                tension: 0.1
+             }, {
+                label: 'Women Owned',
+                data: primeLineChartAchievementsWOSB,
+                fill: false,
+                borderColor: 'rgba(0, 81, 139, 1)',
                 tension: 0.1
             }, {
                 label: 'Service Disabled Veteran Owned',
@@ -234,16 +234,16 @@ let charter = (function() {
         // Compose data to be used in Subcontracting Bar Chart for CFY Goals and Achievement
         const subBarChartGoals = [
             chartData.sub_sb_cfy_goal,
-            chartData.sub_wosb_cfy_goal,
             chartData.sub_sdb_cfy_goal,
+            chartData.sub_wosb_cfy_goal,
             chartData.sub_sdvosb_cfy_goal,
             chartData.sub_hz_cfy_goal
         ].map((goal) => parseFloat(goal));
 
         const subBarChartAchievements = [
             chartData.sub_sb_cfy_achievement,
-            chartData.sub_wosb_cfy_achievement,
             chartData.sub_sdb_cfy_achievement,
+            chartData.sub_wosb_cfy_achievement,
             chartData.sub_sdvosb_cfy_achievement,
             chartData.sub_hz_cfy_achievement
         ].map((achievement) => parseFloat(achievement));
@@ -305,15 +305,6 @@ let charter = (function() {
             chartData.sub_sb_cfy_achievement
         ].map((achievement) => parseFloat(achievement));
 
-        // Women Owned Small Business
-        const subLineChartAchievementsWOSB = [
-            chartData.sub_wosb_pfy4_achievement,
-            chartData.sub_wosb_pfy3_achievement,
-            chartData.sub_wosb_pfy2_achievement,
-            chartData.sub_wosb_pfy_achievement,
-            chartData.sub_wosb_cfy_achievement
-        ].map((achievement) => parseFloat(achievement));
-
         // Disadvantaged
         const subLineChartAchievementsSDB = [
             chartData.sub_sdb_pfy4_achievement,
@@ -321,6 +312,15 @@ let charter = (function() {
             chartData.sub_sdb_pfy2_achievement,
             chartData.sub_sdb_pfy_achievement,
             chartData.sub_sdb_cfy_achievement
+        ].map((achievement) => parseFloat(achievement));
+
+        // Women Owned Small Business
+        const subLineChartAchievementsWOSB = [
+            chartData.sub_wosb_pfy4_achievement,
+            chartData.sub_wosb_pfy3_achievement,
+            chartData.sub_wosb_pfy2_achievement,
+            chartData.sub_wosb_pfy_achievement,
+            chartData.sub_wosb_cfy_achievement
         ].map((achievement) => parseFloat(achievement));
 
         // Service Disabled Veteran Owned
@@ -350,16 +350,16 @@ let charter = (function() {
                 borderColor: 'rgb(147, 0, 0)',
                 tension: 0.1
             }, {
-                label: 'Women Owned',
-                data: subLineChartAchievementsWOSB,
-                fill: false,
-                borderColor: 'rgba(0, 81, 139, 1)',
-                tension: 0.1
-            }, {
                 label: 'Disadvantaged',
                 data: subLineChartAchievementsSDB,
                 fill: false,
                 borderColor: 'rgba(88, 172, 239, 1)',
+                tension: 0.1
+            }, {
+                label: 'Women Owned',
+                data: subLineChartAchievementsWOSB,
+                fill: false,
+                borderColor: 'rgba(0, 81, 139, 1)',
                 tension: 0.1
             }, {
                 label: 'Service Disabled Veteran Owned',
@@ -410,8 +410,8 @@ let charter = (function() {
 
         const comparisonPFYCount = [
             chartData.category_sb_pfy_vendor_count,
-            chartData.category_wosb_pfy_vendor_count,
             chartData.category_sdb_pfy_vendor_count,
+            chartData.category_wosb_pfy_vendor_count,
             chartData.category_sdvosb_pfy_vendor_count,
             chartData.category_hz_pfy_vendor_count
         ].map((comparison) => parseFloat(comparison.replace(/,/g, '')));
@@ -419,8 +419,8 @@ let charter = (function() {
         // Current Fiscal Year Count
         const comparisonCFYCount = [
             chartData.category_sb_cfy_vendor_count,
-            chartData.category_wosb_cfy_vendor_count,
             chartData.category_sdb_cfy_vendor_count,
+            chartData.category_wosb_cfy_vendor_count,
             chartData.category_sdvosb_cfy_vendor_count,
             chartData.category_hz_cfy_vendor_count
         ].map((comparison) => parseFloat(comparison.replace(/,/g, '')));
