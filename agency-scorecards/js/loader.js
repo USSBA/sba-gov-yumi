@@ -91,7 +91,7 @@ let loader = (function() {
      */
     public.init = async function() {
         let currentParams = getParams();
-        let { agency = 'GW', year = 2022 } = currentParams;
+        let { agency = 'GW', year = 2023 } = currentParams;
         console.debug(`loader.js initialized with agency: ${agency}, year: ${year}`);
 
         scorecardData = await public.fetchScorecardData(year);
