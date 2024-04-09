@@ -164,9 +164,9 @@
                         </tr>
                     </tbody>
                 </table>
-                <p data-prime_footnotes></p>
+                <p data-prime_footnote></p>
                 <!-- This will need to be marked with a data- attribute when the data set updates to handle it -->
-                <p>Prime contracting data retrieved on February 22, 2024. More details about the agency's set-asides are in the Set Asides dashboard at the <a href="https://datahub.certify.sba.gov/">Small Business DataHUB</a>.</p>
+                <!-- <p>Prime contracting data retrieved on February 22, 2024. More details about the agency's set-asides are in the Set Asides dashboard at the <a href="https://datahub.certify.sba.gov/">Small Business DataHUB</a>.</p> -->
             </details>
 
             <div class="section-charts">
@@ -248,9 +248,9 @@
                         </tr>
                     </tbody>
                 </table>
-                <p data-sub_footnotes></p>
+                <p data-sub_footnote></p>
                 <!-- This will need to be marked with a data- attribute when the data set updates to handle it -->
-                <p>Subcontracting data retrieved on March 1, 2024.</p>
+                <!-- <p>Subcontracting data retrieved on March 1, 2024.</p> -->
             </details>
             <div class="section-charts">
                 <div>
@@ -633,7 +633,6 @@
 
         // Capture DOM element for Letter Grade and container element for data- elements
         let selectElement = document.querySelector('#selectedAgency');
-        console.log(selectElement);
         let letterGradeBlock = document.querySelector('.grade');
         let mainElement = document.querySelector('main');
 
@@ -644,13 +643,16 @@
         let newAgency;
 
         // Variable to store the entire scorecard data set for the fiscal year
-        let agencyData = loader.init().then((data) => {
-            hydrator.hydrateScoreCard(data);
+        let agencyData = loader.init().then(async (data) => {
+            const scorecardData = await loader.fetchScorecardData(2023);
+            const { fiscal_year, prime_footnote, sub_footnote } = scorecardData;
+
+            hydrator.hydrateScoreCard(scorecardData, data);
             charter.hydrateCharts(data);
         });
 
         // Run on selection of new Agency
-        function loadScorecard() {
+        async function loadScorecard() {
             // Capture input from Agency select box
             newAgency = document.getElementById("selectedAgency").value;
 
