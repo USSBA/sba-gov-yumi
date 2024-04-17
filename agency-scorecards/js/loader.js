@@ -82,7 +82,7 @@ let loader = (function() {
      * @return {Object}        JSON representation of that agency
      */
     public.getAgencyData = function(name = 'GW') {
-        return scorecardData.departments.find(agency => agency.department_acronym === name)
+        return scorecardData.find(agency => agency.department_acronym === name)
     }
 
     /*!
