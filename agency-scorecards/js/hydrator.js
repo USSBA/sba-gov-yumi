@@ -47,11 +47,12 @@ var hydrator = (function() {
         return gradeFormatted;
     }
 
-    var hydrateScoreCardElements = function(texts, agencyData) {
+    var hydrateScoreCardElements = function(data) {
+
         let dataMissing = [];
 
         // Hydrate values on each HTML element from data
-        for (const [key, value] of Object.entries(agencyData)) {
+        for (const [key, value] of Object.entries(data)) {
 
             // Gather list of HTML elements with corresponding data attribute
             // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
@@ -70,23 +71,12 @@ var hydrator = (function() {
             }
 
         }
-        const fiscalYearNodeList = document.querySelectorAll('[data-fiscal_year]');
+
         const previousFiscalYearNodeList = document.querySelectorAll('[data-fiscal_year_previous]');
-        const primeFootnoteNode = document.querySelector('[data-prime_footnote]');
-        const subFootnoteNode = document.querySelector('[data-sub_footnote]');
-
-        primeFootnoteNode.innerHTML = texts.prime_footnote;
-        subFootnoteNode.textContent = texts.sub_footnote;
-
-        if (fiscalYearNodeList.length > 0) {
-            fiscalYearNodeList.forEach((node) => {
-                node.textContent = texts.fiscal_year;
-            });
-        }
 
         if (previousFiscalYearNodeList.length > 0) {
             previousFiscalYearNodeList.forEach(function(node) {
-                node.textContent = texts.fiscal_year - 1;
+                node.textContent = data.fiscal_year - 1;
             });
         }
 
@@ -98,25 +88,16 @@ var hydrator = (function() {
     public.hydrateHomePage = data => {
         const dataMissing = [];
         const mainElement = document.querySelector('table');
-        const { fiscal_year, prime_footnote, sub_footnote } = data;
-
-        const fiscalYearTitle = document.querySelector(`[data-fiscal_year]`);
-        // const primeFootnote = document.querySelector(`[data-prime_footnote]`);
-        // const subFootnote = document.querySelector(`[data-sub_footnote]`);
-
-        fiscalYearTitle.textContent = fiscal_year;
-        // primeFootnote.textContent = prime_footnote;
-        // subFootnote.textContent = sub_footnote;
       
-        for (const element of data.departments) {
+        for (const element of data) {
           const agencyAcronym = element.department_acronym;
           const firstUrlElement = mainElement.querySelector(`[data-${agencyAcronym}-url_1]`);
           const secondUrlElement = mainElement.querySelector(`[data-${agencyAcronym}-url_2]`);
           const gradeElement = mainElement.querySelector(`[data-${agencyAcronym}-agency_grade]`);
           const scoreElement = mainElement.querySelector(`[data-${agencyAcronym}-agency_score]`);
-
-          firstUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2023`;
-          secondUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2023`;
+      
+          firstUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2022`;
+          secondUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2022`;
           gradeElement.textContent = element.agency_grade;
           scoreElement.textContent = element.agency_score;
         }
@@ -127,8 +108,8 @@ var hydrator = (function() {
       }
 
 
-    public.hydrateScoreCard = function(texts, agencyData) {
-        hydrateScoreCardElements(texts, agencyData);
+    public.hydrateScoreCard = function(agencyData) {
+        hydrateScoreCardElements(agencyData);
         styleLetterGrade(agencyData.agency_grade, letterGradeBlock);
         updateAgencySelector(agencyData.department_acronym)
     }
