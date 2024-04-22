@@ -62,8 +62,12 @@ var hydrator = (function() {
 
                 // If any elements exist that match the data key, then fill in data on each element (node)
                 nodeList.forEach(function(node) {
-                    node.textContent = value;
-                    node.setAttribute(`data-${key}`, value);
+                    if (key === 'prime_footnotes' || key === 'sub_footnotes') {
+                        node.innerHTML = value;
+                    } else {
+                        node.textContent = value;
+                        node.setAttribute(`data-${key}`, value);
+                    }
                 });
 
             } else {
