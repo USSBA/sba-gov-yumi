@@ -96,8 +96,8 @@ var hydrator = (function() {
           const gradeElement = mainElement.querySelector(`[data-${agencyAcronym}-agency_grade]`);
           const scoreElement = mainElement.querySelector(`[data-${agencyAcronym}-agency_score]`);
       
-          firstUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2022`;
-          secondUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2022`;
+          firstUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2023`;
+          secondUrlElement.href = `scorecard.html?agency=${agencyAcronym}&year=2023`;
           gradeElement.textContent = element.agency_grade;
           scoreElement.textContent = element.agency_score;
         }
