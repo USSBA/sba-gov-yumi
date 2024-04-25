@@ -19,7 +19,7 @@ function buttonAction (event) {
   }
 
   // this number needs to be updated.
-  fetchData('2022')
+  fetchData('2023')
     .then(res => {
       res.forEach(data => {
         if (data.title.startsWith('Data Summary')) {
@@ -85,7 +85,7 @@ function buttonAction (event) {
     };
 
     const pie =  document.getElementById('pie-chart');
-    pie.setAttribute('alt', 'Pie chart showing FY 2022 federal contracting by race and business size (see data summary below for details).');
+    pie.setAttribute('alt', 'Pie chart showing FY 2023 federal contracting by race and business size (see data summary below for details).');
   
     // window.addEventListener('beforeprint', () => {
     //   pieChart.resize(600, 600);
