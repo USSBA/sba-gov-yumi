@@ -39,7 +39,7 @@
             The annual scorecard assesses how well federal agencies reach their small business contracting goals. The SBA issues scorecards to the twenty-four (24) CFO Act Agencies.
         </p>
         <table>
-            <caption>FY2022 Scorecard Performance</caption>
+            <caption>FY <span data-fiscal_year></span> Scorecard Performance</caption>
             <thead>
                 <tr>
                     <th>Acronym</th>
@@ -327,7 +327,7 @@
     <script type="text/javascript" src="js/hydrator.js"></script>
     <script type="text/javascript">
         async function loadScorecard() {
-            const scorecardData = await loader.fetchScorecardData(2022);
+            const scorecardData = await loader.fetchScorecardData(2023);
             hydrator.hydrateHomePage(scorecardData);
         }
 
