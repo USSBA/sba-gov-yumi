@@ -2,8 +2,10 @@ let loader = (function() {
 
     // Variables
     let agencyData = {};
-    let dataURL = 'https://api.sba.gov/agency-scorecards'
     let scorecardData = [];
+    const dataURL = window.location.href.indexOf("sba.gov") > -1
+        ? 'https://api.sba.gov/agency-scorecards'
+        : `${window.location.href.slice(0, window.location.href.lastIndexOf('/'))}/data`
 
     // Public API
     let public = {};
