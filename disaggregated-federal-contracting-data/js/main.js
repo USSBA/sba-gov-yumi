@@ -6,10 +6,11 @@ function buttonAction (event) {
 
 (() => {
   const fetchData = async year => {
-   const url = `https://api.sba.gov/disaggregated-data/fy${year}_data_aggregation.json`
-   //const url = `data/fy${year}_data_aggregation.json`
+    const url = window.location.href.indexOf("sba.gov") > -1
+    ? 'https://api.sba.gov/disaggregated-data/fy${year}_data_aggregation.json'
+    : `${window.location.href.slice(0, window.location.href.lastIndexOf('/'))}/data/fy${year}_data_aggregation.json`
 
-   const response = await fetch(url)
+    const response = await fetch(url)
 
     if (response.ok) {
         return await response.json();
