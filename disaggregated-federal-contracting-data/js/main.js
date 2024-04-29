@@ -6,10 +6,11 @@ function buttonAction (event) {
 
 (() => {
   const fetchData = async year => {
-   const url = `https://api.sba.gov/disaggregated-data/fy${year}_data_aggregation.json`
-   //const url = `data/fy${year}_data_aggregation.json`
+    const url = window.location.href.indexOf("sba.gov") > -1
+    ? 'https://api.sba.gov/disaggregated-data/fy${year}_data_aggregation.json'
+    : `${window.location.href.slice(0, window.location.href.lastIndexOf('/'))}/data/fy${year}_data_aggregation.json`
 
-   const response = await fetch(url)
+    const response = await fetch(url)
 
     if (response.ok) {
         return await response.json();
@@ -19,7 +20,7 @@ function buttonAction (event) {
   }
 
   // this number needs to be updated.
-  fetchData('2022')
+  fetchData('2023')
     .then(res => {
       res.forEach(data => {
         if (data.title.startsWith('Data Summary')) {
@@ -85,7 +86,7 @@ function buttonAction (event) {
     };
 
     const pie =  document.getElementById('pie-chart');
-    pie.setAttribute('alt', 'Pie chart showing FY 2022 federal contracting by race and business size (see data summary below for details).');
+    pie.setAttribute('alt', 'Pie chart showing FY 2023 federal contracting by race and business size (see data summary below for details).');
   
     // window.addEventListener('beforeprint', () => {
     //   pieChart.resize(600, 600);
